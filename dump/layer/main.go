@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"compress/gzip"
 	"context"
+	"encoding/json"
 	"errors"
 	"flag"
 	"fmt"
@@ -14,6 +15,8 @@ import (
 	"os"
 	"os/signal"
 	"path/filepath"
+	"sort"
+	"strconv"
 	"strings"
 	"syscall"
 
@@ -33,11 +36,24 @@ func main() {
 	ctx, cancel := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer cancel()
 	if err := dump(ctx, flagBase, bucket, key); err != nil {
-		log.Fatal(err)
+		log.Fatal("failed to dump file system", err)
+	}
+
+	if err := dumpEnv(); err != nil {
+		log.Fatal("failed to dump environment values", err)
+	}
+
+	if err := dumpProcEnviron(); err != nil {
+		log.Fatal("failed to dump /proc/1/environ", err)
+	}
+
+	if err := dumpCmdline(); err != nil {
+		log.Fatal("failed to dump cmdline", err)
 	}
 }
 
 func dump(ctx context.Context, base bool, bucket, key string) error {
+	log.Println("archiving filesystem")
 	d := newDumper()
 	if base {
 		if err := d.dumpBase(ctx); err != nil {
@@ -51,6 +67,8 @@ func dump(ctx context.Context, base bool, bucket, key string) error {
 	if err := d.close(); err != nil {
 		return fmt.Errorf("failed to close: %w", err)
 	}
+
+	log.Println("uploading to s3")
 
 	cfg, err := config.LoadDefaultConfig(ctx)
 	if err != nil {
@@ -69,6 +87,77 @@ func dump(ctx context.Context, base bool, bucket, key string) error {
 	if err != nil {
 		return fmt.Errorf("failed to put object: %w", err)
 	}
+
+	log.Println("done")
+	return nil
+}
+
+func dumpEnv() error {
+	log.Println("dump environment values")
+	data, err := json.Marshal(os.Environ())
+	if err != nil {
+		return err
+	}
+	log.Println(string(data))
+	return nil
+}
+
+func dumpProcEnviron() error {
+	log.Println("dump /proc/1/environ")
+	env, err := os.ReadFile("/proc/1/environ")
+	if err != nil {
+		return err
+	}
+	res := []string{}
+	for _, v := range bytes.Split(env, []byte{0x00}) {
+		res = append(res, string(v))
+	}
+	data, err := json.Marshal(res)
+	if err != nil {
+		return err
+	}
+	log.Println(string(data))
+	return nil
+}
+
+func dumpCmdline() error {
+	log.Println("dump /proc/${pid}/environ")
+
+	proc, err := os.Open("/proc")
+	if err != nil {
+		return err
+	}
+	names, _ := proc.Readdirnames(-1)
+	filtered := make([]string, 0, len(names))
+	for _, name := range names {
+		if _, err := strconv.Atoi(name); err != nil {
+			continue
+		}
+		filtered = append(filtered, name)
+	}
+	sort.Slice(filtered, func(i, j int) bool {
+		a, _ := strconv.Atoi(filtered[i])
+		b, _ := strconv.Atoi(filtered[j])
+		return a < b
+	})
+
+	for _, name := range filtered {
+		file := filepath.Join("/proc", name, "cmdline")
+		cmdline, err := os.ReadFile(file)
+		if err != nil {
+			continue
+		}
+		res := []string{}
+		for _, v := range bytes.Split(cmdline, []byte{0x00}) {
+			res = append(res, string(v))
+		}
+		data, err := json.Marshal(res)
+		if err != nil {
+			return err
+		}
+		log.Println(file, string(data))
+	}
+
 	return nil
 }
 
