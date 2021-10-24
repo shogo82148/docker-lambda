@@ -53,6 +53,9 @@
     },
     {
       "path": "dotnetcore2.1/run/MockBootstraps"
+    },
+    {
+      "path": "dump/layer"
     }
   ],
 	"settings": {

@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: dump utility for docker-lambda
+
+Parameters:
+  S3Bucket:
+    Type: String
+  S3Key:
+    Type: String
+  Architecture:
+    Type: String
+
+Resources:
+  DumpLayer:
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Type: AWS::Lambda::LayerVersion
+    Properties:
+      Content:
+        S3Bucket: !Ref S3Bucket
+        S3Key: !Ref S3Key
+      Description: !Sub "dump utility for docker-lambda ${Architecture}"
+      LayerName: !Sub "docker-lambda-dump-${Architecture}"
+      CompatibleArchitectures:
+        - !Ref Architecture
+
+Outputs:
+  DumpLayer:
+    Value: !Ref DumpLayer
