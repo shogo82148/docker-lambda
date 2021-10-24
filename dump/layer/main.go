@@ -20,7 +20,6 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
-	"github.com/aws/aws-sdk-go-v2/service/s3/types"
 )
 
 func main() {
@@ -66,7 +65,6 @@ func dump(ctx context.Context, base bool, bucket, key string) error {
 		Bucket: aws.String(bucket),
 		Key:    aws.String(key),
 		Body:   body,
-		ACL:    types.ObjectCannedACLPublicRead,
 	})
 	if err != nil {
 		return fmt.Errorf("failed to put object: %w", err)
