@@ -58,11 +58,14 @@ func dump(ctx context.Context, base bool, bucket, key string) error {
 		return fmt.Errorf("failed to load aws config: %w", err)
 	}
 
+	data := d.buf.Bytes()
+	body := bytes.NewReader(data)
+
 	svc := s3.NewFromConfig(cfg)
 	_, err = svc.PutObject(ctx, &s3.PutObjectInput{
 		Bucket: aws.String(bucket),
 		Key:    aws.String(key),
-		Body:   &d.buf,
+		Body:   body,
 		ACL:    types.ObjectCannedACLPublicRead,
 	})
 	if err != nil {
