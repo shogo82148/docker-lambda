@@ -11,11 +11,15 @@ BUCKET=$(aws cloudformation describe-stacks \
     --output text \
     --query "Stacks[0].Outputs[?OutputKey=='Bucket'] | [0].OutputValue")
 DIGEST=$(openssl sha256 < "$CURRENT/dist/$ARCH.zip")
-aws s3 cp "$CURRENT/dist/$ARCH.zip" "s3://$BUCKET/dump-layer/$DIGEST"
+KEY=code/layer/$DIGEST
+aws s3 cp "$CURRENT/dist/$ARCH.zip" "s3://$BUCKET/$KEY"
 STACK=docker-lambda-dump-${ARCH/_/-}
 
 aws cloudformation deploy \
     --region us-east-1 \
     --stack-name "$STACK" \
-    --parameter-overrides "S3Bucket=$BUCKET" "S3Key=dump-layer/$DIGEST" "Architecture=$ARCH" \
+    --parameter-overrides \
+        "S3Bucket=$BUCKET" \
+        "S3Key=$KEY" \
+        "Architecture=$ARCH" \
     --template-file "${CURRENT}/template.yaml"
