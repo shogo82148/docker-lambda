@@ -300,6 +300,7 @@ func (d *dumper) addFile(path string, info fs.FileInfo) error {
 		Size:     info.Size(),
 		Uid:      int(sys.Uid),
 		Gid:      int(sys.Gid),
+		ModTime:  info.ModTime(),
 	}
 	if err := d.tw.WriteHeader(hdr); err != nil {
 		return err
@@ -338,6 +339,7 @@ func (d *dumper) addSymlink(path string, info fs.FileInfo) error {
 		Mode:     int64(info.Mode()),
 		Uid:      int(sys.Uid),
 		Gid:      int(sys.Gid),
+		ModTime:  info.ModTime(),
 	}
 	if err := d.tw.WriteHeader(hdr); err != nil {
 		return err
