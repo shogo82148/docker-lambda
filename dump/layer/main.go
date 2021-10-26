@@ -279,6 +279,9 @@ func (d *dumper) dumpRuntime(ctx context.Context) error {
 }
 
 func (d *dumper) addFile(path string, info fs.FileInfo) error {
+	if path == "" || path == "/" {
+		return nil
+	}
 	if (info.Mode() & os.ModeSymlink) != 0 {
 		return d.addSymlink(path, info)
 	}
