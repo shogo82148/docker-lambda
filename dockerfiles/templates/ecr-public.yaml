@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: ECR Repository for MeCab
+Description: ECR Repository for docker-lambda
 
 Resources:
   RepositoryBase:
@@ -11,7 +11,7 @@ Resources:
       RepositoryCatalogData:
         OperatingSystems: [ Linux ]
         Architectures: [ "x86-64", "ARM 64" ]
-        RepositoryDescription: MeCab (Yet Another Part-of-Speech and Morphological Analyzer)
+        RepositoryDescription: shogo82148/docker-lambda
         AboutText: |
           # Base Image for AWS Lambda
           TBD
