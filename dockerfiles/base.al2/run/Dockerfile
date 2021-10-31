@@ -3,8 +3,8 @@ FROM public.ecr.aws/amazonlinux/amazonlinux:2
 RUN yum install -y curl tar gzip
 RUN cd /opt && \
     case $(uname -m) in "x86_64") ARCH=x86_64;; "aarch64") ARCH=arm64;; *) echo "unknown architecture: $(uname -m)"; exit 1;; esac && \
-    curl -sSL -O "https://shogo82148-docker-lambda.s3.amazonaws.com/fs/$ARCH/base-2.tgz" && \
-    tar xzf base-2.tgz && rm base-2.tgz
+    curl -sSL -O "https://shogo82148-docker-lambda.s3.amazonaws.com/fs/$ARCH/base.al2.tgz" && \
+    tar xzf base.al2.tgz && rm base.al2.tgz
 RUN mkdir /opt/tmp && chmod 1777 /opt/tmp
 
 FROM scratch
