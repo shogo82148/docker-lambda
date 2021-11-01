@@ -14,7 +14,7 @@ CURRENT=$(cd "$(dirname "$0")" && pwd)
 # download file system
 mkdir "$CURRENT/.tmp"
 cd "$CURRENT/.tmp"
-curl -sSL -O "https://shogo82148-docker-lambda.s3.amazonaws.com/fs/$ARCH/base-2.tgz"
+curl -sSL -O "https://shogo82148-docker-lambda.s3.amazonaws.com/fs/$ARCH/base.al2.tgz"
 
 # dump packages
 case "$ARCH" in

@@ -12,7 +12,7 @@ BUCKET=$(aws cloudformation describe-stacks \
     --output text \
     --query "Stacks[0].Outputs[?OutputKey=='Bucket'] | [0].OutputValue")
 DIGEST=$(openssl sha256 < "$CURRENT/dist.zip")
-KEY=code/nodejs12.x/$DIGEST
+KEY=code/nodejs14.x/$DIGEST
 aws s3 cp "$CURRENT/dist.zip" "s3://$BUCKET/$KEY"
 
 # get the arn of dump layer
