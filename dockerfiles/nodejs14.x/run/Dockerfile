@@ -10,7 +10,7 @@ FROM public.ecr.aws/shogo82148/lambda-base:al2
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
-    AWS_EXECUTION_ENV=AWS_Lambda_nodejs12.x
+    AWS_EXECUTION_ENV=AWS_Lambda_nodejs14.x
 
 COPY --from=0 /var /var
 
