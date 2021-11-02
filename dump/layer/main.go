@@ -324,6 +324,7 @@ func (d *dumper) addDir(path string, info fs.FileInfo) error {
 		Mode:     int64(info.Mode()),
 		Uid:      int(sys.Uid),
 		Gid:      int(sys.Gid),
+		ModTime:  info.ModTime(),
 	}
 	if err := d.tw.WriteHeader(hdr); err != nil {
 		log.Fatal(err)
