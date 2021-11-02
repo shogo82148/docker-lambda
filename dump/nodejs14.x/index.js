@@ -5,7 +5,7 @@ exports.handler = async(event, context) => {
   console.log('archiving file system...')
 
   const bucket = process.env['BUCKET'];
-  const cmd = `lambda-dump -bucket ${bucket} -key fs/${arch()}/nodejs14.x.tgz`
+  const cmd = `lambda-dump -bucket ${bucket} -key fs/__ARCH__/nodejs14.x.tgz`
   execSync(cmd, { stdio: 'inherit', maxBuffer: 16 * 1024 * 1024 })
 
   console.log("process.execPath:", process.execPath)

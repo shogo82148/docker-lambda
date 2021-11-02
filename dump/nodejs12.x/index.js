@@ -5,7 +5,7 @@ exports.handler = async(event, context) => {
   console.log('archiving file system...')
 
   const bucket = process.env['BUCKET'];
-  const cmd = `lambda-dump -bucket ${bucket} -key fs/${arch()}/nodejs12.x.tgz`
+  const cmd = `lambda-dump -bucket ${bucket} -key fs/__ARCH__/nodejs12.x.tgz`
   execSync(cmd, { stdio: 'inherit', maxBuffer: 16 * 1024 * 1024 })
 
   console.log("process.execPath:", process.execPath)
@@ -17,14 +17,4 @@ exports.handler = async(event, context) => {
   console.log("context:", context)
 
   return {}
-}
-
-function arch() {
-  switch(process.arch) {
-    case 'arm64':
-      return 'arm64'
-    case 'x64':
-      return 'x86_64'
-  }
-  throw new Error(`unknown arch: ${process.arch}`)
 }
