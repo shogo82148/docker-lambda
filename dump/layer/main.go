@@ -15,6 +15,7 @@ import (
 	"os"
 	"os/signal"
 	"path/filepath"
+	"runtime"
 	"sort"
 	"strconv"
 	"strings"
@@ -78,6 +79,7 @@ func dump(ctx context.Context, base bool, bucket, key string) error {
 
 	data := d.buf.Bytes()
 	body := bytes.NewReader(data)
+	key = strings.Replace(key, "__ARCH__", arch(), -1)
 
 	svc := s3.NewFromConfig(cfg)
 	_, err = svc.PutObject(ctx, &s3.PutObjectInput{
@@ -92,6 +94,17 @@ func dump(ctx context.Context, base bool, bucket, key string) error {
 
 	log.Println("done")
 	return nil
+}
+
+// arch returns AWS Lambda CPU Architecture
+func arch() string {
+	switch runtime.GOARCH {
+	case "amd64":
+		return "x86_64"
+	case "arm64":
+		return "arm64"
+	}
+	panic("unknown platform: " + runtime.GOARCH)
 }
 
 func dumpEnv() error {
