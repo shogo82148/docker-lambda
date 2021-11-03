@@ -25,19 +25,13 @@
       "path": "dump/java8.al2"
     },
     {
+      "path": "dump/dotnetcore3.1"
+    },
+    {
       "path": "examples/java"
     },
     {
       "path": "java8/run/lambda-runtime-mock"
-    },
-    {
-      "path": "base/dump-dotnetcore20"
-    },
-    {
-      "path": "base/dump-dotnetcore21"
-    },
-    {
-      "path": "base/dump-dotnetcore31"
     },
     {
       "path": "examples/dotnetcore2.0"

@@ -1,15 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>dump_dotnetcore31</RootNamespace>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
-    <AssemblyName>dump_dotnetcore21</AssemblyName>
+    <AssemblyName>dump_dotnetcore31</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.Core" Version="1.1.0" />
     <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.7.0" />
-    <PackageReference Include="AWSSDK.S3" Version="3.3.108.2" />
   </ItemGroup>
 
   <ItemGroup>
