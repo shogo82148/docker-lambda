@@ -19,7 +19,7 @@
       "path": "dump/java11"
     },
     {
-      "path": "base/dump-java8"
+      "path": "dump/java8"
     },
     {
       "path": "dump/java8.al2"
@@ -59,6 +59,6 @@
     }
   ],
 	"settings": {
-		"java.configuration.updateBuildConfiguration": "automatic"
+		"java.configuration.updateBuildConfiguration": "disabled"
 	}
 }
