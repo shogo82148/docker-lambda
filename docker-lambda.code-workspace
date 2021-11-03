@@ -16,7 +16,7 @@
       "path": "dump/go1.x"
     },
     {
-      "path": "base/dump-java11"
+      "path": "dump/java11"
     },
     {
       "path": "base/dump-java8"
