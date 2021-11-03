@@ -13,7 +13,7 @@
       "path": "examples/go1.x"
     },
     {
-      "path": "base/dump-go1x"
+      "path": "dump/go1.x"
     },
     {
       "path": "base/dump-java11"
