@@ -7,6 +7,9 @@
       "path": "go1.x/run"
     },
     {
+      "path": "dockerfiles/provided/run"
+    },
+    {
       "path": "dockerfiles/provided.al2/run"
     },
     {
