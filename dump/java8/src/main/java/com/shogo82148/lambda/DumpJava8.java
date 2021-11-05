@@ -26,7 +26,7 @@ public class DumpJava8 implements RequestHandler<Object, Object> {
             System.out.println(envName + "=" + env.get(envName));
         }
 
-        String filename = "java11.tgz";
+        String filename = "java8.tgz";
         String cmd = "lambda-dump -bucket " + env.get("BUCKET") + " -key fs/__ARCH__/" + filename;
 
         try {

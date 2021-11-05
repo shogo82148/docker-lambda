@@ -13,6 +13,9 @@
       "path": "dockerfiles/provided.al2/run"
     },
     {
+      "path": "dockerfiles/java8/run/lambda-runtime-mock"
+    },
+    {
       "path": "examples/go1.x"
     },
     {
@@ -32,9 +35,6 @@
     },
     {
       "path": "examples/java"
-    },
-    {
-      "path": "java8/run/lambda-runtime-mock"
     },
     {
       "path": "examples/dotnetcore2.0"

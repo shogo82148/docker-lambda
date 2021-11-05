@@ -1,8 +1,10 @@
 #!/bin/sh
 
-cd $(dirname "$0")
+set -uex
 
-curl -s https://lambci.s3.amazonaws.com/fs/java8.tgz | tar -zx -- var/runtime/lib
+cd "$(dirname "$0")"
+
+curl -s https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/java8.tgz | tar -zx -- var/runtime/lib
 
 mv var/runtime/lib/LambdaSandboxJava-1.0.jar var/runtime/lib/gson-*.jar ./
 

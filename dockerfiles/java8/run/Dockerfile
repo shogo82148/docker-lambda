@@ -4,15 +4,14 @@ COPY ./lambda-runtime-mock /src
 RUN apk add --no-cache curl && ./build.sh
 
 
-FROM lambci/lambda:provided
+FROM public.ecr.aws/shogo82148/lambda-provided:alami
 
-
-FROM lambci/lambda-base
+FROM public.ecr.aws/shogo82148/lambda-base:alami
 
 ENV AWS_EXECUTION_ENV=AWS_Lambda_java8
 
 RUN rm -rf /var/runtime /var/lang && \
-  curl https://lambci.s3.amazonaws.com/fs/java8.tgz | tar -zx -C /
+  curl https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/java8.tgz | tar -zx -C /
 
 COPY --from=0 /src/LambdaSandboxJava-1.0.jar /var/runtime/lib/
 
