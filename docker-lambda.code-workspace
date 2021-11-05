@@ -46,12 +46,6 @@
       "path": "examples/dotnetcore3.1"
     },
     {
-      "path": "dotnetcore2.0/run/MockBootstraps"
-    },
-    {
-      "path": "dotnetcore2.1/run/MockBootstraps"
-    },
-    {
       "path": "dump/layer"
     }
   ],

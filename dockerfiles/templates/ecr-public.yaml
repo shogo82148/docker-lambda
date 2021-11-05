@@ -86,6 +86,20 @@ Resources:
           # Base Image for AWS Lambda
           TBD
 
+  RepositoryDotNetCore:
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Type: AWS::ECR::PublicRepository
+    Properties:
+      RepositoryName: lambda-dotnetcore
+      RepositoryCatalogData:
+        OperatingSystems: [ Linux ]
+        Architectures: [ "x86-64", "ARM 64" ]
+        RepositoryDescription: shogo82148/docker-lambda
+        AboutText: |
+          # Base Image for AWS Lambda
+          TBD
+
   DeploymentRole:
     Type: AWS::IAM::Role
     Properties:
@@ -121,6 +135,7 @@ Resources:
                   - !GetAtt RepositoryPython.Arn
                   - !GetAtt RepositoryRuby.Arn
                   - !GetAtt RepositoryJava.Arn
+                  - !GetAtt RepositoryDotNetCore.Arn
               - Effect: Allow
                 Action:
                   - "ecr-public:GetAuthorizationToken"
