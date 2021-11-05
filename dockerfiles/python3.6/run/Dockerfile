@@ -1,14 +1,14 @@
-FROM lambci/lambda:provided
+FROM public.ecr.aws/shogo82148/lambda-provided:alami
 
 
-FROM lambci/lambda-base
+FROM public.ecr.aws/shogo82148/lambda-base:alami
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
     AWS_EXECUTION_ENV=AWS_Lambda_python3.6
 
 RUN rm -rf /var/runtime /var/lang && \
-  curl https://lambci.s3.amazonaws.com/fs/python3.6.tgz | tar -zx -C /
+  curl https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/python3.6.tgz | tar -zx -C /
 
 RUN rm /var/runtime/awslambda/runtime.cpython-36m-x86_64-linux-gnu.so
 COPY runtime_mock.py /var/runtime/awslambda/runtime.py
