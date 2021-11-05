@@ -6,15 +6,13 @@ COPY aws-lambda-mock.go ./
 RUN GOARCH=amd64 GOOS=linux go build aws-lambda-mock.go
 
 
-FROM lambci/lambda:provided
+FROM public.ecr.aws/shogo82148/lambda-provided:alami
 
-
-FROM lambci/lambda-base
+FROM public.ecr.aws/shogo82148/lambda-base:alami
 
 ENV AWS_EXECUTION_ENV=AWS_Lambda_go1.x
 
-RUN rm -rf /var/runtime /var/lang && \
-  curl https://lambci.s3.amazonaws.com/fs/go1.x.tgz | tar -zx -C /
+RUN curl -sSL "https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/go1.x.tgz" | tar -zx -C /
 
 COPY --from=0 /app/aws-lambda-mock /var/runtime/aws-lambda-go
 

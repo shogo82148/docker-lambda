@@ -4,7 +4,7 @@
       "path": "."
     },
     {
-      "path": "go1.x/run"
+      "path": "dockerfiles/go1.x/run"
     },
     {
       "path": "dockerfiles/provided/run"
