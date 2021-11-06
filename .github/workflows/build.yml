@@ -41,7 +41,7 @@ jobs:
           role-to-assume: arn:aws:iam::941678122026:role/GitHubActions-us-east-1
       - name: Dump the file system
         run: |
-          ./dump.sh
+          make dump
         working-directory: dump/${{ matrix.runtime }}
 
   build:
