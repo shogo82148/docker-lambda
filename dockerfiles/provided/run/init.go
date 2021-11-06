@@ -10,7 +10,6 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"math"
 	"math/rand"
@@ -26,7 +25,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/render"
 	"github.com/rjeczalik/notify"
 )
@@ -108,7 +107,7 @@ func main() {
 	positionalArgs := flag.Args()
 
 	if err := json.Unmarshal([]byte(*bootstrapArgsString), &bootstrapArgs); err != nil {
-		log.Fatal(fmt.Errorf("Value of --bootstrap-args should be a JSON Array. Error: %s", err))
+		log.Fatal(fmt.Errorf("value of --bootstrap-args should be a JSON Array. Error: %w", err))
 		return
 	}
 
@@ -127,7 +126,7 @@ func main() {
 		eventBody = []byte(os.Getenv("AWS_LAMBDA_EVENT_BODY"))
 		if len(eventBody) == 0 {
 			if useStdin {
-				eventBody, _ = ioutil.ReadAll(os.Stdin)
+				eventBody, _ = io.ReadAll(os.Stdin)
 			} else {
 				eventBody = []byte("{}")
 			}
@@ -186,7 +185,7 @@ func main() {
 		}
 		functionError := res.Header.Get("X-Amz-Function-Error")
 
-		body, err := ioutil.ReadAll(res.Body)
+		body, err := io.ReadAll(res.Body)
 		if err != nil {
 			log.Fatal(err)
 			return
@@ -209,7 +208,7 @@ func setupSighupHandler() {
 	go func() {
 		for {
 			<-sighupReceiver
-			systemLog(fmt.Sprintf("SIGHUP received, restarting bootstrap..."))
+			systemLog("SIGHUP received, restarting bootstrap...")
 			reboot()
 		}
 	}()
@@ -227,7 +226,7 @@ func setupFileWatchers() {
 		for {
 			ei := <-fileWatcher
 			debug("Received notify event: ", ei)
-			systemLog(fmt.Sprintf("Handler/layer file changed, restarting bootstrap..."))
+			systemLog("handler/layer file changed, restarting bootstrap...")
 			reboot()
 		}
 	}()
@@ -259,7 +258,7 @@ func ensureBootstrapIsRunning(context *mockLambdaContext) error {
 		}
 	}
 	if bootstrapCmd == nil {
-		return fmt.Errorf("Couldn't find valid bootstrap(s): [/var/task/bootstrap /opt/bootstrap]")
+		return fmt.Errorf("couldn't find valid bootstrap(s): [/var/task/bootstrap /opt/bootstrap]")
 	}
 
 	awsAccessKey := getEnv("AWS_ACCESS_KEY", os.Getenv("AWS_ACCESS_KEY_ID"))
@@ -305,7 +304,7 @@ func ensureBootstrapIsRunning(context *mockLambdaContext) error {
 		curState = "STATE_INIT"
 		if !bootstrapExitedGracefully {
 			// context may have changed, use curContext instead
-			curContext.SetError(fmt.Errorf("Runtime exited without providing a reason"))
+			curContext.SetError(fmt.Errorf("runtime exited without providing a reason"))
 		}
 	}()
 
@@ -394,7 +393,7 @@ func addAPIRoutes(r *chi.Mux) *chi.Mux {
 			return
 		}
 
-		if body, err := ioutil.ReadAll(r.Body); err == nil {
+		if body, err := io.ReadAll(r.Body); err == nil {
 			context.EventBody = string(body)
 		} else {
 			render.Render(w, r, &errResponse{
@@ -485,7 +484,7 @@ func createRuntimeRouter() *chi.Mux {
 						curContext.EndInvoke(nil)
 					}
 
-					closeNotify := w.(http.CloseNotifier).CloseNotify()
+					closeNotify := r.Context().Done()
 					go func() {
 						<-closeNotify
 						debug("Connection closed, sending ignore event")
@@ -528,7 +527,7 @@ func createRuntimeRouter() *chi.Mux {
 				r.
 					With(updateState("STATE_INVOKE_RESPONSE")).
 					Post("/response", func(w http.ResponseWriter, r *http.Request) {
-						body, err := ioutil.ReadAll(r.Body)
+						body, err := io.ReadAll(r.Body)
 						if err != nil {
 							render.Render(w, r, &errResponse{
 								HTTPStatusCode: 500,
@@ -562,7 +561,7 @@ func handleErrorRequest(w http.ResponseWriter, r *http.Request) {
 	lambdaErr := &lambdaError{}
 	response := acceptedResponse
 
-	body, err := ioutil.ReadAll(r.Body)
+	body, err := io.ReadAll(r.Body)
 	if err != nil || json.Unmarshal(body, lambdaErr) != nil {
 		debug("Could not parse error body as JSON")
 		debug(body)
@@ -708,7 +707,7 @@ func arn(region string, accountID string, fnName string) string {
 }
 
 func allProcsMemoryInMb() (uint64, error) {
-	files, err := ioutil.ReadDir("/proc/")
+	files, err := os.ReadDir("/proc/")
 	if err != nil {
 		return 0, err
 	}
@@ -874,7 +873,7 @@ func (mc *mockLambdaContext) SetInitEnd(r *http.Request) {
 	if invokeWaitHeader != "" {
 		invokeWaitMs, err := strconv.ParseInt(invokeWaitHeader, 10, 64)
 		if err != nil {
-			log.Fatal(fmt.Errorf("Could not parse Docker-Lambda-Invoke-Wait header as int. Error: %s", err))
+			log.Fatal(fmt.Errorf("could not parse Docker-Lambda-Invoke-Wait header as int. Error: %w", err))
 			return
 		}
 		mc.InvokeWait = time.Unix(0, invokeWaitMs*int64(time.Millisecond))
@@ -883,7 +882,7 @@ func (mc *mockLambdaContext) SetInitEnd(r *http.Request) {
 	if initEndHeader != "" {
 		initEndMs, err := strconv.ParseInt(initEndHeader, 10, 64)
 		if err != nil {
-			log.Fatal(fmt.Errorf("Could not parse Docker-Lambda-Init-End header as int. Error: %s", err))
+			log.Fatal(fmt.Errorf("could not parse Docker-Lambda-Init-End header as int. Error: %w", err))
 			return
 		}
 		mc.InitEnd = time.Unix(0, initEndMs*int64(time.Millisecond))
@@ -951,7 +950,7 @@ func (mc *mockLambdaContext) LogEndRequest() {
 		mc.MaxMem = maxMem
 	}
 
-	diffMs := math.Min(float64(time.Now().Sub(mc.InitEnd).Nanoseconds()),
+	diffMs := math.Min(float64(time.Since(mc.InitEnd).Nanoseconds()),
 		float64(mc.TimeoutDuration.Nanoseconds())) / float64(time.Millisecond)
 
 	initStr := ""
