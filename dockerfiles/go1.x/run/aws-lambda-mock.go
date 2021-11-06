@@ -8,7 +8,6 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"math/rand"
 	"net"
@@ -53,7 +52,7 @@ func main() {
 		eventBody = os.Getenv("AWS_LAMBDA_EVENT_BODY")
 		if eventBody == "" {
 			if os.Getenv("DOCKER_LAMBDA_USE_STDIN") != "" {
-				stdin, _ := ioutil.ReadAll(os.Stdin)
+				stdin, _ := io.ReadAll(os.Stdin)
 				eventBody = string(stdin)
 			} else {
 				eventBody = "{}"
@@ -131,7 +130,7 @@ func main() {
 	}
 
 	var cmd *exec.Cmd
-	if *debugMode == true {
+	if *debugMode {
 		delveArgs := []string{
 			"--listen=:" + *delvePort,
 			"--headless=true",
@@ -254,7 +253,7 @@ func main() {
 			log.Fatal("Non 200 status code from local server")
 			return
 		}
-		body, err := ioutil.ReadAll(resp.Body)
+		body, err := io.ReadAll(resp.Body)
 		if err != nil {
 			log.Fatal(err)
 			return
@@ -346,7 +345,7 @@ func main() {
 		}
 		if resp.StatusCode != 202 {
 			log.Printf("Non 202 status code from local server: %d\n", resp.StatusCode)
-			body, _ = ioutil.ReadAll(resp.Body)
+			body, _ = io.ReadAll(resp.Body)
 			log.Println(string(body))
 			log.Println("When trying to send payload:")
 			log.Println(string(payload))
