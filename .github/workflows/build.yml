@@ -39,6 +39,7 @@ jobs:
         with:
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::941678122026:role/GitHubActions-us-east-1
+          role-session-tagging: true
       - name: Dump the file system
         run: |
           make dump

@@ -18,6 +18,11 @@ Resources:
             Condition:
               StringEquals:
                 "sts:ExternalId": "shogo82148/docker-lambda"
+          - Effect: Allow
+            Principal:
+              AWS: arn:aws:iam::053160724612:root
+            Action:
+              - 'sts:TagSession'
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/service-role/AWSLambdaRole
 
