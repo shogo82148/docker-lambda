@@ -45,10 +45,73 @@ jobs:
           make dump
         working-directory: dump/${{ matrix.runtime }}
 
-  build:
+  build-base:
     runs-on: ubuntu-latest
     needs:
       - dump
+    # ref. https://github.com/fuller-inc/actions-aws-assume-role#about-security-hardening-with-openid-connect
+    permissions:
+      id-token: write
+      statuses: write
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        runtime:
+          - base
+          - base.al2
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: fuller-inc/actions-aws-assume-role@v1
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::445285296882:role/lambda-docker-repository-DeploymentRole-1HRJZXKHD4SPU
+          role-session-tagging: true
+      - name: build ${{ matrix.runtime }}
+        run: |
+          ./publish.sh
+        working-directory: dockerfiles/${{ matrix.runtime }}
+
+  build:
+    runs-on: ubuntu-latest
+    needs:
+      - build-base
+
+    # ref. https://github.com/fuller-inc/actions-aws-assume-role#about-security-hardening-with-openid-connect
+    permissions:
+      id-token: write
+      statuses: write
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        runtime:
+          - dotnetcore3.1
+          - go1.x
+          - java8
+          - java8.al2
+          - java11
+          - nodejs12.x
+          - nodejs14.x
+          - python3.6
+          - python3.7
+          - python3.8
+          - python3.9
+          - ruby2.7
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: fuller-inc/actions-aws-assume-role@v1
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::445285296882:role/lambda-docker-repository-DeploymentRole-1HRJZXKHD4SPU
+          role-session-tagging: true
+      - name: build ${{ matrix.runtime }}
+        run: |
+          ./publish.sh
+        working-directory: dockerfiles/${{ matrix.runtime }}
