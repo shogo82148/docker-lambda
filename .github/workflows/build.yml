@@ -45,10 +45,19 @@ jobs:
           make dump
         working-directory: dump/${{ matrix.runtime }}
 
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      - id: version
+        run: echo "::set-output name=result::$(date -u "+%Y.%m.%d")"
+    outputs:
+      version: ${{ steps.version.outputs.result }}
+
   build-base:
     runs-on: ubuntu-latest
     needs:
       - dump
+      - version
     # ref. https://github.com/fuller-inc/actions-aws-assume-role#about-security-hardening-with-openid-connect
     permissions:
       id-token: write
@@ -79,11 +88,14 @@ jobs:
         run: |
           ./publish.sh
         working-directory: dockerfiles/${{ matrix.runtime }}
+        env:
+          LAMBDA_IMAGE_VERSION: ${{ needs.version.outputs.version }}
 
   build:
     runs-on: ubuntu-latest
     needs:
       - build-base
+      - version
 
     # ref. https://github.com/fuller-inc/actions-aws-assume-role#about-security-hardening-with-openid-connect
     permissions:
@@ -125,3 +137,5 @@ jobs:
         run: |
           ./publish.sh
         working-directory: dockerfiles/${{ matrix.runtime }}
+        env:
+          LAMBDA_IMAGE_VERSION: ${{ needs.version.outputs.version }}
