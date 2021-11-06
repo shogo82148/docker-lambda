@@ -62,6 +62,8 @@ jobs:
           - base
           - base.al2
     steps:
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure AWS Credentials
@@ -70,6 +72,9 @@ jobs:
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::445285296882:role/lambda-docker-repository-DeploymentRole-1HRJZXKHD4SPU
           role-session-tagging: true
+      - name: Login to ECR Public Registry
+        run: |
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
       - name: build ${{ matrix.runtime }}
         run: |
           ./publish.sh
@@ -103,6 +108,8 @@ jobs:
           - python3.9
           - ruby2.7
     steps:
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure AWS Credentials
@@ -111,6 +118,9 @@ jobs:
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::445285296882:role/lambda-docker-repository-DeploymentRole-1HRJZXKHD4SPU
           role-session-tagging: true
+      - name: Login to ECR Public Registry
+        run: |
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
       - name: build ${{ matrix.runtime }}
         run: |
           ./publish.sh
