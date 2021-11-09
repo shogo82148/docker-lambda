@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eux
+set -e
+
 CURRENT=$(cd "$(dirname "$0")" && pwd)
-docker buildx build --platform linux/amd64 --push -t public.ecr.aws/shogo82148/lambda-go:1 "$CURRENT/run"
-docker buildx build --platform linux/amd64 --push -t public.ecr.aws/shogo82148/lambda-go:build-1 "$CURRENT/build"
+"$CURRENT/../scripts/publish.sh" go1.x go 1

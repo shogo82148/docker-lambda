@@ -1,0 +1,142 @@
+name: build
+
+on:
+  schedule:
+    - cron: "58 3 * * 1"
+  workflow_dispatch:
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+
+    # ref. https://github.com/fuller-inc/actions-aws-assume-role#about-security-hardening-with-openid-connect
+    permissions:
+      id-token: write
+      statuses: write
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        runtime:
+          - base
+          - base.al2
+          - dotnetcore3.1
+          - go1.x
+          - java8
+          - java8.al2
+          - java11
+          - nodejs12.x
+          - nodejs14.x
+          - python3.6
+          - python3.7
+          - python3.8
+          - python3.9
+          - ruby2.7
+    steps:
+      - uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: fuller-inc/actions-aws-assume-role@v1
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::941678122026:role/GitHubActions-us-east-1
+          role-session-tagging: true
+      - name: Dump the file system
+        run: |
+          make dump
+        working-directory: dump/${{ matrix.runtime }}
+
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      - id: version
+        run: echo "::set-output name=result::$(date -u "+%Y.%m.%d")"
+    outputs:
+      version: ${{ steps.version.outputs.result }}
+
+  build-base:
+    runs-on: ubuntu-latest
+    needs:
+      - dump
+      - version
+    # ref. https://github.com/fuller-inc/actions-aws-assume-role#about-security-hardening-with-openid-connect
+    permissions:
+      id-token: write
+      statuses: write
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        runtime:
+          - base
+          - base.al2
+    steps:
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: fuller-inc/actions-aws-assume-role@v1
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::445285296882:role/lambda-docker-repository-DeploymentRole-1HRJZXKHD4SPU
+          role-session-tagging: true
+      - name: Login to ECR Public Registry
+        run: |
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
+      - name: build ${{ matrix.runtime }}
+        run: |
+          ./publish.sh
+        working-directory: dockerfiles/${{ matrix.runtime }}
+        env:
+          LAMBDA_IMAGE_VERSION: ${{ needs.version.outputs.version }}
+
+  build:
+    runs-on: ubuntu-latest
+    needs:
+      - build-base
+      - version
+
+    # ref. https://github.com/fuller-inc/actions-aws-assume-role#about-security-hardening-with-openid-connect
+    permissions:
+      id-token: write
+      statuses: write
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        runtime:
+          - dotnetcore3.1
+          - go1.x
+          - java8
+          - java8.al2
+          - java11
+          - nodejs12.x
+          - nodejs14.x
+          - python3.6
+          - python3.7
+          - python3.8
+          - python3.9
+          - ruby2.7
+    steps:
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: fuller-inc/actions-aws-assume-role@v1
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::445285296882:role/lambda-docker-repository-DeploymentRole-1HRJZXKHD4SPU
+          role-session-tagging: true
+      - name: Login to ECR Public Registry
+        run: |
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
+      - name: build ${{ matrix.runtime }}
+        run: |
+          ./publish.sh
+        working-directory: dockerfiles/${{ matrix.runtime }}
+        env:
+          LAMBDA_IMAGE_VERSION: ${{ needs.version.outputs.version }}
