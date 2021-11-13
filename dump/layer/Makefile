@@ -7,7 +7,7 @@ dist/x86_64.zip: dist/x86_64/bin/lambda-dump
 
 dist/x86_64/bin/lambda-dump: main.go go.mod go.sum
 	mkdir -p dist/x86_64/bin
-	GOOS=linux GOARCH=amd64 go build -o $@ $<
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o $@ $<
 
 dist/arm64.zip: dist/arm64/bin/lambda-dump
 	mkdir -p dist
@@ -15,7 +15,7 @@ dist/arm64.zip: dist/arm64/bin/lambda-dump
 
 dist/arm64/bin/lambda-dump: main.go go.mod go.sum
 	mkdir -p dist/arm64/bin
-	GOOS=linux GOARCH=arm64 go build -o $@ $<
+	CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o $@ $<
 
 .PHONEY: deploy
 deploy: dist/x86_64.zip dist/arm64.zip
