@@ -7,7 +7,7 @@ dist.zip: dist/index
 
 dist/index: dump.go go.mod go.sum
 	mkdir -p dist
-	GOOS=linux GOARCH=amd64 go build -o dist/index dump.go
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o dist/index dump.go
 
 .PHONEY: deploy
 deploy: dist.zip

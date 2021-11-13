@@ -3,7 +3,7 @@ WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
 COPY init.go ./
-RUN GOOS=linux go build -o init init.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o init init.go
 
 
 FROM public.ecr.aws/shogo82148/lambda-base:alami

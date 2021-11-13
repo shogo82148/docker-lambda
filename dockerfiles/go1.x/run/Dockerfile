@@ -3,7 +3,7 @@ WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
 COPY aws-lambda-mock.go ./
-RUN GOARCH=amd64 GOOS=linux go build aws-lambda-mock.go
+RUN CGO_ENABLED=0 GOARCH=amd64 GOOS=linux go build aws-lambda-mock.go
 
 
 FROM public.ecr.aws/shogo82148/lambda-provided:alami
