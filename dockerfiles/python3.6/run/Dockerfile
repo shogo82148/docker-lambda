@@ -10,7 +10,6 @@ ENV PATH=/var/lang/bin:$PATH \
 RUN rm -rf /var/runtime /var/lang && \
   curl https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/python3.6.tgz | tar -zx -C /
 
-RUN rm /var/runtime/awslambda/runtime.cpython-36m-x86_64-linux-gnu.so
 COPY runtime_mock.py /var/runtime/awslambda/runtime.py
 
 COPY --from=0 /var/runtime/init /var/runtime/mockserver
