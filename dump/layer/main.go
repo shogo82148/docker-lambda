@@ -176,11 +176,25 @@ func dumpCmdline() error {
 	return nil
 }
 
+// excludes the directory itself and its contents.
 var excludeDirs = []string{
 	"/proc",
 	"/sys",
 	"/dev",
 	"/tmp",
+}
+
+func isExcludeDir(path string) bool {
+	for _, dir := range excludeDirs {
+		if path == dir {
+			return true
+		}
+	}
+	return false
+}
+
+// excludes its contents, but includes the directory itself.
+var excludeDirContents = []string{
 	"/var/task",
 	"/var/runtime",
 	"/var/lang",
@@ -188,8 +202,8 @@ var excludeDirs = []string{
 	"/opt",
 }
 
-func isExcludeDir(path string) bool {
-	for _, dir := range excludeDirs {
+func isExcludeDirContents(path string) bool {
+	for _, dir := range excludeDirContents {
 		if path == dir {
 			return true
 		}
@@ -246,9 +260,14 @@ func (d *dumper) dumpBase(ctx context.Context) error {
 		if info.IsDir() && isExcludeDir(path) {
 			return filepath.SkipDir
 		}
+
 		err = d.addFile(path, info)
 		if errors.Is(err, os.ErrPermission) {
 			return nil
+		}
+
+		if info.IsDir() && isExcludeDirContents(path) {
+			return filepath.SkipDir
 		}
 		return err
 	})
