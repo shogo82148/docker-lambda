@@ -141,7 +141,7 @@ nss-sysinit-3.53.1-7.85.amzn1.x86_64
 nss-tools-3.53.1-7.85.amzn1.x86_64
 nss-util-3.53.1-1.58.amzn1.x86_64
 openldap-2.4.40-16.31.amzn1.x86_64
-openssl-1.0.2k-16.154.amzn1.x86_64
+openssl-1.0.2k-16.155.amzn1.x86_64
 p11-kit-0.18.5-2.3.amzn1.x86_64
 p11-kit-trust-0.18.5-2.3.amzn1.x86_64
 pam-1.1.8-12.33.amzn1.x86_64
