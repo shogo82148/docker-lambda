@@ -5,11 +5,12 @@ set -eux
 CURRENT=$(cd "$(dirname "$0")" && pwd)
 
 # download file system
+rm -rf "$CURRENT/.tmp"
 mkdir "$CURRENT/.tmp"
 cd "$CURRENT/.tmp"
 curl -sSL -O "https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/base.tgz"
 
-tar xzf base-2.tgz --strip-components=2 -- var/lib/rpm
+tar xzf base.tgz --strip-components=2 -- var/lib/rpm
 docker run \
     -v "$CURRENT/.tmp/rpm":/rpm \
     --rm \
