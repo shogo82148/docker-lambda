@@ -17,7 +17,7 @@ cpio-2.10-12.12.amzn1.x86_64
 cracklib-2.8.16-4.14.amzn1.x86_64
 cracklib-dicts-2.8.16-4.14.amzn1.x86_64
 cups-libs-1.4.2-67.21.amzn1.x86_64
-curl-7.61.1-12.99.amzn1.x86_64
+curl-7.61.1-12.100.amzn1.x86_64
 cyrus-sasl-lib-2.1.23-13.16.amzn1.x86_64
 db4-4.7.25-18.11.amzn1.x86_64
 db4-utils-4.7.25-18.11.amzn1.x86_64
@@ -84,7 +84,7 @@ libblkid-2.23.2-63.33.amzn1.x86_64
 libcap-2.16-5.5.8.amzn1.x86_64
 libcap-ng-0.7.5-4.15.amzn1.x86_64
 libcom_err-1.43.5-2.44.amzn1.x86_64
-libcurl-7.61.1-12.99.amzn1.x86_64
+libcurl-7.61.1-12.100.amzn1.x86_64
 libdrm-2.4.82-1.14.amzn1.x86_64
 libffi-3.0.13-16.5.amzn1.x86_64
 libfontenc-1.0.5-2.6.amzn1.x86_64
@@ -133,12 +133,12 @@ ncurses-5.7-4.20090207.14.amzn1.x86_64
 ncurses-base-5.7-4.20090207.14.amzn1.x86_64
 ncurses-libs-5.7-4.20090207.14.amzn1.x86_64
 nspr-4.25.0-2.45.amzn1.x86_64
-nss-3.53.1-7.85.amzn1.x86_64
+nss-3.53.1-7.87.amzn1.x86_64
 nss-pem-1.0.3-4.3.amzn1.x86_64
 nss-softokn-3.53.1-6.46.amzn1.x86_64
 nss-softokn-freebl-3.53.1-6.46.amzn1.x86_64
-nss-sysinit-3.53.1-7.85.amzn1.x86_64
-nss-tools-3.53.1-7.85.amzn1.x86_64
+nss-sysinit-3.53.1-7.87.amzn1.x86_64
+nss-tools-3.53.1-7.87.amzn1.x86_64
 nss-util-3.53.1-1.58.amzn1.x86_64
 openldap-2.4.40-16.31.amzn1.x86_64
 openssl-1.0.2k-16.155.amzn1.x86_64
