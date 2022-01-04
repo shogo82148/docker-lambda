@@ -87,12 +87,21 @@ jobs:
       - name: Login to ECR Public Registry
         run: |
           aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
+
       - name: build ${{ matrix.runtime }}
         run: |
           ./publish.sh
+          ./run/dump-packages.sh
         working-directory: dockerfiles/${{ matrix.runtime }}
         env:
           LAMBDA_IMAGE_VERSION: ${{ needs.version.outputs.version }}
+
+      - name: commit
+        uses: shogo82148/actions-commit-and-create-pr@v1
+        with:
+          github-token: ${{ steps.generate_token.outputs.token }}
+          head-branch-prefix: "auto-update/${{ matrix.runtime }}-"
+          commit-message: "update ${{ matrix.runtime }} packages"
 
   build-provided:
     runs-on: ubuntu-latest
