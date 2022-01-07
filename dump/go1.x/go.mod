@@ -2,4 +2,4 @@ module dump-go1x
 
 go 1.17
 
-require github.com/aws/aws-lambda-go v1.27.1
+require github.com/aws/aws-lambda-go v1.28.0
