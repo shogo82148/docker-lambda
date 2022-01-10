@@ -96,6 +96,9 @@ jobs:
         env:
           LAMBDA_IMAGE_VERSION: ${{ needs.version.outputs.version }}
 
+      - name: Generate token
+        id: generate_token
+        uses: shogo82148/actions-github-app-token@v0
       - name: commit
         uses: shogo82148/actions-commit-and-create-pr@v1
         with:
