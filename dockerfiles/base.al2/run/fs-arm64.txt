@@ -4997,7 +4997,7 @@ var/lib/rpm/Sigmd5
 var/lib/rpm/Triggername
 var/lib/yum
 var/lib/yum/history
-var/lib/yum/history/2021-12-18
+var/lib/yum/history/2021-12-21
 var/lib/yum/repos
 var/lib/yum/repos/aarch64
 var/lib/yum/repos/aarch64/2
