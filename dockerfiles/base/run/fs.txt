@@ -20050,7 +20050,7 @@ var/lib/rpm/__db.003
 var/lib/rpm/__db.004
 var/lib/yum
 var/lib/yum/history
-var/lib/yum/history/2021-12-18
+var/lib/yum/history/2021-12-21
 var/lib/yum/repos
 var/lib/yum/repos/x86_64
 var/lib/yum/repos/x86_64/latest
