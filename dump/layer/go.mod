@@ -3,7 +3,7 @@ module main
 go 1.17
 
 require (
-	github.com/aws/aws-sdk-go-v2 v1.13.0
+	github.com/aws/aws-sdk-go-v2 v1.14.0
 	github.com/aws/aws-sdk-go-v2/config v1.13.1
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.24.1
 )
@@ -20,5 +20,5 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.11.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sso v1.9.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.14.0 // indirect
-	github.com/aws/smithy-go v1.10.0 // indirect
+	github.com/aws/smithy-go v1.11.0 // indirect
 )
