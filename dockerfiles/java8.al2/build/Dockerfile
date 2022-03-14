@@ -13,7 +13,7 @@ RUN case $(uname -m) in "x86_64") ARCH=x64;; "aarch64") ARCH=aarch64;; *) echo "
     rm -rf /var/lang/*.zip && \
     mkdir /usr/local/gradle && curl -L -o gradle.zip https://services.gradle.org/distributions/gradle-7.3.3-bin.zip && \
     unzip -qd /usr/local/gradle gradle.zip && rm gradle.zip && mkdir /usr/local/maven && \
-    curl -L https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz | \
+    curl -L https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz | \
     tar -zx -C /usr/local/maven
 
 ENV PATH="/usr/local/gradle/gradle-7.3.3/bin:/usr/local/maven/apache-maven-3.8.4/bin:${PATH}"
