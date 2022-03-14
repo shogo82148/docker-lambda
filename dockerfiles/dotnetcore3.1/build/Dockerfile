@@ -1,14 +1,12 @@
-﻿FROM lambci/lambda:dotnetcore3.1
+﻿FROM public.ecr.aws/shogo82148/lambda-base:build-al2
 
-FROM public.ecr.aws/shogo82148/lambda-base:build-al2
-
-# Run: docker run --rm --entrypoint dotnet lambci/lambda:dotnetcore3.1 --info
-# Check https://dotnet.microsoft.com/download/dotnet-core/3.1 for versions
+# Run: docker run --rm --entrypoint dotnet public.ecr.aws/shogo82148/lambda-dotnetcore:3.1 --info
+# Check https://dotnet.microsoft.com/en-us/download/dotnet/3.1 for versions
 ENV DOTNET_ROOT=/var/lang/bin
 ENV PATH=/root/.dotnet/tools:$DOTNET_ROOT:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
     AWS_EXECUTION_ENV=AWS_Lambda_dotnetcore3.1 \
-    DOTNET_SDK_VERSION=3.1.405 \
+    DOTNET_SDK_VERSION=3.1.416 \
     DOTNET_CLI_TELEMETRY_OPTOUT=1 \
     NUGET_XMLDOC_MODE=skip
 
