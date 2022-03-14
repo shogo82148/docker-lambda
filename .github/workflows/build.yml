@@ -22,6 +22,7 @@ jobs:
           - base
           - base.al2
           - dotnetcore3.1
+          - dotnet6
           - go1.x
           - java8
           - java8.al2
@@ -162,6 +163,7 @@ jobs:
       matrix:
         runtime:
           - dotnetcore3.1
+          - dotnet6
           - go1.x
           - java8
           - java8.al2
