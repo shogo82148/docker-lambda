@@ -100,6 +100,20 @@ Resources:
           # Base Image for AWS Lambda
           TBD
 
+  RepositoryDotNet:
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Type: AWS::ECR::PublicRepository
+    Properties:
+      RepositoryName: lambda-dotnet
+      RepositoryCatalogData:
+        OperatingSystems: [ Linux ]
+        Architectures: [ "x86-64", "ARM 64" ]
+        RepositoryDescription: shogo82148/docker-lambda
+        AboutText: |
+          # Base Image for AWS Lambda
+          TBD
+
   RepositoryGo:
     DeletionPolicy: Retain
     UpdateReplacePolicy: Retain
@@ -150,6 +164,7 @@ Resources:
                   - !GetAtt RepositoryRuby.Arn
                   - !GetAtt RepositoryJava.Arn
                   - !GetAtt RepositoryDotNetCore.Arn
+                  - !GetAtt RepositoryDotNet.Arn
                   - !GetAtt RepositoryGo.Arn
               - Effect: Allow
                 Action:
