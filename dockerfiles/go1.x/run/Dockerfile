@@ -1,9 +1,14 @@
-FROM golang:1
+# Go is easy to run cross platform build,
+# so we use native platform here
+FROM --platform=$BUILDPLATFORM golang:1
 WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
 COPY aws-lambda-mock.go ./
-RUN CGO_ENABLED=0 GOARCH=amd64 GOOS=linux go build aws-lambda-mock.go
+
+ARG TARGETOS
+ARG TARGETARCH
+RUN CGO_ENABLED=0 GOARCH=${TARGETARCH} GOOS=${TARGETOS} go build aws-lambda-mock.go
 
 
 FROM public.ecr.aws/shogo82148/lambda-provided:alami

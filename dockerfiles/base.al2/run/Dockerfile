@@ -1,8 +1,14 @@
-FROM public.ecr.aws/amazonlinux/amazonlinux:2
+# we just do unzip in this image
+# so we use the build platform here.
+FROM --platform=$BUILDPLATFORM public.ecr.aws/amazonlinux/amazonlinux:2
 
 RUN yum install -y curl tar gzip
+
+ARG TARGETOS
+ARG TARGETARCH
+
 RUN cd /opt && \
-    case $(uname -m) in "x86_64") ARCH=x86_64;; "aarch64") ARCH=arm64;; *) echo "unknown architecture: $(uname -m)"; exit 1;; esac && \
+    case ${TARGETARCH} in "amd64") ARCH=x86_64;; "arm64") ARCH=arm64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
     curl -sSL -O "https://shogo82148-docker-lambda.s3.amazonaws.com/fs/$ARCH/base.al2.tgz" && \
     tar xzf base.al2.tgz && rm base.al2.tgz
 RUN mkdir /opt/tmp && chmod 1777 /opt/tmp
