@@ -1,9 +1,14 @@
-FROM golang:1
+# Go is easy to run cross platform build,
+# so we use native platform here
+FROM --platform=$BUILDPLATFORM golang:1
 WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
 COPY init.go ./
-RUN CGO_ENABLED=0 GOOS=linux go build -o init init.go
+
+ARG TARGETOS
+ARG TARGETARCH
+RUN CGO_ENABLED=0 GOARCH=${TARGETARCH} GOOS=${TARGETOS} go build -o init init.go
 
 
 FROM public.ecr.aws/shogo82148/lambda-base:al2
