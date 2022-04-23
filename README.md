@@ -1,11 +1,12 @@
 # docker-lambda
 
-A sandboxed local environment that replicates the live [AWS Lambda](https://aws.amazon.com/lambda/)
+This a fork of [lambci/docker-lambda].
+It looks that [lambci/docker-lambda] is no longer maintained (in 2022-04-23).
+
+A sandboxed local environment that replicates the live [AWS Lambda]
 environment almost identically – including installed software and libraries,
 file structure and permissions, environment variables, context objects and
 behaviors – even the user and running process are the same.
-
-<img src="https://raw.githubusercontent.com/lambci/docker-lambda/master/examples/terminal3.png" width="969" alt="Example usage with java11 runtime">
 
 You can use it for [running your functions](#run-examples) in the same strict Lambda environment,
 knowing that they'll exhibit the same behavior when deployed live. You can
@@ -18,11 +19,11 @@ the [AWS CLI](https://aws.amazon.com/cli/).
 ## Contents
 
 * [Usage](#usage)
+* [Migrate from lambci/docker-lambda](#migrate-from-lambci-docker-lambda)
 * [Run Examples](#run-examples)
 * [Build Examples](#build-examples)
 * [Using a Dockerfile to build](#using-a-dockerfile-to-build)
 * [Docker tags](#docker-tags)
-* [Verifying images](#verifying-images)
 * [Environment variables](#environment-variables)
 * [Build environment](#build-environment)
 * [Questions](#questions)
@@ -46,7 +47,7 @@ handler and the second for the event, ie:
 docker run --rm \
   -v <code_dir>:/var/task:ro,delegated \
   [-v <layer_dir>:/opt:ro,delegated] \
-  lambci/lambda:<runtime> \
+  public.ecr.aws/shogo82148/lambda-<runtime>:<runtime-version> \
   [<handler>] [<event>]
 ```
 
@@ -69,7 +70,7 @@ docker run --rm [-d] \
   -p 9001:9001 \
   -v <code_dir>:/var/task:ro,delegated \
   [-v <layer_dir>:/opt:ro,delegated] \
-  lambci/lambda:<runtime> \
+  public.ecr.aws/shogo82148/lambda-<runtime>:<runtime-version> \
   [<handler>]
 ```
 
@@ -81,7 +82,7 @@ You should then see:
 Lambda API listening on port 9001...
 ```
 
-Then, in another terminal shell/window you can invoke your function using the [AWS CLI](https://aws.amazon.com/cli/)
+Then, in another terminal shell/window you can invoke your function using the [AWS CLI]
 (or any http client, like `curl`):
 
 ```sh
@@ -117,7 +118,7 @@ To enable this, pass `-e DOCKER_LAMBDA_WATCH=1` to `docker run`:
 docker run --rm \
   -e DOCKER_LAMBDA_WATCH=1 -e DOCKER_LAMBDA_STAY_OPEN=1 -p 9001:9001 \
   -v "$PWD":/var/task:ro,delegated \
-  lambci/lambda:java11 handler
+  public.ecr.aws/shogo82148/lambda-java:11 handler
 ```
 
 Then when you make changes to any file in the mounted directory, you'll see:
@@ -140,7 +141,7 @@ need to run watch mode like this instead:
 docker run --restart on-failure \
   -e DOCKER_LAMBDA_WATCH=1 -e DOCKER_LAMBDA_STAY_OPEN=1 -p 9001:9001 \
   -v "$PWD":/var/task:ro,delegated \
-  lambci/lambda:java8 handler
+  public.ecr.aws/shogo82148/lambda-java:11 handler
 ```
 
 When you make changes to any file in the mounted directory, you'll see:
@@ -159,7 +160,7 @@ If none of the above strategies work for you, you can use a file-watching utilit
 nodemon -w ./ -e '' -s SIGINT -x docker -- run --rm \
   -e DOCKER_LAMBDA_STAY_OPEN=1 -p 9001:9001 \
   -v "$PWD":/var/task:ro,delegated \
-  lambci/lambda:go1.x handler
+  public.ecr.aws/shogo82148/lambda-provided:al2 handler
 ```
 
 ### Building Lambda functions
@@ -170,50 +171,54 @@ intended for building and packaging your Lambda functions. You can run your buil
 all from within the image.
 
 ```sh
-docker run [--rm] -v <code_dir>:/var/task [-v <layer_dir>:/opt] lambci/lambda:build-<runtime> <build-cmd>
+docker run [--rm] -v <code_dir>:/var/task [-v <layer_dir>:/opt] public.ecr.aws/shogo82148/lambda-<runtime>:build-<runtime-version> <build-cmd>
 ```
 
-You can also use [yumda](https://github.com/lambci/yumda) to install precompiled native dependencies using `yum install`.
+
+## Migrate from lambci/docker-lambda
+
+Replace `lambci/lambda:<runtime><runtime-version>` into `public.ecr.aws/shogo82148/lambda-<runtime>:<runtime-version>`, and `lambci/lambda:build-<runtime><runtime-version>` into `public.ecr.aws/shogo82148/lambda-<runtime>:build-<runtime-version>`.
+See [Docker tags](#docker-tags) for available tags.
 
 ## Run Examples
 
 ```sh
-# Test a `handler` function from an `index.js` file in the current directory on Node.js v12.x
-docker run --rm -v "$PWD":/var/task:ro,delegated lambci/lambda:nodejs12.x index.handler
+# Test a `handler` function from an `index.js` file in the current directory on Node.js v14.x
+docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-nodejs:14 index.handler
 
 # Using a different file and handler, with a custom event
-docker run --rm -v "$PWD":/var/task:ro,delegated lambci/lambda:nodejs12.x app.myHandler '{"some": "event"}'
+docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-nodejs:14 app.myHandler '{"some": "event"}'
 
-# Test a `lambda_handler` function in `lambda_function.py` with an empty event on Python 3.8
-docker run --rm -v "$PWD":/var/task:ro,delegated lambci/lambda:python3.8 lambda_function.lambda_handler
+# Test a `lambda_handler` function in `lambda_function.py` with an empty event on Python 3.9
+docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-python:3.9 lambda_function.lambda_handler
 
 # Similarly with Ruby 2.7
-docker run --rm -v "$PWD":/var/task:ro,delegated lambci/lambda:ruby2.7 lambda_function.lambda_handler
+docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-ruby:2.7 lambda_function.lambda_handler
 
-# Test on Go 1.x with a compiled handler named my_handler and a custom event
-docker run --rm -v "$PWD":/var/task:ro,delegated lambci/lambda:go1.x my_handler '{"some": "event"}'
+# Test on provided.al2 with a compiled handler named my_handler and a custom event
+docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-provided:al2 my_handler '{"some": "event"}'
 
 # Test a function from the current directory on Java 11
 # The directory must be laid out in the same way the Lambda zip file is,
 # with top-level package source directories and a `lib` directory for third-party jars
 # https://docs.aws.amazon.com/lambda/latest/dg/java-package.html
-docker run --rm -v "$PWD":/var/task:ro,delegated lambci/lambda:java11 org.myorg.MyHandler
+docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-java:11 org.myorg.MyHandler
 
-# Test on .NET Core 3.1 given a test.dll assembly in the current directory,
+# Test on .NET 6 given a test.dll assembly in the current directory,
 # a class named Function with a FunctionHandler method, and a custom event
-docker run --rm -v "$PWD":/var/task:ro,delegated lambci/lambda:dotnetcore3.1 test::test.Function::FunctionHandler '{"some": "event"}'
+docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-dotnet:6 test::test.Function::FunctionHandler '{"some": "event"}'
 
-# Test with a provided runtime (assumes you have a `bootstrap` executable in the current directory)
-docker run --rm -v "$PWD":/var/task:ro,delegated lambci/lambda:provided handler '{"some": "event"}'
+# Test with a provided.al2 runtime (assumes you have a `bootstrap` executable in the current directory)
+docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-provided:al2 handler '{"some": "event"}'
 
 # Test with layers (assumes your function code is in `./fn` and your layers in `./layer`)
-docker run --rm -v "$PWD"/fn:/var/task:ro,delegated -v "$PWD"/layer:/opt:ro,delegated lambci/lambda:nodejs12.x
+docker run --rm -v "$PWD"/fn:/var/task:ro,delegated -v "$PWD"/layer:/opt:ro,delegated public.ecr.aws/shogo82148/lambda-nodejs:14
 
 # Run custom commands
-docker run --rm --entrypoint node lambci/lambda:nodejs12.x -v
+docker run --rm --entrypoint node public.ecr.aws/shogo82148/lambda-nodejs:14 -v
 
 # For large events you can pipe them into stdin if you set DOCKER_LAMBDA_USE_STDIN
-echo '{"some": "event"}' | docker run --rm -v "$PWD":/var/task:ro,delegated -i -e DOCKER_LAMBDA_USE_STDIN=1 lambci/lambda:nodejs12.x
+echo '{"some": "event"}' | docker run --rm -v "$PWD":/var/task:ro,delegated -i -e DOCKER_LAMBDA_USE_STDIN=1 public.ecr.aws/shogo82148/lambda-nodejs:14
 ```
 
 You can see more examples of how to build docker images and run different
@@ -225,23 +230,23 @@ To use the build images, for compilation, deployment, etc:
 
 ```sh
 # To compile native deps in node_modules
-docker run --rm -v "$PWD":/var/task lambci/lambda:build-nodejs12.x npm rebuild --build-from-source
+docker run --rm -v "$PWD":/var/task public.ecr.aws/shogo82148/lambda-nodejs:build-14 npm rebuild --build-from-source
 
 # To install defined poetry dependencies
-docker run --rm -v "$PWD":/var/task lambci/lambda:build-python3.8 poetry install
+docker run --rm -v "$PWD":/var/task public.ecr.aws/shogo82148/lambda-python:build-3.9 poetry install
 
-# To resolve dependencies on go1.x (working directory is /go/src/handler)
-docker run --rm -v "$PWD":/go/src/handler lambci/lambda:build-go1.x go mod download
+# To resolve dependencies on provided.al2 (working directory is /go/src/handler)
+docker run --rm -v "$PWD":/go/src/handler public.ecr.aws/shogo82148/lambda-provided:build-al2 go mod download
 
-# For .NET Core, this will publish the compiled code to `./pub`,
+# For .NET, this will publish the compiled code to `./pub`,
 # which you can then use to run with `-v "$PWD"/pub:/var/task`
-docker run --rm -v "$PWD":/var/task lambci/lambda:build-dotnetcore3.1 dotnet publish -c Release -o pub
+docker run --rm -v "$PWD":/var/task public.ecr.aws/shogo82148/lambda-dotnet:build-6 dotnet publish -c Release -o pub
 
 # Run custom commands on a build container
-docker run --rm lambci/lambda:build-python3.8 aws --version
+docker run --rm public.ecr.aws/shogo82148/lambda-python:build-3.9 aws --version
 
 # To run an interactive session on a build container
-docker run -it lambci/lambda:build-python3.8 bash
+docker run -it public.ecr.aws/shogo82148/lambda-python:build-3.9 bash
 ```
 
 ## Using a Dockerfile to build
@@ -249,7 +254,7 @@ docker run -it lambci/lambda:build-python3.8 bash
 Create your own Docker image to build and deploy:
 
 ```dockerfile
-FROM lambci/lambda:build-nodejs12.x
+FROM public.ecr.aws/shogo82148/lambda-nodejs:build-14
 
 ENV AWS_DEFAULT_REGION us-east-1
 
@@ -269,101 +274,89 @@ docker build -t mylambda .
 docker run --rm -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY mylambda
 ```
 
-## Node.js module
-
-Using the Node.js module (`npm install docker-lambda`) – for example in tests:
-
-```js
-var dockerLambda = require('docker-lambda')
-
-// Spawns synchronously, uses current dir – will throw if it fails
-var lambdaCallbackResult = dockerLambda({event: {some: 'event'}, dockerImage: 'lambci/lambda:nodejs12.x'})
-
-// Manually specify directory and custom args
-lambdaCallbackResult = dockerLambda({taskDir: __dirname, dockerArgs: ['-m', '1.5G'], dockerImage: 'lambci/lambda:nodejs12.x'})
-```
-
-Options to pass to `dockerLambda()`:
-  - `dockerImage`
-  - `handler`
-  - `event`
-  - `taskDir`
-  - `cleanUp`
-  - `addEnvVars`
-  - `dockerArgs`
-  - `spawnOptions`
-  - `returnSpawnResult`
-
 ## Docker tags
 
 These follow the Lambda runtime names:
 
-  - `nodejs4.3`
-  - `nodejs6.10`
-  - `nodejs8.10`
-  - `nodejs10.x`
-  - `nodejs12.x`
-  - `python2.7`
-  - `python3.6`
-  - `python3.7`
-  - `python3.8`
-  - `ruby2.5`
-  - `ruby2.7`
-  - `java8`
-  - `java8.al2`
-  - `java11`
-  - `go1.x`
-  - `dotnetcore2.0`
-  - `dotnetcore2.1`
-  - `dotnetcore3.1`
-  - `provided`
-  - `provided.al2`
-  - `build-nodejs4.3`
-  - `build-nodejs6.10`
-  - `build-nodejs8.10`
-  - `build-nodejs10.x`
-  - `build-nodejs12.x`
-  - `build-python2.7`
-  - `build-python3.6`
-  - `build-python3.7`
-  - `build-python3.8`
-  - `build-ruby2.5`
-  - `build-ruby2.7`
-  - `build-java8`
-  - `build-java8.al2`
-  - `build-java11`
-  - `build-go1.x`
-  - `build-dotnetcore2.0`
-  - `build-dotnetcore2.1`
-  - `build-dotnetcore3.1`
-  - `build-provided`
-  - `build-provided.al2`
+- [Node.js runtimes](https://gallery.ecr.aws/shogo82148/lambda-nodejs)
+  - `public.ecr.aws/shogo82148/lambda-nodejs:14`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:14-arm64`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:14-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:build-14`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:build-14-arm64`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:build-14-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:12`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:12-arm64`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:12-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:build-12`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:build-12-arm64`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:build-12-x86_64`
 
-## Verifying images
+- [Python Runtimes](https://gallery.ecr.aws/shogo82148/lambda-python)
+  - `public.ecr.aws/shogo82148/lambda-python:3.9`
+  - `public.ecr.aws/shogo82148/lambda-python:3.9-arm64`
+  - `public.ecr.aws/shogo82148/lambda-python:3.9-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.9`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.9-arm64`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.9-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-python:3.8`
+  - `public.ecr.aws/shogo82148/lambda-python:3.8-arm64`
+  - `public.ecr.aws/shogo82148/lambda-python:3.8-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.8`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.8-arm64`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.8-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-python:3.7`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.7`
+  - `public.ecr.aws/shogo82148/lambda-python:3.6`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.6`
 
-These images are signed using [Docker Content Trust](https://docs.docker.com/engine/security/trust/content_trust/),
-with the following keys:
+- [Ruby Runtimes](https://gallery.ecr.aws/shogo82148/lambda-ruby)
+  - `public.ecr.aws/shogo82148/lambda-ruby:2.7`
+  - `public.ecr.aws/shogo82148/lambda-ruby:2.7-arm64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:2.7-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:build-2.7`
+  - `public.ecr.aws/shogo82148/lambda-ruby:build-2.7-arm64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:build-2.7-x86_64`
 
-- Repository Key: `e966126aacd4be5fb92e0160212dd007fc16a9b4366ef86d28fc7eb49f4d0809`
-- Root Key: `031d78bcdca4171be103da6ffb55e8ddfa9bd113e0ec481ade78d897d9e65c0e`
+- [Java Runtimes](https://gallery.ecr.aws/shogo82148/lambda-java)
+  - `public.ecr.aws/shogo82148/lambda-java:11`
+  - `public.ecr.aws/shogo82148/lambda-java:11-arm64`
+  - `public.ecr.aws/shogo82148/lambda-java:11-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-java:build-11`
+  - `public.ecr.aws/shogo82148/lambda-java:build-11-arm64`
+  - `public.ecr.aws/shogo82148/lambda-java:build-11-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-java:8.al2`
+  - `public.ecr.aws/shogo82148/lambda-java:8.al2-arm64`
+  - `public.ecr.aws/shogo82148/lambda-java:8.al2-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-java:build-8.al2`
+  - `public.ecr.aws/shogo82148/lambda-java:build-8.al2-arm64`
+  - `public.ecr.aws/shogo82148/lambda-java:8.al2-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-java:8`
+  - `public.ecr.aws/shogo82148/lambda-java:8`
 
-You can verify/inspect an image using `docker trust inspect`:
+- [Go runtimes](https://gallery.ecr.aws/shogo82148/lambda-go)
+  - `public.ecr.aws/shogo82148/lambda-go:1`
+  - `public.ecr.aws/shogo82148/lambda-go:build-1`
 
-```sh
-$ docker trust inspect --pretty lambci/lambda:provided
+- [.Net Runtimes](https://gallery.ecr.aws/shogo82148/lambda-dotnet) and [.Net Core Runtimes](https://gallery.ecr.aws/shogo82148/lambda-dotnetcore)
+  - `public.ecr.aws/shogo82148/lambda-dotnet:6`
+  - `public.ecr.aws/shogo82148/lambda-dotnet:6-arm64`
+  - `public.ecr.aws/shogo82148/lambda-dotnet:6-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-dotnet:build-6`
+  - `public.ecr.aws/shogo82148/lambda-dotnet:build-6-arm64`
+  - `public.ecr.aws/shogo82148/lambda-dotnet:build-6-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-dotnetcore:3.1`
+  - `public.ecr.aws/shogo82148/lambda-dotnetcore:build-3.1`
 
-Signatures for lambci/lambda:provided
-
-SIGNED TAG          DIGEST                                                             SIGNERS
-provided            838c42079b5fcfd6640d486f13c1ceeb52ac661e19f9f1d240b63478e53d73f8   (Repo Admin)
-
-Administrative keys for lambci/lambda:provided
-
-  Repository Key:	e966126aacd4be5fb92e0160212dd007fc16a9b4366ef86d28fc7eb49f4d0809
-  Root Key:	031d78bcdca4171be103da6ffb55e8ddfa9bd113e0ec481ade78d897d9e65c0e
-```
-
-(The `DIGEST` for a given tag may not match the example above, but the Repository and Root keys should match)
+- [Provided Runtimes](https://gallery.ecr.aws/shogo82148/lambda-provided)
+  - `public.ecr.aws/shogo82148/lambda-provided:al2`
+  - `public.ecr.aws/shogo82148/lambda-provided:al2-arm64`
+  - `public.ecr.aws/shogo82148/lambda-provided:al2-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-provided:build-al2`
+  - `public.ecr.aws/shogo82148/lambda-provided:build-al2-arm64`
+  - `public.ecr.aws/shogo82148/lambda-provided:build-al2-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-provided:alami`
+  - `public.ecr.aws/shogo82148/lambda-provided:build-alami`
 
 ## Environment variables
 
@@ -392,8 +385,6 @@ Administrative keys for lambci/lambda:provided
 Yum packages installed on build images:
 
   - `development` (group, includes `gcc-c++`, `autoconf`, `automake`, `git`, `vim`, etc)
-  - `aws-cli`
-  - `aws-sam-cli`
   - `docker` (Docker in Docker!)
   - `clang`
   - `cmake`
@@ -460,3 +451,8 @@ The build image for older Amazon Linux 1 based runtimes also include:
 
   Technically nothing – it's just been incredibly useful during the building
   and testing of LambCI.
+
+[lambci/docker-lambda]: https://github.com/lambci/docker-lambda
+[AWS Lambda]: https://aws.amazon.com/lambda/
+[AWS CLI]: https://aws.amazon.com/cli/
+[AWS CLI v2]: https://docs.aws.amazon.com/cli/latest/userguide/cliv2-migration.html#cliv2-migration-binaryparam
