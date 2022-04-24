@@ -12,6 +12,12 @@ deploy: build/distributions/app.zip
 dump:
 	./dump.sh x86_64
 
+.PHONEY: test
+test:
+	bash -n deploy.sh
+	bash -n dump.sh
+	./build.sh
+
 .PHONEY: clean
 clean:
 	-rm -f build

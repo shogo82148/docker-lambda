@@ -17,6 +17,11 @@ deploy: dist.zip
 dump:
 	./dump.sh x86_64
 
+.PHONEY: test
+test:
+	bash -n deploy.sh
+	bash -n dump.sh
+
 .PHONEY: clean
 clean:
 	-rm -rf dist

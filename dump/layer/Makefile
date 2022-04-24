@@ -22,6 +22,11 @@ deploy: dist/x86_64.zip dist/arm64.zip
 	./deploy.sh x86_64
 	./deploy.sh arm64
 
+.PHONEY: test
+test:
+	bash -n deploy.sh
+	./build.sh
+
 .PHONEY: clean
 clean:
 	-rm -rf dist
