@@ -18,13 +18,3 @@ exports.handler = async(event, context) => {
 
   return {}
 }
-
-function arch() {
-  switch(process.arch) {
-    case 'arm64':
-      return 'arm64'
-    case 'x64':
-      return 'x86_64'
-  }
-  throw new Error(`unknown arch: ${process.arch}`)
-}
