@@ -9,11 +9,36 @@ jobs:
     steps:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v3
-      - name: golangci-lint
+      - name: run golangci-lint in dump/layer
         uses: reviewdog/action-golangci-lint@v2
         with:
           reporter: github-pr-review
           level: warning
+          workdir: dump/layer
+      - name: run golangci-lint in dump/go1.x
+        uses: reviewdog/action-golangci-lint@v2
+        with:
+          reporter: github-pr-review
+          level: warning
+          workdir: dump/go1.x
+      - name: run golangci-lint in dockerfiles/go1.x/run
+        uses: reviewdog/action-golangci-lint@v2
+        with:
+          reporter: github-pr-review
+          level: warning
+          workdir: dockerfiles/go1.x/run
+      - name: run golangci-lint in dockerfiles/provided/run
+        uses: reviewdog/action-golangci-lint@v2
+        with:
+          reporter: github-pr-review
+          level: warning
+          workdir: dockerfiles/provided/run
+      - name: run golangci-lint in dockerfiles/provided.al2/run
+        uses: reviewdog/action-golangci-lint@v2
+        with:
+          reporter: github-pr-review
+          level: warning
+          workdir: dockerfiles/provided.al2/run
 
   cfn-lint:
     name: cfn-lint
