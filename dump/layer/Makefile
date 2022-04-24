@@ -25,7 +25,7 @@ deploy: dist/x86_64.zip dist/arm64.zip
 .PHONEY: test
 test:
 	bash -n deploy.sh
-	./build.sh
+	go test ./...
 
 .PHONEY: clean
 clean:
