@@ -50,6 +50,9 @@
     }
   ],
 	"settings": {
-		"java.configuration.updateBuildConfiguration": "disabled"
+    "java.configuration.updateBuildConfiguration": "disabled",
+    "yaml.schemas": {
+      "https://json.schemastore.org/github-workflow.json": "file:///Users/shogo/src/github.com/shogo82148/docker-lambda/.github/workflows/build.yml"
+    }
 	}
 }
