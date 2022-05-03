@@ -25,3 +25,9 @@ updates:
     directory: "/dockerfiles/provided.al2/run"
     schedule:
       interval: "daily"
+
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
