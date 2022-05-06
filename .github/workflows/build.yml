@@ -75,7 +75,7 @@ jobs:
           - base
           - base.al2
     steps:
-      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-qemu-action@v2
       - uses: docker/setup-buildx-action@v1
       - name: Checkout
         uses: actions/checkout@v3
@@ -126,7 +126,7 @@ jobs:
           - provided
           - provided.al2
     steps:
-      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-qemu-action@v2
       - uses: docker/setup-buildx-action@v1
       - name: Checkout
         uses: actions/checkout@v3
@@ -176,7 +176,7 @@ jobs:
           - python3.9
           - ruby2.7
     steps:
-      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-qemu-action@v2
       - uses: docker/setup-buildx-action@v1
       - name: Checkout
         uses: actions/checkout@v3
