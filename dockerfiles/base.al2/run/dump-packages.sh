@@ -6,7 +6,7 @@ if [[ $# -eq 0 ]]; then
     exit 0
 fi
 
-set -eux
+set -euxo pipefail
 
 ARCH=$1
 CURRENT=$(cd "$(dirname "$0")" && pwd)
@@ -15,7 +15,7 @@ CURRENT=$(cd "$(dirname "$0")" && pwd)
 rm -rf "$CURRENT/.tmp"
 mkdir "$CURRENT/.tmp"
 cd "$CURRENT/.tmp"
-curl -sSL -O "https://shogo82148-docker-lambda.s3.amazonaws.com/fs/$ARCH/base.al2.tgz"
+curl -sSL --retry 3 -O "https://shogo82148-docker-lambda.s3.amazonaws.com/fs/$ARCH/base.al2.tgz"
 
 # dump packages
 case "$ARCH" in
