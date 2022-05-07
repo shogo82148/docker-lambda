@@ -62,8 +62,11 @@ jobs:
     needs:
       - dump
       - version
-    # ref. https://github.com/fuller-inc/actions-aws-assume-role#about-security-hardening-with-openid-connect
     permissions:
+      # ref. https://docs.github.com/en/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-ghcrio
+      packages: write
+
+      # ref. https://github.com/fuller-inc/actions-aws-assume-role#about-security-hardening-with-openid-connect
       id-token: write
       statuses: write
       contents: read
@@ -79,6 +82,7 @@ jobs:
       - uses: docker/setup-buildx-action@v2
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Configure AWS Credentials
         uses: fuller-inc/actions-aws-assume-role@v1
         with:
@@ -88,6 +92,13 @@ jobs:
       - name: Login to ECR Public Registry
         run: |
           aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
+
+      - name: Login to ghcr
+        run: |
+          printenv GITHUB_TOKEN | docker login --username "$USERNAME" --password-stdin ghcr.io
+        env:
+          USERNAME: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: build ${{ matrix.runtime }}
         run: |
