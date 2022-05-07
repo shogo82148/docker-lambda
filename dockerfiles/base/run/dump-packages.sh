@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eux
+set -euxo pipefail
 
 CURRENT=$(cd "$(dirname "$0")" && pwd)
 
@@ -8,7 +8,7 @@ CURRENT=$(cd "$(dirname "$0")" && pwd)
 rm -rf "$CURRENT/.tmp"
 mkdir "$CURRENT/.tmp"
 cd "$CURRENT/.tmp"
-curl -sSL -O "https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/base.tgz"
+curl -sSL --retry 3 -O "https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/base.tgz"
 
 tar xzf base.tgz --strip-components=2 -- var/lib/rpm
 docker run \
