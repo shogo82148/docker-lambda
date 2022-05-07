@@ -93,12 +93,19 @@ jobs:
         run: |
           aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
 
-      - name: Login to ghcr ghcr.io
+      - name: Login to GitHub Container Registry
         run: |
           printenv GITHUB_TOKEN | docker login --username "$USERNAME" --password-stdin ghcr.io
         env:
           USERNAME: ${{ github.repository_owner }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Login to Docker Hub
+        run: |
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin
+        env:
+          USERNAME: shogo82148
+          PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: build ${{ matrix.runtime }}
         run: |
@@ -155,12 +162,19 @@ jobs:
         run: |
           aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
 
-      - name: Login to ghcr.io
+      - name: Login to GitHub Container Registry
         run: |
           printenv GITHUB_TOKEN | docker login --username "$USERNAME" --password-stdin ghcr.io
         env:
           USERNAME: ${{ github.repository_owner }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Login to Docker Hub
+        run: |
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin
+        env:
+          USERNAME: shogo82148
+          PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: build ${{ matrix.runtime }}
         run: |
@@ -217,12 +231,19 @@ jobs:
         run: |
           aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
 
-      - name: Login to ghcr.io
+      - name: Login to GitHub Container Registry
         run: |
           printenv GITHUB_TOKEN | docker login --username "$USERNAME" --password-stdin ghcr.io
         env:
           USERNAME: ${{ github.repository_owner }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Login to Docker Hub
+        run: |
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin
+        env:
+          USERNAME: shogo82148
+          PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: build ${{ matrix.runtime }}
         run: |
