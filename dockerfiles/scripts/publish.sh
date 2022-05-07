@@ -35,4 +35,5 @@ publish() {
 }
 
 publish public.ecr.aws/shogo82148/lambda
+publish ghcr.io/shogo82148/lambda
 publish shogo82148/lambda
