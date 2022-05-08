@@ -21,7 +21,7 @@ jobs:
         uses: fuller-inc/actions-aws-assume-role@v1
         with:
           aws-region: us-east-1
-          role-to-assume: arn:aws:iam::941678122026:role/GitHubActions-us-east-1
+          role-to-assume: arn:aws:iam::445285296882:role/lambda-docker-repository-DeploymentRole-1HRJZXKHD4SPU
           role-session-tagging: true
       - run: .github/delete-untagged-images.sh lambda-base
       - run: .github/delete-untagged-images.sh lambda-dotnet
