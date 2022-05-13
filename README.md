@@ -278,7 +278,13 @@ docker run --rm -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY mylambda
 
 These follow the Lambda runtime names:
 
-- [Node.js runtimes](https://gallery.ecr.aws/shogo82148/lambda-nodejs)
+- [Node.js Runtimes](https://gallery.ecr.aws/shogo82148/lambda-nodejs)
+  - `public.ecr.aws/shogo82148/lambda-nodejs:16`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:16-arm64`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:16-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:build-16`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:build-16-arm64`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:build-16-x86_64`
   - `public.ecr.aws/shogo82148/lambda-nodejs:14`
   - `public.ecr.aws/shogo82148/lambda-nodejs:14-arm64`
   - `public.ecr.aws/shogo82148/lambda-nodejs:14-x86_64`
