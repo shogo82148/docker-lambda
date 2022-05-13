@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: dump al2 base runtime
+Description: dump Node.js 16.x runtime
 
 Parameters:
   Name:
@@ -22,7 +22,7 @@ Resources:
         S3Bucket: !Ref S3Bucket
         S3Key: !Ref S3Key
       Handler: "index.handler"
-      Description: !Sub "dump al2 base runtime for ${Architecture}"
+      Description: !Sub "dump Node.js 16.x runtime ${Architecture}"
       Runtime: "nodejs16.x"
       Timeout: 900
       MemorySize: 1769

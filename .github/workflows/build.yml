@@ -29,6 +29,7 @@ jobs:
           - java11
           - nodejs12.x
           - nodejs14.x
+          - nodejs16.x
           - python3.6
           - python3.7
           - python3.8
@@ -210,6 +211,7 @@ jobs:
           - java11
           - nodejs12.x
           - nodejs14.x
+          - nodejs16.x
           - python3.6
           - python3.7
           - python3.8
