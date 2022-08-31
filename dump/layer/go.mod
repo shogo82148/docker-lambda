@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/aws/aws-sdk-go-v2 v1.16.12
 	github.com/aws/aws-sdk-go-v2/config v1.17.2
-	github.com/aws/aws-sdk-go-v2/service/s3 v1.27.6
+	github.com/aws/aws-sdk-go-v2/service/s3 v1.27.7
 )
 
 require (
