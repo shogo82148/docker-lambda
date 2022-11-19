@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: dump Node.js 16.x runtime
+Description: dump Node.js 18.x runtime
 
 Parameters:
   Name:
@@ -22,7 +22,7 @@ Resources:
         S3Bucket: !Ref S3Bucket
         S3Key: !Ref S3Key
       Handler: "index.handler"
-      Description: !Sub "dump Node.js 16.x runtime ${Architecture}"
+      Description: !Sub "dump Node.js 18.x runtime ${Architecture}"
       Runtime: "nodejs18.x"
       Timeout: 900
       MemorySize: 1769
