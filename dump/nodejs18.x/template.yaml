@@ -1,0 +1,51 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: dump Node.js 18.x runtime
+
+Parameters:
+  Name:
+    Type: String
+  DumpLayer:
+    Type: String
+  S3Bucket:
+    Type: String
+  S3Key:
+    Type: String
+  Architecture:
+    Type: String
+
+Resources:
+  DumpFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Ref Name
+      Code:
+        S3Bucket: !Ref S3Bucket
+        S3Key: !Ref S3Key
+      Handler: "index.handler"
+      Description: !Sub "dump Node.js 18.x runtime ${Architecture}"
+      Runtime: "nodejs18.x"
+      Timeout: 900
+      MemorySize: 1769
+      Architectures:
+        - !Ref Architecture
+      Role: !GetAtt DumpRole.Arn
+      Layers:
+        - !Ref DumpLayer
+      Environment:
+        Variables:
+          BUCKET: !Ref S3Bucket
+
+  DumpRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Action: "sts:AssumeRole"
+            Effect: "Allow"
+            Principal:
+              Service:
+                - "lambda.amazonaws.com"
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
