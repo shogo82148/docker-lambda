@@ -1,7 +1,7 @@
 # docker-lambda
 
 This a fork of [lambci/docker-lambda].
-It looks that [lambci/docker-lambda] is no longer maintained (in 2022-04-23).
+I forked it because it looks that [lambci/docker-lambda] is no longer maintained (at 2022-04-23).
 
 A sandboxed local environment that replicates the live [AWS Lambda]
 environment almost identically – including installed software and libraries,
@@ -279,6 +279,12 @@ docker run --rm -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY mylambda
 These follow the Lambda runtime names:
 
 - [Node.js Runtimes](https://gallery.ecr.aws/shogo82148/lambda-nodejs)
+  - `public.ecr.aws/shogo82148/lambda-nodejs:18`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:18-arm64`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:18-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:build-18`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:build-18-arm64`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:build-18-x86_64`
   - `public.ecr.aws/shogo82148/lambda-nodejs:16`
   - `public.ecr.aws/shogo82148/lambda-nodejs:16-arm64`
   - `public.ecr.aws/shogo82148/lambda-nodejs:16-x86_64`
