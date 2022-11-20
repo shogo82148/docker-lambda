@@ -55,7 +55,7 @@ jobs:
       contents: read
     steps:
       - id: version
-        run: echo "::set-output name=result::$(date -u "+%Y.%m.%d")"
+        run: echo "result=$(date -u "+%Y.%m.%d")" >> "$GITHUB_OUTPUT"
     outputs:
       version: ${{ steps.version.outputs.result }}
 
