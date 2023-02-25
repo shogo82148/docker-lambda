@@ -10,5 +10,5 @@ require (
 
 require (
 	github.com/ajg/form v1.5.1 // indirect
-	golang.org/x/sys v0.0.0-20180926160741-c2ed4eda69e7 // indirect
+	golang.org/x/sys v0.1.0 // indirect
 )
