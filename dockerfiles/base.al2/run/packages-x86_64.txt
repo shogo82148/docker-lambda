@@ -1,7 +1,7 @@
 basesystem-10.0-7.amzn2.0.1.noarch
 bash-4.2.46-34.amzn2.x86_64
 bzip2-libs-1.0.6-13.amzn2.0.3.x86_64
-ca-certificates-2021.2.50-72.amzn2.0.4.noarch
+ca-certificates-2021.2.50-72.amzn2.0.5.noarch
 chkconfig-1.7.4-1.amzn2.0.2.x86_64
 coreutils-8.22-24.amzn2.x86_64
 dejavu-fonts-common-2.33-6.amzn2.noarch
@@ -33,7 +33,7 @@ libselinux-2.5-12.amzn2.0.2.x86_64
 libsepol-2.5-8.1.amzn2.0.2.x86_64
 libstdc++-7.3.1-15.amzn2.x86_64
 libtasn1-4.10-1.amzn2.0.3.x86_64
-libuuid-2.30.2-2.amzn2.0.10.x86_64
+libuuid-2.30.2-2.amzn2.0.11.x86_64
 libverto-0.2.5-4.amzn2.0.2.x86_64
 ncurses-6.0-8.20170212.amzn2.1.4.x86_64
 ncurses-base-6.0-8.20170212.amzn2.1.4.noarch
@@ -41,7 +41,7 @@ ncurses-libs-6.0-8.20170212.amzn2.1.4.x86_64
 nspr-4.34.0-3.1.amzn2.x86_64
 nss-softokn-freebl-3.79.0-4.amzn2.x86_64
 nss-util-3.79.0-1.amzn2.x86_64
-openssl-libs-1.0.2k-24.amzn2.0.4.x86_64
+openssl-libs-1.0.2k-24.amzn2.0.6.x86_64
 p11-kit-0.23.22-1.amzn2.0.1.x86_64
 p11-kit-trust-0.23.22-1.amzn2.0.1.x86_64
 pcre-8.32-17.amzn2.0.2.x86_64
@@ -49,5 +49,5 @@ popt-1.13-16.amzn2.0.2.x86_64
 sed-4.2.2-5.amzn2.0.2.x86_64
 setup-2.8.71-10.amzn2.0.1.noarch
 system-release-2-14.amzn2.x86_64
-tzdata-2022f-1.amzn2.0.1.noarch
+tzdata-2022g-1.amzn2.0.2.noarch
 zlib-1.2.7-19.amzn2.0.2.x86_64
