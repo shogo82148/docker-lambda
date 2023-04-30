@@ -13,10 +13,15 @@ do
     if [[ -f "$FUNCTION" ]]; then
         continue
     fi
-    if [[ "$FUNCTION" = layer ]]; then
+    if [[ "$FUNCTION" = "layer" ]]; then
         continue
     fi
-    if [[ "$FUNCTION" = templates ]]; then
+    if [[ "$FUNCTION" = "templates" ]]; then
+        continue
+    fi
+
+    if [[ "$FUNCTION" = "python3.6" ]]; then
+        # python3.6 is no longer supported for creating or updating AWS Lambda functions.
         continue
     fi
 
