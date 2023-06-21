@@ -1,7 +1,7 @@
 basesystem-10.0-7.amzn2.0.1.noarch
 bash-4.2.46-34.amzn2.aarch64
 bzip2-libs-1.0.6-13.amzn2.0.3.aarch64
-ca-certificates-2021.2.50-72.amzn2.0.5.noarch
+ca-certificates-2021.2.50-72.amzn2.0.7.noarch
 chkconfig-1.7.4-1.amzn2.0.2.aarch64
 coreutils-8.22-24.amzn2.aarch64
 dejavu-fonts-common-2.33-6.amzn2.noarch
@@ -12,10 +12,10 @@ fontconfig-2.13.0-4.3.amzn2.aarch64
 fontpackages-filesystem-1.44-8.amzn2.noarch
 freetype-2.8-14.amzn2.1.1.aarch64
 gawk-4.0.2-4.amzn2.1.2.aarch64
-glibc-2.26-62.amzn2.aarch64
-glibc-all-langpacks-2.26-62.amzn2.aarch64
-glibc-common-2.26-62.amzn2.aarch64
-glibc-minimal-langpack-2.26-62.amzn2.aarch64
+glibc-2.26-63.amzn2.aarch64
+glibc-all-langpacks-2.26-63.amzn2.aarch64
+glibc-common-2.26-63.amzn2.aarch64
+glibc-minimal-langpack-2.26-63.amzn2.aarch64
 gmp-6.0.0-15.amzn2.0.2.aarch64
 grep-2.20-3.amzn2.0.2.aarch64
 info-5.1-5.amzn2.aarch64
@@ -49,5 +49,5 @@ popt-1.13-16.amzn2.0.2.aarch64
 sed-4.2.2-5.amzn2.0.2.aarch64
 setup-2.8.71-10.amzn2.0.1.noarch
 system-release-2-14.amzn2.aarch64
-tzdata-2022g-1.amzn2.0.2.noarch
+tzdata-2023c-1.amzn2.0.1.noarch
 zlib-1.2.7-19.amzn2.0.2.aarch64
