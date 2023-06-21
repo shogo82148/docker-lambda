@@ -38,6 +38,7 @@ jobs:
           - python3.9
           - python3.10
           - ruby2.7
+          - ruby3.2
     steps:
       - uses: actions/checkout@v3
       - name: Configure AWS Credentials
@@ -223,6 +224,7 @@ jobs:
           - python3.9
           - python3.10
           - ruby2.7
+          - ruby3.2
     steps:
       - uses: docker/setup-qemu-action@v2
       - uses: docker/setup-buildx-action@v2
