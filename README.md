@@ -18,15 +18,15 @@ the [AWS CLI](https://aws.amazon.com/cli/).
 
 ## Contents
 
-* [Usage](#usage)
-* [Migrate from lambci/docker-lambda](#migrate-from-lambci-docker-lambda)
-* [Run Examples](#run-examples)
-* [Build Examples](#build-examples)
-* [Using a Dockerfile to build](#using-a-dockerfile-to-build)
-* [Docker tags](#docker-tags)
-* [Environment variables](#environment-variables)
-* [Build environment](#build-environment)
-* [Questions](#questions)
+- [Usage](#usage)
+- [Migrate from lambci/docker-lambda](#migrate-from-lambci-docker-lambda)
+- [Run Examples](#run-examples)
+- [Build Examples](#build-examples)
+- [Using a Dockerfile to build](#using-a-dockerfile-to-build)
+- [Docker tags](#docker-tags)
+- [Environment variables](#environment-variables)
+- [Build environment](#build-environment)
+- [Questions](#questions)
 
 ---
 
@@ -174,7 +174,6 @@ all from within the image.
 docker run [--rm] -v <code_dir>:/var/task [-v <layer_dir>:/opt] public.ecr.aws/shogo82148/lambda-<runtime>:build-<runtime-version> <build-cmd>
 ```
 
-
 ## Migrate from lambci/docker-lambda
 
 Replace `lambci/lambda:<runtime><runtime-version>` into `public.ecr.aws/shogo82148/lambda-<runtime>:<runtime-version>`, and `lambci/lambda:build-<runtime><runtime-version>` into `public.ecr.aws/shogo82148/lambda-<runtime>:build-<runtime-version>`.
@@ -279,6 +278,7 @@ docker run --rm -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY mylambda
 These follow the Lambda runtime names:
 
 - [Node.js Runtimes](https://gallery.ecr.aws/shogo82148/lambda-nodejs)
+
   - `public.ecr.aws/shogo82148/lambda-nodejs:18`
   - `public.ecr.aws/shogo82148/lambda-nodejs:18-arm64`
   - `public.ecr.aws/shogo82148/lambda-nodejs:18-x86_64`
@@ -305,6 +305,13 @@ These follow the Lambda runtime names:
   - `public.ecr.aws/shogo82148/lambda-nodejs:build-12-x86_64`
 
 - [Python Runtimes](https://gallery.ecr.aws/shogo82148/lambda-python)
+
+  - `public.ecr.aws/shogo82148/lambda-python:3.11`
+  - `public.ecr.aws/shogo82148/lambda-python:3.11-arm64`
+  - `public.ecr.aws/shogo82148/lambda-python:3.11-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.11`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.11-arm64`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.11-x86_64`
   - `public.ecr.aws/shogo82148/lambda-python:3.10`
   - `public.ecr.aws/shogo82148/lambda-python:3.10-arm64`
   - `public.ecr.aws/shogo82148/lambda-python:3.10-x86_64`
@@ -329,6 +336,7 @@ These follow the Lambda runtime names:
   - `public.ecr.aws/shogo82148/lambda-python:build-3.6`
 
 - [Ruby Runtimes](https://gallery.ecr.aws/shogo82148/lambda-ruby)
+
   - `public.ecr.aws/shogo82148/lambda-ruby:2.7`
   - `public.ecr.aws/shogo82148/lambda-ruby:2.7-arm64`
   - `public.ecr.aws/shogo82148/lambda-ruby:2.7-x86_64`
@@ -337,6 +345,7 @@ These follow the Lambda runtime names:
   - `public.ecr.aws/shogo82148/lambda-ruby:build-2.7-x86_64`
 
 - [Java Runtimes](https://gallery.ecr.aws/shogo82148/lambda-java)
+
   - `public.ecr.aws/shogo82148/lambda-java:17`
   - `public.ecr.aws/shogo82148/lambda-java:17-arm64`
   - `public.ecr.aws/shogo82148/lambda-java:17-x86_64`
@@ -359,10 +368,12 @@ These follow the Lambda runtime names:
   - `public.ecr.aws/shogo82148/lambda-java:8`
 
 - [Go runtimes](https://gallery.ecr.aws/shogo82148/lambda-go)
+
   - `public.ecr.aws/shogo82148/lambda-go:1`
   - `public.ecr.aws/shogo82148/lambda-go:build-1`
 
 - [.Net Runtimes](https://gallery.ecr.aws/shogo82148/lambda-dotnet) and [.Net Core Runtimes](https://gallery.ecr.aws/shogo82148/lambda-dotnetcore)
+
   - `public.ecr.aws/shogo82148/lambda-dotnet:6`
   - `public.ecr.aws/shogo82148/lambda-dotnet:6-arm64`
   - `public.ecr.aws/shogo82148/lambda-dotnet:6-x86_64`
@@ -384,59 +395,59 @@ These follow the Lambda runtime names:
 
 ## Environment variables
 
-  - `AWS_LAMBDA_FUNCTION_HANDLER` or `_HANDLER`
-  - `AWS_LAMBDA_EVENT_BODY`
-  - `AWS_LAMBDA_FUNCTION_NAME`
-  - `AWS_LAMBDA_FUNCTION_VERSION`
-  - `AWS_LAMBDA_FUNCTION_INVOKED_ARN`
-  - `AWS_LAMBDA_FUNCTION_MEMORY_SIZE`
-  - `AWS_LAMBDA_FUNCTION_TIMEOUT`
-  - `_X_AMZN_TRACE_ID`
-  - `AWS_REGION` or `AWS_DEFAULT_REGION`
-  - `AWS_ACCOUNT_ID`
-  - `AWS_ACCESS_KEY_ID`
-  - `AWS_SECRET_ACCESS_KEY`
-  - `AWS_SESSION_TOKEN`
-  - `DOCKER_LAMBDA_USE_STDIN`
-  - `DOCKER_LAMBDA_STAY_OPEN`
-  - `DOCKER_LAMBDA_API_PORT`
-  - `DOCKER_LAMBDA_RUNTIME_PORT`
-  - `DOCKER_LAMBDA_DEBUG`
-  - `DOCKER_LAMBDA_NO_MODIFY_LOGS`
+- `AWS_LAMBDA_FUNCTION_HANDLER` or `_HANDLER`
+- `AWS_LAMBDA_EVENT_BODY`
+- `AWS_LAMBDA_FUNCTION_NAME`
+- `AWS_LAMBDA_FUNCTION_VERSION`
+- `AWS_LAMBDA_FUNCTION_INVOKED_ARN`
+- `AWS_LAMBDA_FUNCTION_MEMORY_SIZE`
+- `AWS_LAMBDA_FUNCTION_TIMEOUT`
+- `_X_AMZN_TRACE_ID`
+- `AWS_REGION` or `AWS_DEFAULT_REGION`
+- `AWS_ACCOUNT_ID`
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `AWS_SESSION_TOKEN`
+- `DOCKER_LAMBDA_USE_STDIN`
+- `DOCKER_LAMBDA_STAY_OPEN`
+- `DOCKER_LAMBDA_API_PORT`
+- `DOCKER_LAMBDA_RUNTIME_PORT`
+- `DOCKER_LAMBDA_DEBUG`
+- `DOCKER_LAMBDA_NO_MODIFY_LOGS`
 
 ## Build environment
 
 Yum packages installed on build images:
 
-  - `development` (group, includes `gcc-c++`, `autoconf`, `automake`, `git`, `vim`, etc)
-  - `docker` (Docker in Docker!)
-  - `clang`
-  - `cmake`
-  
+- `development` (group, includes `gcc-c++`, `autoconf`, `automake`, `git`, `vim`, etc)
+- `docker` (Docker in Docker!)
+- `clang`
+- `cmake`
+
 The build image for older Amazon Linux 1 based runtimes also include:
 
-  - `python27-devel`
-  - `python36-devel`
-  - `ImageMagick-devel`
-  - `cairo-devel`
-  - `libssh2-devel`
-  - `libxslt-devel`
-  - `libmpc-devel`
-  - `readline-devel`
-  - `db4-devel`
-  - `libffi-devel`
-  - `expat-devel`
-  - `libicu-devel`
-  - `lua-devel`
-  - `gdbm-devel`
-  - `sqlite-devel`
-  - `pcre-devel`
-  - `libcurl-devel`
-  - `yum-plugin-ovl`
+- `python27-devel`
+- `python36-devel`
+- `ImageMagick-devel`
+- `cairo-devel`
+- `libssh2-devel`
+- `libxslt-devel`
+- `libmpc-devel`
+- `readline-devel`
+- `db4-devel`
+- `libffi-devel`
+- `expat-devel`
+- `libicu-devel`
+- `lua-devel`
+- `gdbm-devel`
+- `sqlite-devel`
+- `pcre-devel`
+- `libcurl-devel`
+- `yum-plugin-ovl`
 
 ## Questions
 
-* *When should I use this?*
+- _When should I use this?_
 
   When you want fast local reproducibility. When you don't want to spin up an
   Amazon Linux EC2 instance (indeed, network aside, this is closer to the real
@@ -446,32 +457,31 @@ The build image for older Amazon Linux 1 based runtimes also include:
   from your dev machine or run tests on your CI system (assuming it has Docker
   support!)
 
-
-* *Wut, how?*
+- _Wut, how?_
 
   By [tarring the full filesystem in Lambda, uploading that to S3](./base/dump-nodejs43.js),
   and then [piping into Docker to create a new image from scratch](./base/create-base.sh) –
   then [creating mock modules](./nodejs4.3/run/awslambda-mock.js) that will be
   required/included in place of the actual native modules that communicate with
-  the real Lambda coordinating services.  Only the native modules are mocked
+  the real Lambda coordinating services. Only the native modules are mocked
   out – the actual parent JS/PY/Java runner files are left alone, so their behaviors
   don't need to be replicated (like the overriding of `console.log`, and custom
   defined properties like `callbackWaitsForEmptyEventLoop`)
 
-* *What's missing from the images?*
+- _What's missing from the images?_
 
   Hard to tell – anything that's not readable – so at least `/root/*` –
   but probably a little more than that – hopefully nothing important, after all,
   it's not readable by Lambda, so how could it be!
 
-* *Is it really necessary to replicate exactly to this degree?*
+- _Is it really necessary to replicate exactly to this degree?_
 
   Not for many scenarios – some compiled Linux binaries work out of the box
   and an Amazon Linux Docker image can compile some binaries that work on
   Lambda too, for example – but for testing it's great to be able to reliably
   verify permissions issues, library linking issues, etc.
 
-* *What's this got to do with LambCI?*
+- _What's this got to do with LambCI?_
 
   Technically nothing – it's just been incredibly useful during the building
   and testing of LambCI.
