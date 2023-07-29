@@ -20,8 +20,8 @@ do
         continue
     fi
 
-    if [[ "$FUNCTION" = "python3.6" ]]; then
-        # python3.6 is no longer supported for creating or updating AWS Lambda functions.
+    if [[ -f "$FUNCTION/eol" ]]; then
+        # no longer supported for creating or updating AWS Lambda functions.
         continue
     fi
 
