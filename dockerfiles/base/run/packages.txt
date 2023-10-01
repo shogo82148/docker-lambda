@@ -1,7 +1,7 @@
-ImageMagick-6.9.10.97-1.25.amzn1.x86_64
+ImageMagick-6.9.10.97-1.27.amzn1.x86_64
 alsa-lib-1.0.22-3.9.amzn1.x86_64
 audit-libs-2.6.5-3.28.amzn1.x86_64
-avahi-libs-0.6.25-12.17.amzn1.x86_64
+avahi-libs-0.6.25-12.19.amzn1.x86_64
 basesystem-10.0-4.9.amzn1.noarch
 bash-4.2.46-34.43.amzn1.x86_64
 binutils-2.25.1-31.base.66.amzn1.x86_64
@@ -16,7 +16,7 @@ coreutils-8.22-15.52.amzn1.x86_64
 cpio-2.10-12.12.amzn1.x86_64
 cracklib-2.8.16-4.14.amzn1.x86_64
 cracklib-dicts-2.8.16-4.14.amzn1.x86_64
-cups-libs-1.4.2-67.21.amzn1.x86_64
+cups-libs-1.4.2-67.23.amzn1.x86_64
 curl-7.61.1-12.105.amzn1.x86_64
 cyrus-sasl-lib-2.1.23-13.17.amzn1.x86_64
 db4-4.7.25-22.13.amzn1.x86_64
@@ -39,7 +39,7 @@ gawk-3.1.7-10.10.amzn1.x86_64
 gdbm-1.8.0-36.6.amzn1.x86_64
 ghostscript-fonts-5.50-23.2.7.amzn1.noarch
 giflib-4.1.6-3.1.6.amzn1.x86_64
-glib2-2.36.3-5.24.amzn1.x86_64
+glib2-2.36.3-5.26.amzn1.x86_64
 glibc-2.17-324.189.amzn1.x86_64
 glibc-common-2.17-324.189.amzn1.x86_64
 gmp-6.0.0-11.16.amzn1.x86_64
@@ -64,8 +64,8 @@ krb5-libs-1.15.1-55.51.amzn1.x86_64
 lcms2-2.6-2.5.amzn1.x86_64
 libICE-1.0.6-1.4.amzn1.x86_64
 libSM-1.2.1-2.6.amzn1.x86_64
-libX11-1.6.0-2.2.14.amzn1.x86_64
-libX11-common-1.6.0-2.2.14.amzn1.x86_64
+libX11-1.6.0-2.2.15.amzn1.x86_64
+libX11-common-1.6.0-2.2.15.amzn1.x86_64
 libXau-1.0.6-4.9.amzn1.x86_64
 libXcomposite-0.4.3-4.6.amzn1.x86_64
 libXdamage-1.1.3-4.7.amzn1.x86_64
@@ -99,7 +99,7 @@ libicu-50.2-4.0.amzn1.x86_64
 libidn2-2.3.0-1.4.amzn1.x86_64
 libjpeg-turbo-1.2.90-8.16.amzn1.x86_64
 libmount-2.23.2-63.36.amzn1.x86_64
-libnghttp2-1.33.0-1.1.6.amzn1.x86_64
+libnghttp2-1.33.0-1.1.7.amzn1.x86_64
 libpciaccess-0.13.1-4.1.11.amzn1.x86_64
 libpng-1.2.49-2.14.amzn1.x86_64
 libpsl-0.6.2-1.2.amzn1.x86_64
@@ -110,7 +110,7 @@ libsmartcols-2.23.2-63.36.amzn1.x86_64
 libssh2-1.4.2-3.13.amzn1.x86_64
 libstdc++72-7.2.1-2.59.amzn1.x86_64
 libtasn1-2.3-6.6.amzn1.x86_64
-libtiff-4.0.3-35.42.amzn1.x86_64
+libtiff-4.0.3-35.43.amzn1.x86_64
 libtool-ltdl-2.4.2-20.4.8.5.32.amzn1.x86_64
 libudev-173-4.13.amzn1.x86_64
 libunistring-0.9.3-6.1.amzn1.x86_64
@@ -130,9 +130,9 @@ mesa-dri-drivers-17.1.5-2.41.amzn1.x86_64
 mesa-filesystem-17.1.5-2.41.amzn1.x86_64
 mesa-libGL-17.1.5-2.41.amzn1.x86_64
 mesa-libglapi-17.1.5-2.41.amzn1.x86_64
-ncurses-5.7-4.20090207.14.amzn1.x86_64
-ncurses-base-5.7-4.20090207.14.amzn1.x86_64
-ncurses-libs-5.7-4.20090207.14.amzn1.x86_64
+ncurses-5.7-4.20090207.15.amzn1.x86_64
+ncurses-base-5.7-4.20090207.15.amzn1.x86_64
+ncurses-libs-5.7-4.20090207.15.amzn1.x86_64
 nspr-4.25.0-2.45.amzn1.x86_64
 nss-3.53.1-7.88.amzn1.x86_64
 nss-pem-1.0.3-4.3.amzn1.x86_64
@@ -156,10 +156,10 @@ perl-File-Path-2.09-2.5.amzn1.noarch
 perl-File-Temp-0.23.01-3.5.amzn1.noarch
 perl-Filter-1.49-3.5.amzn1.x86_64
 perl-Getopt-Long-2.40-3.6.amzn1.noarch
-perl-HTTP-Tiny-0.033-3.6.amzn1.noarch
+perl-HTTP-Tiny-0.033-3.7.amzn1.noarch
 perl-PathTools-3.40-5.5.amzn1.x86_64
 perl-Pod-Escapes-1.04-294.44.amzn1.noarch
-perl-Pod-Perldoc-3.20-4.7.amzn1.noarch
+perl-Pod-Perldoc-3.20-4.8.amzn1.noarch
 perl-Pod-Simple-3.28-4.6.amzn1.noarch
 perl-Pod-Usage-1.63-3.5.amzn1.noarch
 perl-Scalar-List-Utils-1.27-248.5.amzn1.x86_64
