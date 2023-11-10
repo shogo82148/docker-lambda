@@ -47,6 +47,9 @@
     },
     {
       "path": "dump/layer"
+    },
+    {
+      "path": "dump/base.al2023"
     }
   ],
 	"settings": {
