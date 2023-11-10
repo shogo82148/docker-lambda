@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: dump Go 1.x runtime
+Description: dump base.al2023 runtime
 
 Parameters:
   Name:
