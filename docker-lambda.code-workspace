@@ -1,5 +1,5 @@
 {
-	"folders": [
+  "folders": [
     {
       "path": "."
     },
@@ -47,12 +47,18 @@
     },
     {
       "path": "dump/layer"
+    },
+    {
+      "path": "dump/base.al2023"
+    },
+    {
+      "path": "dockerfiles/provided.al2023/run"
     }
   ],
-	"settings": {
+  "settings": {
     "java.configuration.updateBuildConfiguration": "disabled",
     "yaml.schemas": {
       "https://json.schemastore.org/github-workflow.json": "file:///Users/shogo/src/github.com/shogo82148/docker-lambda/.github/workflows/build.yml"
     }
-	}
+  }
 }

@@ -23,11 +23,11 @@ keyutils-libs-1.5.8-3.amzn2.0.2.aarch64
 krb5-libs-1.15.1-55.amzn2.2.5.aarch64
 libacl-2.2.51-14.amzn2.aarch64
 libattr-2.4.46-12.amzn2.0.2.aarch64
-libcap-2.54-1.amzn2.0.1.aarch64
+libcap-2.54-1.amzn2.0.2.aarch64
 libcom_err-1.42.9-19.amzn2.0.1.aarch64
 libffi-3.0.13-18.amzn2.0.2.aarch64
 libgcc-7.3.1-15.amzn2.aarch64
-libicu-50.2-4.amzn2.aarch64
+libicu-50.2-4.amzn2.0.1.aarch64
 libpng-1.5.13-8.amzn2.0.1.aarch64
 libselinux-2.5-12.amzn2.0.2.aarch64
 libsepol-2.5-8.1.amzn2.0.2.aarch64
@@ -35,9 +35,9 @@ libstdc++-7.3.1-15.amzn2.aarch64
 libtasn1-4.10-1.amzn2.0.3.aarch64
 libuuid-2.30.2-2.amzn2.0.11.aarch64
 libverto-0.2.5-4.amzn2.0.2.aarch64
-ncurses-6.0-8.20170212.amzn2.1.4.aarch64
-ncurses-base-6.0-8.20170212.amzn2.1.4.noarch
-ncurses-libs-6.0-8.20170212.amzn2.1.4.aarch64
+ncurses-6.0-8.20170212.amzn2.1.5.aarch64
+ncurses-base-6.0-8.20170212.amzn2.1.5.noarch
+ncurses-libs-6.0-8.20170212.amzn2.1.5.aarch64
 nspr-4.34.0-3.1.amzn2.aarch64
 nss-softokn-freebl-3.79.0-4.amzn2.aarch64
 nss-util-3.79.0-1.amzn2.aarch64
