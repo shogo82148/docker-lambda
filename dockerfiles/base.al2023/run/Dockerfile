@@ -2,7 +2,7 @@
 # so we use the build platform here.
 FROM --platform=$BUILDPLATFORM public.ecr.aws/amazonlinux/amazonlinux:2023
 
-RUN dnf install -y curl tar gzip
+RUN dnf install -y tar gzip
 
 ARG TARGETOS
 ARG TARGETARCH
