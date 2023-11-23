@@ -83,7 +83,7 @@ func dump(ctx context.Context, base bool, bucket, key string) error {
 
 	// upload to s3
 	tgzKey := strings.Replace(key, "__ARCH__", arch(), -1)
-	if err := upload(ctx, svc, data, bucket, tgzKey); err != nil {
+	if err := upload(ctx, svc, data, bucket, tgzKey, "application/tar+gzip"); err != nil {
 		return err
 	}
 
@@ -96,7 +96,7 @@ func dump(ctx context.Context, base bool, bucket, key string) error {
 	idx := strings.LastIndex(tgzKey, ".")
 	prefix := tgzKey[:idx]
 	tgzKey2 := prefix + "/" + sha256sum + ".tgz"
-	if err := upload(ctx, svc, data, bucket, tgzKey2); err != nil {
+	if err := upload(ctx, svc, data, bucket, tgzKey2, "application/tar+gzip"); err != nil {
 		return err
 	}
 
@@ -116,7 +116,7 @@ func dump(ctx context.Context, base bool, bucket, key string) error {
 		return err
 	}
 	jsonKey := prefix + ".json"
-	if err := upload(ctx, svc, jsonData, bucket, jsonKey); err != nil {
+	if err := upload(ctx, svc, jsonData, bucket, jsonKey, "application/json"); err != nil {
 		return err
 	}
 
@@ -124,7 +124,7 @@ func dump(ctx context.Context, base bool, bucket, key string) error {
 	return nil
 }
 
-func upload(ctx context.Context, svc *s3.Client, data []byte, bucket, key string) error {
+func upload(ctx context.Context, svc *s3.Client, data []byte, bucket, key, contentType string) error {
 	log.Printf("uploading to s3://%s/%s", bucket, key)
 	body := bytes.NewReader(data)
 	_, err := svc.PutObject(ctx, &s3.PutObjectInput{
