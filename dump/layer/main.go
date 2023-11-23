@@ -100,6 +100,26 @@ func dump(ctx context.Context, base bool, bucket, key string) error {
 		return err
 	}
 
+	// upload metadata to s3
+	type Metadata struct {
+		SHA256SUM string `json:"sha256sum"`
+		Key       string `json:"key"`
+		URL       string `json:"url"`
+	}
+	metadata := Metadata{
+		SHA256SUM: sha256sum,
+		Key:       tgzKey2,
+		URL:       fmt.Sprintf("https://%s.s3.amazonaws.com/%s", bucket, tgzKey2),
+	}
+	jsonData, err := json.Marshal(metadata)
+	if err != nil {
+		return err
+	}
+	jsonKey := prefix + ".json"
+	if err := upload(ctx, svc, jsonData, bucket, jsonKey); err != nil {
+		return err
+	}
+
 	log.Println("done")
 	return nil
 }
