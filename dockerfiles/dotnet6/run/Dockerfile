@@ -1,8 +1,15 @@
-FROM public.ecr.aws/amazonlinux/amazonlinux:2
+FROM --platform=$BUILDPLATFORM public.ecr.aws/amazonlinux/amazonlinux:2
 
 RUN yum install -y curl tar gzip
-RUN case $(uname -m) in "x86_64") ARCH=x86_64;; "aarch64") ARCH=arm64;; *) echo "unknown architecture: $(uname -m)"; exit 1;; esac && \
-    curl -sSL "https://shogo82148-docker-lambda.s3.amazonaws.com/fs/$ARCH/dotnet6.tgz" | tar -zx -C /
+
+ARG TARGETOS
+ARG TARGETARCH
+
+ENV ARCHIVE_URL_AMD64="https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/dotnet6/090a57e7e0c65667c0ecbf924541b36f39269f34a7b4ed50131485c706cb6883.tgz"
+ENV ARCHIVE_URL_ARM64="https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/dotnet6/ce06708237e8b12824f148bafd3b9136ffa7f21158cdf3311939ba7857fa72d7.tgz"
+
+RUN case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARCHIVE_URL=$ARCHIVE_URL_ARM64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
+    curl -sSL "$ARCHIVE_URL" | tar -zx -C /
 
 FROM public.ecr.aws/shogo82148/lambda-provided:al2
 
