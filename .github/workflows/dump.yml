@@ -1,0 +1,54 @@
+name: build
+
+on:
+  schedule:
+    - cron: "58 2 * * *"
+  workflow_dispatch:
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+
+    # ref. https://github.com/fuller-inc/actions-aws-assume-role#about-security-hardening-with-openid-connect
+    permissions:
+      id-token: write
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        runtime:
+          - base
+          - base.al2
+          - base.al2023
+          - dotnetcore3.1
+          - dotnet6
+          - go1.x
+          - java8
+          - java8.al2
+          - java11
+          - java17
+          - nodejs12.x
+          - nodejs14.x
+          - nodejs16.x
+          - nodejs18.x
+          - python3.6
+          - python3.7
+          - python3.8
+          - python3.9
+          - python3.10
+          - python3.11
+          - ruby2.7
+          - ruby3.2
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure AWS Credentials
+        uses: fuller-inc/actions-aws-assume-role@v1
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::941678122026:role/GitHubActions-us-east-1
+          role-session-tagging: true
+      - name: Dump the file system
+        run: |
+          make dump
+        working-directory: dump/${{ matrix.runtime }}
