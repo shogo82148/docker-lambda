@@ -1,8 +1,10 @@
-FROM public.ecr.aws/amazonlinux/amazonlinux:1
+FROM public.ecr.aws/amazonlinux/amazonlinux:2
+
+ENV ARCHIVE_URL="https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/base/ceb9c16c1f9e5aef6227f7f5d2829128c6182f42a1ea9ed75ef424d5b8a5b8bf.tgz"
 
 RUN yum install -y curl tar gzip
 RUN cd /opt && \
-    curl -sSL -O "https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/base.tgz" && \
+    curl -sSL -o base.tgz "$ARCHIVE_URL" && \
     tar xzf base.tgz && rm base.tgz
 RUN mkdir /opt/tmp && chmod 1777 /opt/tmp
 

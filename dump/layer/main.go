@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"compress/gzip"
 	"context"
+	"crypto/sha256"
 	"encoding/json"
 	"errors"
 	"flag"
@@ -16,6 +17,7 @@ import (
 	"os/signal"
 	"path/filepath"
 	"runtime"
+	"slices"
 	"sort"
 	"strconv"
 	"strings"
@@ -55,6 +57,7 @@ func main() {
 }
 
 func dump(ctx context.Context, base bool, bucket, key string) error {
+	// archive file system
 	log.Println("archiving filesystem")
 	d := newDumper()
 	if base {
@@ -69,20 +72,62 @@ func dump(ctx context.Context, base bool, bucket, key string) error {
 	if err := d.close(); err != nil {
 		return fmt.Errorf("failed to close: %w", err)
 	}
+	data := d.buf.Bytes()
 
-	log.Println("uploading to s3")
-
+	// configure aws client
 	cfg, err := config.LoadDefaultConfig(ctx)
 	if err != nil {
 		return fmt.Errorf("failed to load aws config: %w", err)
 	}
-
-	data := d.buf.Bytes()
-	body := bytes.NewReader(data)
-	key = strings.Replace(key, "__ARCH__", arch(), -1)
-
 	svc := s3.NewFromConfig(cfg)
-	_, err = svc.PutObject(ctx, &s3.PutObjectInput{
+
+	// upload to s3
+	tgzKey := strings.Replace(key, "__ARCH__", arch(), -1)
+	if err := upload(ctx, svc, data, bucket, tgzKey, "application/tar+gzip"); err != nil {
+		return err
+	}
+
+	// calculate sha256
+	h := sha256.New()
+	h.Write(data)
+	sha256sum := fmt.Sprintf("%x", h.Sum(nil))
+
+	// upload to s3
+	idx := strings.LastIndex(tgzKey, ".")
+	prefix := tgzKey[:idx]
+	tgzKey2 := prefix + "/" + sha256sum + ".tgz"
+	if err := upload(ctx, svc, data, bucket, tgzKey2, "application/tar+gzip"); err != nil {
+		return err
+	}
+
+	// upload metadata to s3
+	type Metadata struct {
+		SHA256SUM string `json:"sha256sum"`
+		Key       string `json:"key"`
+		URL       string `json:"url"`
+	}
+	metadata := Metadata{
+		SHA256SUM: sha256sum,
+		Key:       tgzKey2,
+		URL:       fmt.Sprintf("https://%s.s3.amazonaws.com/%s", bucket, tgzKey2),
+	}
+	jsonData, err := json.Marshal(metadata)
+	if err != nil {
+		return err
+	}
+	jsonKey := prefix + ".json"
+	if err := upload(ctx, svc, jsonData, bucket, jsonKey, "application/json"); err != nil {
+		return err
+	}
+
+	log.Println("done")
+	return nil
+}
+
+func upload(ctx context.Context, svc *s3.Client, data []byte, bucket, key, contentType string) error {
+	log.Printf("uploading to s3://%s/%s", bucket, key)
+	body := bytes.NewReader(data)
+	_, err := svc.PutObject(ctx, &s3.PutObjectInput{
 		Bucket: aws.String(bucket),
 		Key:    aws.String(key),
 		Body:   body,
@@ -91,8 +136,6 @@ func dump(ctx context.Context, base bool, bucket, key string) error {
 	if err != nil {
 		return fmt.Errorf("failed to put object: %w", err)
 	}
-
-	log.Println("done")
 	return nil
 }
 
@@ -235,14 +278,21 @@ func (d *dumper) close() error {
 	return err
 }
 
+type fileInfo struct {
+	Path string
+	Info fs.FileInfo
+}
+
 // dumpBase do the same as the following command.
 //
-//     tar -cpzf /tmp/foo.tar.gz \
-//         -C / --exclude=/proc --exclude=/sys --exclude=/dev --exclude=/tmp \
-//         --exclude=/var/task/* --exclude=/var/runtime/* --exclude=/var/lang/* --exclude=/var/rapid/* --exclude=/opt/* \
-//         --numeric-owner --ignore-failed-read /
+//	tar -cpzf /tmp/foo.tar.gz \
+//	    -C / --exclude=/proc --exclude=/sys --exclude=/dev --exclude=/tmp \
+//	    --exclude=/var/task/* --exclude=/var/runtime/* --exclude=/var/lang/* --exclude=/var/rapid/* --exclude=/opt/* \
+//	    --numeric-owner --ignore-failed-read /
 func (d *dumper) dumpBase(ctx context.Context) error {
-	return filepath.Walk("/", func(path string, info fs.FileInfo, err error) error {
+	// create a list of files to the archive
+	files := []fileInfo{}
+	err := filepath.Walk("/", func(path string, info fs.FileInfo, err error) error {
 		select {
 		case <-ctx.Done():
 			return ctx.Err()
@@ -261,23 +311,45 @@ func (d *dumper) dumpBase(ctx context.Context) error {
 			return filepath.SkipDir
 		}
 
-		err = d.addFile(path, info)
-		if errors.Is(err, os.ErrPermission) {
-			return nil
-		}
+		files = append(files, fileInfo{
+			Path: path,
+			Info: info,
+		})
 
 		if info.IsDir() && isExcludeDirContents(path) {
 			return filepath.SkipDir
 		}
-		return err
+		return nil
 	})
+	if err != nil {
+		return err
+	}
+
+	// sort by path
+	slices.SortFunc(files, func(a, b fileInfo) int {
+		return strings.Compare(a.Path, b.Path)
+	})
+
+	// add files to the archive
+	for _, f := range files {
+		err := d.addFile(f.Path, f.Info)
+		if errors.Is(err, os.ErrPermission) {
+			continue
+		}
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 // dumpRuntime do the same as the following command.
 //
-//     tar -cpzf /tmp/foo.tar.gz \
-//         --numeric-owner --ignore-failed-read /var/runtime /var/lang /var/rapid
+//	tar -cpzf /tmp/foo.tar.gz \
+//	    --numeric-owner --ignore-failed-read /var/runtime /var/lang /var/rapid
 func (d *dumper) dumpRuntime(ctx context.Context) error {
+	// create a list of files to the archive
+	files := []fileInfo{}
 	dirs := []string{
 		"/var/runtime",
 		"/var/lang",
@@ -299,12 +371,28 @@ func (d *dumper) dumpRuntime(ctx context.Context) error {
 				return err
 			}
 
-			err = d.addFile(path, info)
-			if errors.Is(err, os.ErrPermission) {
-				return nil
-			}
-			return err
+			files = append(files, fileInfo{
+				Path: path,
+				Info: info,
+			})
+			return nil
 		})
+		if err != nil {
+			return err
+		}
+	}
+
+	// sort by path
+	slices.SortFunc(files, func(a, b fileInfo) int {
+		return strings.Compare(a.Path, b.Path)
+	})
+
+	// add files to the archive
+	for _, f := range files {
+		err := d.addFile(f.Path, f.Info)
+		if errors.Is(err, os.ErrPermission) {
+			continue
+		}
 		if err != nil {
 			return err
 		}
