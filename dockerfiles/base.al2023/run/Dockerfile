@@ -7,9 +7,12 @@ RUN dnf install -y tar gzip
 ARG TARGETOS
 ARG TARGETARCH
 
+ENV ARCHIVE_URL_AMD64="https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/base.al2023/8e4cae7f1b196116dd766658fb69a102429b2a4bb3c3ac6e7883abf2e04d9695.tgz"
+ENV ARCHIVE_URL_ARM64="https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/base.al2023/6767da40189f8d3ca49bc44cdf3ced86add250b2a968e9e816a1cc9551b36f12.tgz"
+
 RUN cd /opt && \
-    case ${TARGETARCH} in "amd64") ARCH=x86_64;; "arm64") ARCH=arm64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
-    curl -sSL -O "https://shogo82148-docker-lambda.s3.amazonaws.com/fs/$ARCH/base.al2023.tgz" && \
+    case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARCHIVE_URL=$ARCHIVE_URL_ARM64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
+    curl -sSL -o base.al2023.tgz "$ARCHIVE_URL" && \
     tar xzf base.al2023.tgz && rm base.al2023.tgz
 RUN mkdir /opt/tmp && chmod 1777 /opt/tmp
 
