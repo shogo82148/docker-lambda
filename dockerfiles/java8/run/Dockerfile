@@ -1,4 +1,4 @@
-FROM openjdk:8-alpine
+FROM openjdk:17-alpine
 WORKDIR /src
 COPY ./lambda-runtime-mock /src
 RUN apk add --no-cache curl && ./build.sh
