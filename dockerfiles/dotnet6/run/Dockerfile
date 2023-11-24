@@ -13,7 +13,7 @@ RUN case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARC
 
 FROM public.ecr.aws/shogo82148/lambda-provided:al2
 
-FROM public.ecr.aws/shogo82148/lambda-base:al2
+FROM public.ecr.aws/shogo82148/lambda-base:al2.2023.11.10
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
