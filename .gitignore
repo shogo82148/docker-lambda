@@ -40,3 +40,4 @@ examples/go1.x/handler
 examples/go1.x/handler
 examples/provided.al2/bootstrap
 package-lock.json
+.tmp/
