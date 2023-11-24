@@ -1,0 +1,26 @@
+name: Build __RUNTIME__ __VARIANT__ image
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "__RUNTIME__-__VARIANT__/*"
+  pull_request:
+    paths:
+      - ".github/workflows/__RUNTIME__-__VARIANT__.yml"
+      - "dockerfiles/__RUNTIME__/__VARIANT__/**"
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: write
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+      - uses: actions/checkout@v4

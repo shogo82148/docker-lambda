@@ -1,0 +1,26 @@
+name: Build nodejs18.x run image
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "nodejs18.x-run/*"
+  pull_request:
+    paths:
+      - ".github/workflows/nodejs18.x-run.yml"
+      - "nodejs18.x/run/**"
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: write
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+      - uses: actions/checkout@v4

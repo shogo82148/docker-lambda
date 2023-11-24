@@ -1,0 +1,26 @@
+name: Build dotnet6 run image
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "dotnet6-run/*"
+  pull_request:
+    paths:
+      - ".github/workflows/dotnet6-run.yml"
+      - "dotnet6/run/**"
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: write
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+      - uses: actions/checkout@v4
