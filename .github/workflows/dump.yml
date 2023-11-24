@@ -65,4 +65,5 @@ jobs:
       - name: Commit and push
         uses: shogo82148/actions-commit-and-create-pr@v1
         with:
+          head-branch-prefix: dump-${{ matrix.runtime }}/
           github-token: ${{ steps.generate.outputs.token }}
