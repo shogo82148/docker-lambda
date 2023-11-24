@@ -32,8 +32,8 @@ jobs:
           USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
           PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
         run: |
-          printenv PASSWORD | docker login --username shogo82148 --password-stdin
-          dockerfiles/dotnet6/publish-build.sh shogo82148
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin
+          dockerfiles/dotnet6/publish-build.sh "$USERNAME"
           docker logout
 
       - name: Publish to GitHub Packages Container registry
