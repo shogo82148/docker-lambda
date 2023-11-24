@@ -1,4 +1,4 @@
-FROM public.ecr.aws/shogo82148/lambda-base:alami
+FROM public.ecr.aws/shogo82148/lambda-base:alami.2023.11.13
 
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin \
   PIPX_BIN_DIR=/usr/local/bin \
