@@ -9,7 +9,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/nodejs16.x-run.yml"
-      - "nodejs16.x/run/**"
+      - "dockerfiles/nodejs16.x/run/**"
   workflow_dispatch:
 
 permissions:
@@ -24,3 +24,23 @@ jobs:
       - uses: docker/setup-qemu-action@v3
       - uses: docker/setup-buildx-action@v3
       - uses: actions/checkout@v4
+      - name: build
+        run: dockerfiles/nodejs16.x/build-run.sh
+
+      - name: Publish to DockerHub
+        env:
+          USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
+          PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+        run: |
+          printenv PASSWORD | docker login --username shogo82148 --password-stdin
+          dockerfiles/nodejs16.x/publish-run.sh shogo82148
+          docker logout
+
+      - name: Publish to GitHub Packages Container registry
+        env:
+          USERNAME: ${{ github.repository_owner }}
+          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin ghcr.io
+          dockerfiles/nodejs16.x/publish-run.sh "ghcr.io/$USERNAME"
+          docker logout
