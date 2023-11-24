@@ -57,6 +57,8 @@ jobs:
         working-directory: dump/${{ matrix.runtime }}
 
       - name: Update Dockerfile
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           ./update.sh
         working-directory: dockerfiles/${{ matrix.runtime }}
