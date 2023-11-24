@@ -16,5 +16,5 @@ export ARCHIVE_URL_AMD64
 export ARCHIVE_URL_ARM64
 
 # update Dockerfile
-perl -pi -e 's/^ENV ARCHIVE_URL_AMD64=.*$/ENV ARCHIVE_URL_AMD64="$ENV{ARCHIVE_URL_AMD64}"/g' Dockerfile
-perl -pi -e 's/^ENV ARCHIVE_URL_ARM64=.*$/ENV ARCHIVE_URL_ARM64="$ENV{ARCHIVE_URL_ARM64}"/g' Dockerfile
+perl -pi -e 's/^ENV ARCHIVE_URL_AMD64=.*$/ENV ARCHIVE_URL_AMD64="$ENV{ARCHIVE_URL_AMD64}"/g' run/Dockerfile
+perl -pi -e 's/^ENV ARCHIVE_URL_ARM64=.*$/ENV ARCHIVE_URL_ARM64="$ENV{ARCHIVE_URL_ARM64}"/g' run/Dockerfile

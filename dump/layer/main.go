@@ -219,6 +219,16 @@ func dumpCmdline() error {
 	return nil
 }
 
+var excludeFiles = []string{
+	"/etc/hostname",
+	"/etc/hosts",
+	"/etc/resolv.conf",
+}
+
+func isExcludeFile(path string) bool {
+	return slices.Contains(excludeFiles, path)
+}
+
 // excludes the directory itself and its contents.
 var excludeDirs = []string{
 	"/proc",
@@ -228,12 +238,7 @@ var excludeDirs = []string{
 }
 
 func isExcludeDir(path string) bool {
-	for _, dir := range excludeDirs {
-		if path == dir {
-			return true
-		}
-	}
-	return false
+	return slices.Contains(excludeDirs, path)
 }
 
 // excludes its contents, but includes the directory itself.
@@ -246,12 +251,7 @@ var excludeDirContents = []string{
 }
 
 func isExcludeDirContents(path string) bool {
-	for _, dir := range excludeDirContents {
-		if path == dir {
-			return true
-		}
-	}
-	return false
+	return slices.Contains(excludeDirContents, path)
 }
 
 type dumper struct {
@@ -307,8 +307,14 @@ func (d *dumper) dumpBase(ctx context.Context) error {
 			return err
 		}
 
-		if info.IsDir() && isExcludeDir(path) {
-			return filepath.SkipDir
+		if info.IsDir() {
+			if isExcludeDir(path) {
+				return filepath.SkipDir
+			}
+		} else {
+			if isExcludeFile(path) {
+				return nil
+			}
 		}
 
 		files = append(files, fileInfo{

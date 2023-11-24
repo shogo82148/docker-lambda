@@ -11,4 +11,4 @@ ARCHIVE_URL=$(echo "$METADATA" | jq -r .url)
 export ARCHIVE_URL
 
 # update Dockerfile
-perl -pi -e 's/^ENV ARCHIVE_URL=.*$/ENV ARCHIVE_URL="$ENV{ARCHIVE_URL}"/g' Dockerfile
+perl -pi -e 's/^ENV ARCHIVE_URL=.*$/ENV ARCHIVE_URL="$ENV{ARCHIVE_URL}"/g' run/Dockerfile
