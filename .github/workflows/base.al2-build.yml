@@ -46,4 +46,16 @@ jobs:
         run: |
           printenv PASSWORD | docker login --username "$USERNAME" --password-stdin ghcr.io
           dockerfiles/base.al2/publish-build.sh "ghcr.io/$USERNAME"
-          docker logout
+          docker logout ghcr.io
+
+      - name: Configure AWS Credentials
+        uses: fuller-inc/actions-aws-assume-role@v1
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::445285296882:role/lambda-docker-repository-DeploymentRole-1HRJZXKHD4SPU
+          role-session-tagging: true
+      - name: Publish to ECR Public Registry
+        run: |
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
+          dockerfiles/base.al2/publish-build.sh "public.ecr.aws/shogo82148"
+          docker logout public.ecr.aws/shogo82148
