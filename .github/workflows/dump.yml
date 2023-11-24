@@ -48,7 +48,21 @@ jobs:
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::941678122026:role/GitHubActions-us-east-1
           role-session-tagging: true
+
       - name: Dump the file system
         run: |
           make dump
         working-directory: dump/${{ matrix.runtime }}
+
+      - name: Update Dockerfile
+        run: |
+          ./update.sh
+        working-directory: dockerfiles/${{ matrix.runtime }}
+      
+      # commit and push
+      - id: generate
+        uses: shogo82148/actions-github-app-token@v1
+      - name: Commit and push
+        uses: shogo82148/actions-commit-and-create-pr@v1
+        with:
+          github-token: ${{ steps.generate.outputs.token }}
