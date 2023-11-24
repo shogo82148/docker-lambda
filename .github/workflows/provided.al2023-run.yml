@@ -1,0 +1,61 @@
+name: Build provided.al2023 run image
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "provided.al2023-run/*"
+  pull_request:
+    paths:
+      - ".github/workflows/provided.al2023-run.yml"
+      - "dockerfiles/provided.al2023/run/**"
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: write
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+      - uses: actions/checkout@v4
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: "5.38"
+      - name: build
+        run: dockerfiles/provided.al2023/build-run.sh
+
+      - name: Publish to DockerHub
+        env:
+          USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
+          PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+        run: |
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin
+          dockerfiles/provided.al2023/publish-run.sh "$USERNAME"
+          docker logout
+
+      - name: Publish to GitHub Packages Container registry
+        env:
+          USERNAME: ${{ github.repository_owner }}
+          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin ghcr.io
+          dockerfiles/provided.al2023/publish-run.sh "ghcr.io/$USERNAME"
+          docker logout ghcr.io
+
+      - name: Configure AWS Credentials
+        uses: fuller-inc/actions-aws-assume-role@v1
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::445285296882:role/lambda-docker-repository-DeploymentRole-1HRJZXKHD4SPU
+          role-session-tagging: true
+      - name: Publish to ECR Public Registry
+        run: |
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
+          dockerfiles/provided.al2023/publish-run.sh "public.ecr.aws/shogo82148"
+          docker logout public.ecr.aws/shogo82148

@@ -21,22 +21,32 @@ my $runtimes = [
     "base",
     "base.al2",
     "base.al2023",
+
     "dotnet6",
+
     "go1.x",
+
     "java8",
     "java8.al2",
     "java11",
     "java17",
+
     "nodejs14.x",
     "nodejs16.x",
     "nodejs18.x",
+
     "python3.7",
     "python3.8",
     "python3.9",
     "python3.10",
     "python3.11",
+
     "ruby2.7",
     "ruby3.2",
+
+    "provided",
+    "provided.al2",
+    "provided.al2023",
 ];
 
 for my $runtime (@$runtimes) {

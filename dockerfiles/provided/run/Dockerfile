@@ -6,7 +6,7 @@ COPY init.go ./
 RUN CGO_ENABLED=0 GOOS=linux go build -o init init.go
 
 
-FROM public.ecr.aws/shogo82148/lambda-base:alami
+FROM public.ecr.aws/shogo82148/lambda-base:alami.2023.11.25
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH
