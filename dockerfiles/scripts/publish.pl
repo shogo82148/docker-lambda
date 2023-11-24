@@ -28,13 +28,6 @@ sub docker {
 my $registry = $ARGV[0];
 my $tag = $ARGV[1];
 
-my $ref = $ENV{GITHUB_REF} || '';
-if ($ref !~ m(^refs/tags/[^/]+/(.*))) {
-    say STDERR "skip, '$ref' is not a tag";
-    exit 0;
-}
-my $version = $1;
-
 chdir "$FindBin::Bin/..";
 
 docker(
@@ -42,6 +35,14 @@ docker(
     $tag,
     "$registry/$tag",
 );
+
+my $ref = $ENV{GITHUB_REF} || '';
+if ($ref !~ m(^refs/tags/[^/]+/(.*))) {
+    say STDERR "skip, '$ref' is not a tag";
+    exit 0;
+}
+my $version = $1;
+
 docker(
     "push",
     "$registry/$tag",
