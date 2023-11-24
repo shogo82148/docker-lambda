@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-echo "TODO: implement me" >&2
+set -eux
+PREFIX=$1
+CURRENT=$(cd "$(dirname "$0")" && pwd)
+"$CURRENT/../scripts/publish.pl" "$PREFIX" lambda-base:build-alami
