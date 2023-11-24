@@ -311,6 +311,11 @@ func (d *dumper) dumpBase(ctx context.Context) error {
 			return filepath.SkipDir
 		}
 
+		// resolv.conf is not reproducible
+		if path == "/etc/resolv.conf" {
+			return nil
+		}
+
 		files = append(files, fileInfo{
 			Path: path,
 			Info: info,
