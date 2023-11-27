@@ -64,7 +64,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          ./scripts/update-dockerfile.sh ${{ matrix.runtime }}
+          ./scripts/update-dockerfile.pl ${{ matrix.runtime }}
       
       # commit and push
       - id: generate
