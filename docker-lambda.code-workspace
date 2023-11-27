@@ -64,6 +64,7 @@
       "buildx",
       "dockerfiles",
       "DOCKERHUB"
-    ]
+    ],
+    "editor.formatOnSave": false
   }
 }
