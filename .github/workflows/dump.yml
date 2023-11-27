@@ -48,6 +48,9 @@ jobs:
           - ruby3.2
     steps:
       - uses: actions/checkout@v4
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: "5.38"
       - name: Configure AWS Credentials
         uses: fuller-inc/actions-aws-assume-role@v1
         with:
