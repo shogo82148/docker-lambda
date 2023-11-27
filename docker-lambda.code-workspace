@@ -7,9 +7,6 @@
       "path": "dockerfiles/go1.x/run"
     },
     {
-      "path": "dockerfiles/provided.al2/run"
-    },
-    {
       "path": "dockerfiles/java8/run/lambda-runtime-mock"
     },
     {
