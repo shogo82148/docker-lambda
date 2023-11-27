@@ -34,6 +34,7 @@ my $runtimes = [
     "nodejs14.x",
     "nodejs16.x",
     "nodejs18.x",
+    "nodejs20.x",
 
     "python3.7",
     "python3.8",
