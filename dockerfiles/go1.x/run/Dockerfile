@@ -10,7 +10,7 @@ ARG TARGETOS
 ARG TARGETARCH
 RUN CGO_ENABLED=0 GOARCH=${TARGETARCH} GOOS=${TARGETOS} go build aws-lambda-mock.go
 
-FROM public.ecr.aws/amazonlinux/amazonlinux:1
+FROM public.ecr.aws/amazonlinux/amazonlinux:2023
 
 ARG TARGETOS
 ARG TARGETARCH
