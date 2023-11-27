@@ -26,18 +26,6 @@ jobs:
           reporter: github-pr-review
           level: warning
           workdir: dockerfiles/go1.x/run
-      - name: run golangci-lint in dockerfiles/provided/run
-        uses: reviewdog/action-golangci-lint@v2
-        with:
-          reporter: github-pr-review
-          level: warning
-          workdir: dockerfiles/provided/run
-      - name: run golangci-lint in dockerfiles/provided.al2/run
-        uses: reviewdog/action-golangci-lint@v2
-        with:
-          reporter: github-pr-review
-          level: warning
-          workdir: dockerfiles/provided.al2/run
 
   cfn-lint:
     name: cfn-lint
