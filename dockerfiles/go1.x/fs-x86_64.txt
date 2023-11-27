@@ -1,0 +1,8 @@
+var/lang
+var/rapid
+var/rapid/init
+var/runtime
+var/runtime/aws-lambda-go
+var/runtime/bootstrap
+var/runtime/liblambdaruntime.so
+var/runtime/runtime-release
