@@ -3,4 +3,4 @@
 set -eux
 PREFIX=$1
 CURRENT=$(cd "$(dirname "$0")" && pwd)
-"$CURRENT/../scripts/publish.pl" "$PREFIX" lambda-base:alami
+"$CURRENT/../scripts/publish.al2.pl" "$PREFIX" lambda-base:al2
