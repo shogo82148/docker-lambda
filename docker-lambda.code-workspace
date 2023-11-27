@@ -44,9 +44,6 @@
     },
     {
       "path": "dump/base.al2023"
-    },
-    {
-      "path": "dockerfiles/provided.al2023/run"
     }
   ],
   "settings": {
