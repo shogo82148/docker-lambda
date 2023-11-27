@@ -1,11 +1,6 @@
 name: dump
 
 on:
-  push:
-    branches:
-      - "!**"
-    tags:
-      - "**"
   schedule:
     - cron: "58 2 * * *"
   workflow_dispatch:
