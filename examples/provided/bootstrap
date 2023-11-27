@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# docker run --rm -v $PWD:/var/task lambci/lambda:provided handler '{"some": "event"}'
+# docker run --rm -v $PWD:/var/task public.ecr.aws/shogo82148/lambda-provided:alami handler '{"some": "event"}'
 
 while true
 do
