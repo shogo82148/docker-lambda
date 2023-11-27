@@ -1,5 +1,3 @@
-FROM public.ecr.aws/shogo82148/lambda-go:1
-
 FROM public.ecr.aws/shogo82148/lambda-base:build-alami.2023.11.25
 
 # https://golang.org/doc/devel/release.html
@@ -9,9 +7,5 @@ ENV GOLANG_VERSION=1.21.4 \
     AWS_EXECUTION_ENV=AWS_Lambda_go1.x
 
 WORKDIR /go/src/handler
-
-COPY --from=0 /var/runtime /var/runtime
-COPY --from=0 /var/lang /var/lang
-COPY --from=0 /var/rapid /var/rapid
 
 RUN curl https://storage.googleapis.com/golang/go${GOLANG_VERSION}.linux-amd64.tar.gz | tar -zx -C /usr/local
