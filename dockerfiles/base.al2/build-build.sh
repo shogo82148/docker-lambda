@@ -2,4 +2,5 @@
 
 set -eux
 CURRENT=$(cd "$(dirname "$0")" && pwd)
-docker buildx build --platform linux/amd64 --load -t lambda-base:build-alami "$CURRENT/build"
+docker buildx build --platform linux/amd64 --load -t lambda-base:build-al2-x86_64 "$CURRENT/build"
+docker buildx build --platform linux/arm64 --load -t lambda-base:build-al2-arm64 "$CURRENT/build"
