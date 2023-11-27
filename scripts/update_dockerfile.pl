@@ -104,6 +104,25 @@ sub update_image($runtime, $variant, $image, $tag) {
     spew("$basedir/run/Dockerfile", $dockerfile_run);
 }
 
+sub update_init() {
+    my $version = `gh release view --repo shogo82148/docker-lambda-init --template '{{ .tagName }}' --json tagName`;
+    if ($version !~ /^v[0-9.]+$/) {
+        die "failed to get the metadata of docker-lambda-init";
+    }
+    chomp $version;
+
+    say STDERR "updating docker-lambda-init to $version";
+    $version =~ s/^v//;
+
+    my $dockerfile_build = slurp("$basedir/build/Dockerfile");
+    $dockerfile_build =~ s(^ENV DOCKER_LAMBDA_INIT_VERSION=.*$)(ENV DOCKER_LAMBDA_INIT_VERSION=$version)gm;
+    spew("$basedir/build/Dockerfile", $dockerfile_build);
+
+    my $dockerfile_run = slurp("$basedir/run/Dockerfile");
+    $dockerfile_run =~ s(^ENV DOCKER_LAMBDA_INIT_VERSION=.*$)(ENV DOCKER_LAMBDA_INIT_VERSION=$version)gm;
+    spew("$basedir/run/Dockerfile", $dockerfile_run);
+}
+
 chdir $basedir or die "Can't chdir to $runtime: $!";
 my $script = slurp("$basedir/update.pl");
 eval $script;
