@@ -47,7 +47,7 @@ sub update_archive($name, $arch) {
 
     # dump the file list
     say STDERR "dumping file list of $url";
-    system("curl -sSL --retry 3 '$url' | tar -t | sort > $basedir/fs-$arch.txt");
+    system("curl -sSL --retry 3 '$url' | tar -tz | sort > $basedir/fs-$arch.txt");
     if ($? != 0) {
         die "failed to dump the file list of $runtime";
     }
