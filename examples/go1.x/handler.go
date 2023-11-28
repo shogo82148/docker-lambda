@@ -1,8 +1,8 @@
 // Compile with:
-// docker run --rm -v "$PWD":/go/src/handler lambci/lambda:build-go1.x sh -c 'go mod download && go build handler.go'
+// docker run --rm -v "$PWD":/go/src/handler public.ecr.aws/shogo82148/lambda-go:build-1 sh -c 'go mod download && go build handler.go'
 
 // Run with:
-// docker run --rm -v "$PWD":/var/task lambci/lambda:go1.x handler '{"Records": []}'
+// docker run --rm -v "$PWD":/var/task public.ecr.aws/shogo82148/lambda-go:1 handler '{"Records": []}'
 
 package main
 
