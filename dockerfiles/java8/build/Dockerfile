@@ -1,19 +1,19 @@
-FROM lambci/lambda:java8
+FROM public.ecr.aws/amazonlinux/amazonlinux:1
 
-FROM public.ecr.aws/shogo82148/lambda-base:build-alami
+ARG TARGETOS
+ARG TARGETARCH
+
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/java8/af0718a56ed4aa91e036e4319e85bde41ada855141e50966446d4113c815d55f.tgz
+
+RUN curl -sSL "$ARCHIVE_URL_AMD64" | tar -zx -C /
+
+
+FROM public.ecr.aws/shogo82148/lambda-base:build-alami.2023.11.25
 
 ENV AWS_EXECUTION_ENV=AWS_Lambda_java8
 
 WORKDIR /
 
-COPY --from=0 /var/runtime /var/runtime
-COPY --from=0 /var/lang /var/lang
-COPY --from=0 /var/rapid /var/rapid
+COPY --from=0 /var /var
 
-RUN yum install -y java-1.8.0-openjdk-devel && \
-  mkdir /usr/local/gradle && curl -L -o gradle.zip https://services.gradle.org/distributions/gradle-7.3.1-bin.zip && \
-  unzip -qd /usr/local/gradle gradle.zip && rm gradle.zip && mkdir /usr/local/maven && \
-  curl -L https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz | \
-  tar -zx -C /usr/local/maven
-
-ENV PATH="/usr/local/gradle/gradle-7.3.1/bin:/usr/local/maven/apache-maven-3.6.4/bin:${PATH}"
+RUN yum install -y java-1.8.0-openjdk-devel
