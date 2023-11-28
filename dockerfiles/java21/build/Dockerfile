@@ -15,8 +15,7 @@ FROM public.ecr.aws/shogo82148/lambda-base:build-al2023.2023.11.27
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
-    AWS_EXECUTION_ENV=AWS_Lambda_nodejs20.x \
-    NODE_PATH=/opt/nodejs/node16/node_modules:/opt/nodejs/node_modules:/var/runtime/node_modules
+    AWS_EXECUTION_ENV=AWS_Lambda_java21
 
 COPY --from=0 /var /var
 
