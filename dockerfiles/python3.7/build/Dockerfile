@@ -1,6 +1,14 @@
-FROM public.ecr.aws/shogo82148/lambda-python:3.7
+FROM public.ecr.aws/amazonlinux/amazonlinux:1
 
-FROM public.ecr.aws/shogo82148/lambda-base:build-al2
+ARG TARGETOS
+ARG TARGETARCH
+
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/python3.7/26ccff433d8b66d38f3ecde47c1be42d16ab1a3d8c25e4f910b798aa3c099c48.tgz
+
+RUN curl -sSL "$ARCHIVE_URL_AMD64" | tar -zx -C /
+
+
+FROM public.ecr.aws/shogo82148/lambda-base:build-alami.2023.11.25
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
@@ -9,6 +17,4 @@ ENV PATH=/var/lang/bin:$PATH \
     PIPX_BIN_DIR=/var/lang/bin \
     PIPX_HOME=/var/lang/pipx
 
-COPY --from=0 /var/runtime /var/runtime
-COPY --from=0 /var/lang /var/lang
-COPY --from=0 /var/rapid /var/rapid
+COPY --from=0 /var /var
