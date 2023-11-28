@@ -1,27 +1,28 @@
 FROM --platform=$BUILDPLATFORM public.ecr.aws/amazonlinux/amazonlinux:2
 
-RUN yum install -y curl tar gzip
+RUN yum install -y tar gzip
 
 ARG TARGETOS
 ARG TARGETARCH
 
-ENV ARCHIVE_URL_AMD64="https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/java8.al2/13f9ead71de11d6a6312e8c10ed1a332e643b19b12859981ab6e50b23a8ebadf.tgz"
-ENV ARCHIVE_URL_ARM64="https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/java8.al2/085889ccac4b8e5cfc8f89fcafa92c8fb551dab28bc463aa8873d338d1151b0e.tgz"
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/java8.al2/13f9ead71de11d6a6312e8c10ed1a332e643b19b12859981ab6e50b23a8ebadf.tgz
+ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/java8.al2/085889ccac4b8e5cfc8f89fcafa92c8fb551dab28bc463aa8873d338d1151b0e.tgz
 
 RUN case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARCHIVE_URL=$ARCHIVE_URL_ARM64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
     curl -sSL "$ARCHIVE_URL" | tar -zx -C /
 
-FROM public.ecr.aws/shogo82148/lambda-provided:al2
+ENV DOCKER_LAMBDA_INIT_VERSION=1.0.0
 
-FROM public.ecr.aws/shogo82148/lambda-base:al2
+RUN curl -sSL "https://github.com/shogo82148/docker-lambda-init/releases/download/v$DOCKER_LAMBDA_INIT_VERSION/docker-lambda-init_${DOCKER_LAMBDA_INIT_VERSION}_linux_${TARGETARCH}.tar.gz" | tar xzv
+
+FROM public.ecr.aws/shogo82148/lambda-base:al2.2023.11.27
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
     AWS_EXECUTION_ENV=AWS_Lambda_java8.al2
 
 COPY --from=0 /var /var
-
-COPY --from=1 /var/runtime/init /var/rapid/init
+COPY --from=0 /docker-lambda-init /var/rapid/init
 
 USER sbx_user1051
 
