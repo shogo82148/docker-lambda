@@ -30,6 +30,7 @@ my $runtimes = [
     "java8.al2",
     "java11",
     "java17",
+    "java21",
 
     "nodejs14.x",
     "nodejs16.x",
