@@ -20,6 +20,9 @@ chdir "$FindBin::Bin/../dockerfiles" or die "failed to chdir: $!";
 my $runtimes = [glob "*"];
 
 for my $runtime(@$runtimes) {
+    if (-f "$FindBin::Bin/../dump/$runtime/eol") {
+        next;
+    }
     for my $variant(qw/build run/) {
         my $context = "$runtime/$variant";
         unless (-d $context) {
