@@ -352,6 +352,12 @@ These follow the Lambda runtime names:
 
 - [Java Runtimes](https://gallery.ecr.aws/shogo82148/lambda-java)
 
+  - `public.ecr.aws/shogo82148/lambda-java:21`
+  - `public.ecr.aws/shogo82148/lambda-java:21-arm64`
+  - `public.ecr.aws/shogo82148/lambda-java:21-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-java:build-21`
+  - `public.ecr.aws/shogo82148/lambda-java:build-21-arm64`
+  - `public.ecr.aws/shogo82148/lambda-java:build-21-x86_64`
   - `public.ecr.aws/shogo82148/lambda-java:17`
   - `public.ecr.aws/shogo82148/lambda-java:17-arm64`
   - `public.ecr.aws/shogo82148/lambda-java:17-x86_64`
