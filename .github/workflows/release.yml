@@ -1,0 +1,56 @@
+name: dump
+
+on:
+  schedule:
+    - cron: "58 2 * * *"
+  workflow_dispatch:
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+
+    # ref. https://github.com/fuller-inc/actions-aws-assume-role#about-security-hardening-with-openid-connect
+    permissions:
+      id-token: write
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        runtime:
+          - base
+          - base.al2
+          - base.al2023
+          - dotnet6
+          - go1.x
+          - java8
+          - java8.al2
+          - java11
+          - java17
+          - java21
+          - nodejs14.x
+          - nodejs16.x
+          - nodejs18.x
+          - nodejs20.x
+          - python3.7
+          - python3.8
+          - python3.9
+          - python3.10
+          - python3.11
+          - ruby2.7
+          - ruby3.2
+    steps:
+      # secrets.GITHUB_TOKEN doesn't start a new workflow run, but we want.
+      - id: generate
+        uses: shogo82148/actions-github-app-token@v1
+
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ steps.generate.outputs.token }}
+          fetch-depth: 0 # we need all tags
+
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: "5.38"
+
+      - run: ./scripts/release.pl --force

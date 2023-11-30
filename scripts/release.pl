@@ -8,12 +8,16 @@ use Carp qw/croak/;
 use JSON;
 use Time::Piece;
 
+my $force = $ARGV[0] && $ARGV[0] eq "--force";
+
 sub new_tag($dic, $dist) {
     my $utc_time = Time::Piece->new()->gmtime();
     my $tag = sprintf("%s-%s/%04d.%02d.%02d", $dic, $dist, $utc_time->year, $utc_time->mon, $utc_time->mday);
     say "New tag: $tag";
-    system("git", "tag", $tag);
-    system("git", "push", "origin", $tag);
+    if ($force) {
+        system("git", "tag", $tag);
+        system("git", "push", "origin", $tag);
+    }
 }
 
 chdir "$FindBin::Bin/../dockerfiles" or die "failed to chdir: $!";
