@@ -9,7 +9,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/java11-run.yml"
-      - "dockerfiles/java11/run/**"
+      - "dockerfiles/java11/**"
   workflow_dispatch:
 
 permissions:

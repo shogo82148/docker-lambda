@@ -9,7 +9,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/python3.7-run.yml"
-      - "dockerfiles/python3.7/run/**"
+      - "dockerfiles/python3.7/**"
   workflow_dispatch:
 
 permissions:

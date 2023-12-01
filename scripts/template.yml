@@ -9,7 +9,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/__RUNTIME__-__VARIANT__.yml"
-      - "dockerfiles/__RUNTIME__/__VARIANT__/**"
+      - "dockerfiles/__RUNTIME__/**"
   workflow_dispatch:
 
 permissions:

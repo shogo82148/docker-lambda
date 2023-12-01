@@ -9,7 +9,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/ruby3.2-run.yml"
-      - "dockerfiles/ruby3.2/run/**"
+      - "dockerfiles/ruby3.2/**"
   workflow_dispatch:
 
 permissions:

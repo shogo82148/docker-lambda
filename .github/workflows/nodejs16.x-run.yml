@@ -9,7 +9,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/nodejs16.x-run.yml"
-      - "dockerfiles/nodejs16.x/run/**"
+      - "dockerfiles/nodejs16.x/**"
   workflow_dispatch:
 
 permissions:

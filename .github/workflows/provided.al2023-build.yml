@@ -9,7 +9,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/provided.al2023-build.yml"
-      - "dockerfiles/provided.al2023/build/**"
+      - "dockerfiles/provided.al2023/**"
   workflow_dispatch:
 
 permissions:

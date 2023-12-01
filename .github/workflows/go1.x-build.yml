@@ -9,7 +9,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/go1.x-build.yml"
-      - "dockerfiles/go1.x/build/**"
+      - "dockerfiles/go1.x/**"
   workflow_dispatch:
 
 permissions:
