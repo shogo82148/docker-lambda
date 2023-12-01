@@ -9,7 +9,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/python3.10-build.yml"
-      - "dockerfiles/python3.10/build/**"
+      - "dockerfiles/python3.10/**"
   workflow_dispatch:
 
 permissions:

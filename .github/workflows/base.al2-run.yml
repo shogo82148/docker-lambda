@@ -9,7 +9,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/base.al2-run.yml"
-      - "dockerfiles/base.al2/run/**"
+      - "dockerfiles/base.al2/**"
   workflow_dispatch:
 
 permissions:

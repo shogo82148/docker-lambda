@@ -9,7 +9,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/nodejs20.x-build.yml"
-      - "dockerfiles/nodejs20.x/build/**"
+      - "dockerfiles/nodejs20.x/**"
   workflow_dispatch:
 
 permissions:

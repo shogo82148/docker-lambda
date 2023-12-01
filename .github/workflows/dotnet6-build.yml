@@ -9,7 +9,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/dotnet6-build.yml"
-      - "dockerfiles/dotnet6/build/**"
+      - "dockerfiles/dotnet6/**"
   workflow_dispatch:
 
 permissions:

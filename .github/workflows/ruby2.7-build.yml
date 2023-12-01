@@ -9,7 +9,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/ruby2.7-build.yml"
-      - "dockerfiles/ruby2.7/build/**"
+      - "dockerfiles/ruby2.7/**"
   workflow_dispatch:
 
 permissions:
