@@ -43,6 +43,9 @@ jobs:
           - python3.11
           - ruby2.7
           - ruby3.2
+          - provided
+          - provided.al2
+          - provided.al2023
     steps:
       - uses: docker/setup-qemu-action@v3
       - uses: docker/setup-buildx-action@v3
