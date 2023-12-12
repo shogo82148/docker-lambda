@@ -1,0 +1,4 @@
+# configure for cfn-lint https://github.com/aws-cloudformation/cfn-lint
+
+templates:
+  - dump/**/*.yaml
