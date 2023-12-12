@@ -3,7 +3,7 @@ FROM public.ecr.aws/amazonlinux/amazonlinux:1
 ARG TARGETOS
 ARG TARGETARCH
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/python3.7/19d1989474f74217328eac4ecd250737d584c596dc006b2a954d407ce7aa3588.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/python3.7/574960e421ab5312405307ec6351c1fe18a246d7ac4ac2366e3b9e186e5862a4.tgz
 
 RUN curl -sSL "$ARCHIVE_URL_AMD64" | tar -zx -C /
 
@@ -11,7 +11,7 @@ ENV DOCKER_LAMBDA_INIT_VERSION=1.0.0
 
 RUN curl -sSL "https://github.com/shogo82148/docker-lambda-init/releases/download/v$DOCKER_LAMBDA_INIT_VERSION/docker-lambda-init_${DOCKER_LAMBDA_INIT_VERSION}_linux_${TARGETARCH}.tar.gz" | tar xzv
 
-FROM public.ecr.aws/shogo82148/lambda-base:alami.2023.12.08
+FROM public.ecr.aws/shogo82148/lambda-base:alami.2023.12.12
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
