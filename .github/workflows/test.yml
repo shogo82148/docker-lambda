@@ -2,7 +2,11 @@ name: test
 
 on:
   push:
+    branches:
+      - main
   pull_request:
+    paths:
+      - 'dump/**'
   workflow_dispatch:
 
 jobs:
