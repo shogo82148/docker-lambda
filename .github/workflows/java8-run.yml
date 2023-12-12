@@ -21,6 +21,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Configure AWS Credentials
+        uses: fuller-inc/actions-aws-assume-role@v1
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::445285296882:role/lambda-docker-repository-DeploymentRole-1HRJZXKHD4SPU
+          role-session-tagging: true
+
+      # login ECR Public Registry here to avoid the rate limit
+      - name: Login to ECR Public Registry
+        run: |
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
+
       - uses: docker/setup-qemu-action@v3
       - uses: docker/setup-buildx-action@v3
       - uses: actions/checkout@v4
@@ -48,14 +60,6 @@ jobs:
           dockerfiles/java8/publish-run.sh "ghcr.io/$USERNAME"
           docker logout ghcr.io
 
-      - name: Configure AWS Credentials
-        uses: fuller-inc/actions-aws-assume-role@v1
-        with:
-          aws-region: us-east-1
-          role-to-assume: arn:aws:iam::445285296882:role/lambda-docker-repository-DeploymentRole-1HRJZXKHD4SPU
-          role-session-tagging: true
       - name: Publish to ECR Public Registry
         run: |
-          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
           dockerfiles/java8/publish-run.sh "public.ecr.aws/shogo82148"
-          docker logout public.ecr.aws/shogo82148
