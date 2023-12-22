@@ -1,12 +1,12 @@
-name: dump
+name: dump-base
 
 on:
   schedule:
-    - cron: "58 2 * * *"
+    - cron: "58 1 * * *"
   workflow_dispatch:
 
 concurrency:
-  group: dump
+  group: dump-base
   cancel-in-progress: true
 
 jobs:
@@ -22,27 +22,9 @@ jobs:
       fail-fast: false
       matrix:
         runtime:
-          - dotnet6
-          - go1.x
-          - java8
-          - java8.al2
-          - java11
-          - java17
-          - java21
-          - nodejs14.x
-          - nodejs16.x
-          - nodejs18.x
-          - nodejs20.x
-          - python3.7
-          - python3.8
-          - python3.9
-          - python3.10
-          - python3.11
-          - ruby2.7
-          - ruby3.2
-          - provided
-          - provided.al2
-          - provided.al2023
+          - base
+          - base.al2
+          - base.al2023
     steps:
       - uses: docker/setup-qemu-action@v3
       - uses: docker/setup-buildx-action@v3
