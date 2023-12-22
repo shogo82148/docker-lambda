@@ -2,8 +2,6 @@ name: Build python3.11 run image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "python3.11-run/*"
   pull_request:

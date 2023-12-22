@@ -2,8 +2,6 @@ name: Build __RUNTIME__ __VARIANT__ image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "__RUNTIME__-__VARIANT__/*"
   pull_request:

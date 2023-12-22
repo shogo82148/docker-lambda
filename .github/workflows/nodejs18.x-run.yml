@@ -2,8 +2,6 @@ name: Build nodejs18.x run image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "nodejs18.x-run/*"
   pull_request:

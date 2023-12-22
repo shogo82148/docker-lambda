@@ -2,8 +2,6 @@ name: Build java8.al2 run image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "java8.al2-run/*"
   pull_request:

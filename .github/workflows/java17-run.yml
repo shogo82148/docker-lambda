@@ -2,8 +2,6 @@ name: Build java17 run image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "java17-run/*"
   pull_request:

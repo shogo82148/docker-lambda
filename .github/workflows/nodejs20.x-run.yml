@@ -2,8 +2,6 @@ name: Build nodejs20.x run image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "nodejs20.x-run/*"
   pull_request:

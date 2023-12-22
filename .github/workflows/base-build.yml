@@ -2,8 +2,6 @@ name: Build base build image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "base-build/*"
   pull_request:
