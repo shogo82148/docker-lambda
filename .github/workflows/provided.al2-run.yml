@@ -2,8 +2,6 @@ name: Build provided.al2 run image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "provided.al2-run/*"
   pull_request:

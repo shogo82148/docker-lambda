@@ -2,8 +2,6 @@ name: Build nodejs16.x run image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "nodejs16.x-run/*"
   pull_request:

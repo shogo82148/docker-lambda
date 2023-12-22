@@ -2,8 +2,6 @@ name: Build base.al2023 run image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "base.al2023-run/*"
   pull_request:

@@ -2,8 +2,6 @@ name: Build java21 build image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "java21-build/*"
   pull_request:

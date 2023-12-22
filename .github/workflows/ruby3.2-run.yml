@@ -2,8 +2,6 @@ name: Build ruby3.2 run image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "ruby3.2-run/*"
   pull_request:

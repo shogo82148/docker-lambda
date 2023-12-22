@@ -2,8 +2,6 @@ name: Build java8 run image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "java8-run/*"
   pull_request:

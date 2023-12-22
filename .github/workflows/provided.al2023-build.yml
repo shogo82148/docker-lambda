@@ -2,8 +2,6 @@ name: Build provided.al2023 build image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "provided.al2023-build/*"
   pull_request:

@@ -2,8 +2,6 @@ name: Build java11 run image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "java11-run/*"
   pull_request:

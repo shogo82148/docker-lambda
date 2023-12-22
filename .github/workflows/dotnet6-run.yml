@@ -2,8 +2,6 @@ name: Build dotnet6 run image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "dotnet6-run/*"
   pull_request:

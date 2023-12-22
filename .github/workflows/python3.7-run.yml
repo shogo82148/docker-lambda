@@ -2,8 +2,6 @@ name: Build python3.7 run image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "python3.7-run/*"
   pull_request:
