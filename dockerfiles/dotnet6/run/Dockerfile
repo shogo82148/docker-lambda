@@ -5,8 +5,8 @@ RUN yum install -y tar gzip
 ARG TARGETOS
 ARG TARGETARCH
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/dotnet6/97da78ebdd6fd457a138a6f0f93eae6360dde8e7d808d10b7f6d3b3ae326a68a.tgz
-ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/dotnet6/2fd03de5233d45c5ef47fb352a650d9291f734f7d86841181a24acdc5adea73f.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/dotnet6/fc5cb2296df6b1361bd5bcbd9a39baa3d893e2503b43926973c124752e6f844e.tgz
+ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/dotnet6/36ed0804b6faa125f0ade16b9c438052849f9e37c69f0a51ef9887875ccad7f2.tgz
 
 RUN case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARCHIVE_URL=$ARCHIVE_URL_ARM64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
     curl -sSL "$ARCHIVE_URL" | tar -zx -C /
@@ -17,7 +17,7 @@ RUN curl -sSL "https://github.com/shogo82148/docker-lambda-init/releases/downloa
 
 FROM public.ecr.aws/shogo82148/lambda-provided:al2
 
-FROM public.ecr.aws/shogo82148/lambda-base:al2.2024.01.04
+FROM public.ecr.aws/shogo82148/lambda-base:al2.2024.01.12
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
