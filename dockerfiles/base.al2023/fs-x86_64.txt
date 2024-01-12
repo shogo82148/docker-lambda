@@ -116,6 +116,7 @@ etc/pki/ca-trust/extracted/pem/directory-hash
 etc/pki/ca-trust/extracted/pem/directory-hash/002c0b4f.0
 etc/pki/ca-trust/extracted/pem/directory-hash/0058d01d.0
 etc/pki/ca-trust/extracted/pem/directory-hash/01419da9.0
+etc/pki/ca-trust/extracted/pem/directory-hash/0179095f.0
 etc/pki/ca-trust/extracted/pem/directory-hash/01be6f1e.0
 etc/pki/ca-trust/extracted/pem/directory-hash/01cecb18.0
 etc/pki/ca-trust/extracted/pem/directory-hash/02265526.0
@@ -140,6 +141,7 @@ etc/pki/ca-trust/extracted/pem/directory-hash/0b1b94ef.0
 etc/pki/ca-trust/extracted/pem/directory-hash/0b9bc432.0
 etc/pki/ca-trust/extracted/pem/directory-hash/0bf05006.0
 etc/pki/ca-trust/extracted/pem/directory-hash/0cd5747d.0
+etc/pki/ca-trust/extracted/pem/directory-hash/0d69c7e1.0
 etc/pki/ca-trust/extracted/pem/directory-hash/0e9a9ab3.0
 etc/pki/ca-trust/extracted/pem/directory-hash/0f5dc4f3.0
 etc/pki/ca-trust/extracted/pem/directory-hash/0f6fa695.0
@@ -148,6 +150,7 @@ etc/pki/ca-trust/extracted/pem/directory-hash/103a8d48.0
 etc/pki/ca-trust/extracted/pem/directory-hash/10531352.0
 etc/pki/ca-trust/extracted/pem/directory-hash/106f3e4d.0
 etc/pki/ca-trust/extracted/pem/directory-hash/12822a7c.0
+etc/pki/ca-trust/extracted/pem/directory-hash/128f4b91.0
 etc/pki/ca-trust/extracted/pem/directory-hash/12cae93e.0
 etc/pki/ca-trust/extracted/pem/directory-hash/14157985.0
 etc/pki/ca-trust/extracted/pem/directory-hash/14bc7599.0
@@ -179,6 +182,8 @@ etc/pki/ca-trust/extracted/pem/directory-hash/2923b3f9.0
 etc/pki/ca-trust/extracted/pem/directory-hash/2add47b6.0
 etc/pki/ca-trust/extracted/pem/directory-hash/2ae6433e.0
 etc/pki/ca-trust/extracted/pem/directory-hash/2b349938.0
+etc/pki/ca-trust/extracted/pem/directory-hash/2c63f966.0
+etc/pki/ca-trust/extracted/pem/directory-hash/2d21b73c.0
 etc/pki/ca-trust/extracted/pem/directory-hash/2d9dafe4.0
 etc/pki/ca-trust/extracted/pem/directory-hash/2eb8d504.0
 etc/pki/ca-trust/extracted/pem/directory-hash/2ebd76e7.0
@@ -210,6 +215,7 @@ etc/pki/ca-trust/extracted/pem/directory-hash/399e7759.0
 etc/pki/ca-trust/extracted/pem/directory-hash/39e370b3.0
 etc/pki/ca-trust/extracted/pem/directory-hash/3a83afb9.0
 etc/pki/ca-trust/extracted/pem/directory-hash/3ad48a91.0
+etc/pki/ca-trust/extracted/pem/directory-hash/3afde786.0
 etc/pki/ca-trust/extracted/pem/directory-hash/3bde41ac.0
 etc/pki/ca-trust/extracted/pem/directory-hash/3bde41ac.1
 etc/pki/ca-trust/extracted/pem/directory-hash/3c7a1da0.0
@@ -220,7 +226,7 @@ etc/pki/ca-trust/extracted/pem/directory-hash/3c9a4d3b.0
 etc/pki/ca-trust/extracted/pem/directory-hash/3cb1d187.0
 etc/pki/ca-trust/extracted/pem/directory-hash/3d3c9962.0
 etc/pki/ca-trust/extracted/pem/directory-hash/3e0f8caf.0
-etc/pki/ca-trust/extracted/pem/directory-hash/3e45d192.0
+etc/pki/ca-trust/extracted/pem/directory-hash/3e359ba6.0
 etc/pki/ca-trust/extracted/pem/directory-hash/3e7271e8.0
 etc/pki/ca-trust/extracted/pem/directory-hash/3e822a7c.0
 etc/pki/ca-trust/extracted/pem/directory-hash/3fa18ee6.0
@@ -322,6 +328,7 @@ etc/pki/ca-trust/extracted/pem/directory-hash/7a780d93.0
 etc/pki/ca-trust/extracted/pem/directory-hash/7a7c655d.0
 etc/pki/ca-trust/extracted/pem/directory-hash/7a819ef2.0
 etc/pki/ca-trust/extracted/pem/directory-hash/7aa8a410.0
+etc/pki/ca-trust/extracted/pem/directory-hash/7e067d03.0
 etc/pki/ca-trust/extracted/pem/directory-hash/7e2977ea.0
 etc/pki/ca-trust/extracted/pem/directory-hash/7e592e7c.0
 etc/pki/ca-trust/extracted/pem/directory-hash/7f3d5d1d.0
@@ -341,6 +348,7 @@ etc/pki/ca-trust/extracted/pem/directory-hash/8508e720.0
 etc/pki/ca-trust/extracted/pem/directory-hash/85cde254.0
 etc/pki/ca-trust/extracted/pem/directory-hash/85f1471d.0
 etc/pki/ca-trust/extracted/pem/directory-hash/86212b19.0
+etc/pki/ca-trust/extracted/pem/directory-hash/865fbdf9.0
 etc/pki/ca-trust/extracted/pem/directory-hash/869fbf79.0
 etc/pki/ca-trust/extracted/pem/directory-hash/86ec9f83.0
 etc/pki/ca-trust/extracted/pem/directory-hash/87611872.0
@@ -364,6 +372,7 @@ etc/pki/ca-trust/extracted/pem/directory-hash/8d86cdd1.0
 etc/pki/ca-trust/extracted/pem/directory-hash/8d89cda1.0
 etc/pki/ca-trust/extracted/pem/directory-hash/8da9aa09.0
 etc/pki/ca-trust/extracted/pem/directory-hash/8f103249.0
+etc/pki/ca-trust/extracted/pem/directory-hash/9046744a.0
 etc/pki/ca-trust/extracted/pem/directory-hash/90c5a3c8.0
 etc/pki/ca-trust/extracted/pem/directory-hash/914119fc.0
 etc/pki/ca-trust/extracted/pem/directory-hash/916abe46.0
@@ -384,7 +393,6 @@ etc/pki/ca-trust/extracted/pem/directory-hash/9576d26b.0
 etc/pki/ca-trust/extracted/pem/directory-hash/9591a472.0
 etc/pki/ca-trust/extracted/pem/directory-hash/95aff9e3.0
 etc/pki/ca-trust/extracted/pem/directory-hash/96497e53.0
-etc/pki/ca-trust/extracted/pem/directory-hash/9685a493.0
 etc/pki/ca-trust/extracted/pem/directory-hash/97f286aa.0
 etc/pki/ca-trust/extracted/pem/directory-hash/982488ae.0
 etc/pki/ca-trust/extracted/pem/directory-hash/983edf75.0
@@ -395,6 +403,7 @@ etc/pki/ca-trust/extracted/pem/directory-hash/98dc5326.0
 etc/pki/ca-trust/extracted/pem/directory-hash/99e1b953.0
 etc/pki/ca-trust/extracted/pem/directory-hash/9ad14784.0
 etc/pki/ca-trust/extracted/pem/directory-hash/9aef356c.0
+etc/pki/ca-trust/extracted/pem/directory-hash/9b46e03d.0
 etc/pki/ca-trust/extracted/pem/directory-hash/9b5697b0.0
 etc/pki/ca-trust/extracted/pem/directory-hash/9c82b7f7.0
 etc/pki/ca-trust/extracted/pem/directory-hash/9c8dfbd4.0
@@ -535,8 +544,12 @@ etc/pki/ca-trust/extracted/pem/directory-hash/Amazon_Root_CA_2.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Amazon_Root_CA_3.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Amazon_Root_CA_4.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Atos_TrustedRoot_2011.pem
+etc/pki/ca-trust/extracted/pem/directory-hash/Atos_TrustedRoot_Root_CA_ECC_TLS_2021.pem
+etc/pki/ca-trust/extracted/pem/directory-hash/Atos_TrustedRoot_Root_CA_RSA_TLS_2021.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Autoridad_de_Certificacion_Firmaprofesional_CIF_A62634068.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Autoridad_de_Certificacion_Firmaprofesional_CIF_A62634068_1.pem
+etc/pki/ca-trust/extracted/pem/directory-hash/BJCA_Global_Root_CA1.pem
+etc/pki/ca-trust/extracted/pem/directory-hash/BJCA_Global_Root_CA2.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Baltimore_CyberTrust_Root.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Buypass_Class_2_Root_CA.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Buypass_Class_3_Root_CA.pem
@@ -573,13 +586,13 @@ etc/pki/ca-trust/extracted/pem/directory-hash/Entrust_Root_Certification_Authori
 etc/pki/ca-trust/extracted/pem/directory-hash/Entrust_Root_Certification_Authority_-_EC1.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Entrust_Root_Certification_Authority_-_G2.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Entrust_Root_Certification_Authority_-_G4.pem
-etc/pki/ca-trust/extracted/pem/directory-hash/FNMT-RCM.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/GDCA_TrustAUTH_R5_ROOT.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/GLOBALTRUST_2020.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/GTS_Root_R1.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/GTS_Root_R2.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/GTS_Root_R3.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/GTS_Root_R4.pem
+etc/pki/ca-trust/extracted/pem/directory-hash/GlobalSign_ECC_Root_CA_-_R4.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/GlobalSign_ECC_Root_CA_-_R5.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/GlobalSign_Root_CA.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/GlobalSign_Root_CA_-_R3.pem
@@ -593,7 +606,6 @@ etc/pki/ca-trust/extracted/pem/directory-hash/HARICA_TLS_RSA_Root_CA_2021.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Hellenic_Academic_and_Research_Institutions_ECC_RootCA_2015.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Hellenic_Academic_and_Research_Institutions_RootCA_2015.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/HiPKI_Root_CA_-_G1.pem
-etc/pki/ca-trust/extracted/pem/directory-hash/Hongkong_Post_Root_CA_1.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Hongkong_Post_Root_CA_3.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/ISRG_Root_X1.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/ISRG_Root_X2.pem
@@ -616,14 +628,17 @@ etc/pki/ca-trust/extracted/pem/directory-hash/SSL.com_EV_Root_Certification_Auth
 etc/pki/ca-trust/extracted/pem/directory-hash/SSL.com_EV_Root_Certification_Authority_RSA_R2.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/SSL.com_Root_Certification_Authority_ECC.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/SSL.com_Root_Certification_Authority_RSA.pem
+etc/pki/ca-trust/extracted/pem/directory-hash/SSL.com_TLS_ECC_Root_CA_2022.pem
+etc/pki/ca-trust/extracted/pem/directory-hash/SSL.com_TLS_RSA_Root_CA_2022.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/SZAFIR_ROOT_CA2.pem
+etc/pki/ca-trust/extracted/pem/directory-hash/Sectigo_Public_Server_Authentication_Root_E46.pem
+etc/pki/ca-trust/extracted/pem/directory-hash/Sectigo_Public_Server_Authentication_Root_R46.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/SecureSign_RootCA11.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/SecureTrust_CA.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Secure_Global_CA.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Security_Communication_ECC_RootCA1.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Security_Communication_RootCA2.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Security_Communication_RootCA3.pem
-etc/pki/ca-trust/extracted/pem/directory-hash/Security_Communication_Root_CA.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Starfield_Class_2_CA.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Starfield_Root_Certificate_Authority_-_G2.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/Starfield_Services_Root_Certificate_Authority_-_G2.pem
@@ -648,7 +663,6 @@ etc/pki/ca-trust/extracted/pem/directory-hash/XRamp_Global_CA_Root.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/a1b0f9b2.0
 etc/pki/ca-trust/extracted/pem/directory-hash/a2c66da8.0
 etc/pki/ca-trust/extracted/pem/directory-hash/a3418fda.0
-etc/pki/ca-trust/extracted/pem/directory-hash/a3896b44.0
 etc/pki/ca-trust/extracted/pem/directory-hash/a3c8b680.0
 etc/pki/ca-trust/extracted/pem/directory-hash/a3d4dd7d.0
 etc/pki/ca-trust/extracted/pem/directory-hash/a5993e32.0
@@ -657,6 +671,7 @@ etc/pki/ca-trust/extracted/pem/directory-hash/a716d4ed.0
 etc/pki/ca-trust/extracted/pem/directory-hash/a7f542ba.0
 etc/pki/ca-trust/extracted/pem/directory-hash/a81e292b.0
 etc/pki/ca-trust/extracted/pem/directory-hash/a82b3b73.0
+etc/pki/ca-trust/extracted/pem/directory-hash/a89d74c2.0
 etc/pki/ca-trust/extracted/pem/directory-hash/a8da5a21.0
 etc/pki/ca-trust/extracted/pem/directory-hash/a949a3ec.0
 etc/pki/ca-trust/extracted/pem/directory-hash/a94d09e5.0
@@ -668,6 +683,7 @@ etc/pki/ca-trust/extracted/pem/directory-hash/ac050c21.0
 etc/pki/ca-trust/extracted/pem/directory-hash/ac4d0acf.0
 etc/pki/ca-trust/extracted/pem/directory-hash/aee5f10d.0
 etc/pki/ca-trust/extracted/pem/directory-hash/aefa06ec.0
+etc/pki/ca-trust/extracted/pem/directory-hash/b0e59380.0
 etc/pki/ca-trust/extracted/pem/directory-hash/b0ed035a.0
 etc/pki/ca-trust/extracted/pem/directory-hash/b0f3e76e.0
 etc/pki/ca-trust/extracted/pem/directory-hash/b1159c4c.0
@@ -687,7 +703,6 @@ etc/pki/ca-trust/extracted/pem/directory-hash/b81b93f0.0
 etc/pki/ca-trust/extracted/pem/directory-hash/b872f2b4.0
 etc/pki/ca-trust/extracted/pem/directory-hash/b92fd57f.0
 etc/pki/ca-trust/extracted/pem/directory-hash/b936d1c6.0
-etc/pki/ca-trust/extracted/pem/directory-hash/b936d1c6.1
 etc/pki/ca-trust/extracted/pem/directory-hash/b98ba4bb.0
 etc/pki/ca-trust/extracted/pem/directory-hash/b9d580bc.0
 etc/pki/ca-trust/extracted/pem/directory-hash/b9f7fedb.0
@@ -724,6 +739,7 @@ etc/pki/ca-trust/extracted/pem/directory-hash/ca-certificates.crt
 etc/pki/ca-trust/extracted/pem/directory-hash/ca6e4ad9.0
 etc/pki/ca-trust/extracted/pem/directory-hash/cac0b01e.0
 etc/pki/ca-trust/extracted/pem/directory-hash/cb1c3204.0
+etc/pki/ca-trust/extracted/pem/directory-hash/cbb3f32b.0
 etc/pki/ca-trust/extracted/pem/directory-hash/cbf06781.0
 etc/pki/ca-trust/extracted/pem/directory-hash/cc34f429.0
 etc/pki/ca-trust/extracted/pem/directory-hash/cc3fd7d0.0
@@ -737,7 +753,6 @@ etc/pki/ca-trust/extracted/pem/directory-hash/cd426ac4.0
 etc/pki/ca-trust/extracted/pem/directory-hash/cd58d51e.0
 etc/pki/ca-trust/extracted/pem/directory-hash/cd5bfb34.0
 etc/pki/ca-trust/extracted/pem/directory-hash/cd8c0d63.0
-etc/pki/ca-trust/extracted/pem/directory-hash/cd8c0d63.1
 etc/pki/ca-trust/extracted/pem/directory-hash/ce5e74ef.0
 etc/pki/ca-trust/extracted/pem/directory-hash/ce7e3880.0
 etc/pki/ca-trust/extracted/pem/directory-hash/ceb3f244.0
@@ -771,6 +786,7 @@ etc/pki/ca-trust/extracted/pem/directory-hash/d9643d70.0
 etc/pki/ca-trust/extracted/pem/directory-hash/d96b65e2.0
 etc/pki/ca-trust/extracted/pem/directory-hash/d9b47c18.0
 etc/pki/ca-trust/extracted/pem/directory-hash/d9feea5e.0
+etc/pki/ca-trust/extracted/pem/directory-hash/da0cfd1d.0
 etc/pki/ca-trust/extracted/pem/directory-hash/da7377f6.0
 etc/pki/ca-trust/extracted/pem/directory-hash/daf54373.0
 etc/pki/ca-trust/extracted/pem/directory-hash/db760cef.0
@@ -787,6 +803,7 @@ etc/pki/ca-trust/extracted/pem/directory-hash/dfa628db.0
 etc/pki/ca-trust/extracted/pem/directory-hash/dfc0fe80.0
 etc/pki/ca-trust/extracted/pem/directory-hash/e-Szigno_Root_CA_2017.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/e01e925e.0
+etc/pki/ca-trust/extracted/pem/directory-hash/e071171e.0
 etc/pki/ca-trust/extracted/pem/directory-hash/e113c810.0
 etc/pki/ca-trust/extracted/pem/directory-hash/e13665f9.0
 etc/pki/ca-trust/extracted/pem/directory-hash/e18bfb83.0
@@ -840,7 +857,6 @@ etc/pki/ca-trust/extracted/pem/directory-hash/f2730772.0
 etc/pki/ca-trust/extracted/pem/directory-hash/f2a37054.0
 etc/pki/ca-trust/extracted/pem/directory-hash/f2b1c521.0
 etc/pki/ca-trust/extracted/pem/directory-hash/f30dd6ad.0
-etc/pki/ca-trust/extracted/pem/directory-hash/f3377b1b.0
 etc/pki/ca-trust/extracted/pem/directory-hash/f38286ce.0
 etc/pki/ca-trust/extracted/pem/directory-hash/f387163d.0
 etc/pki/ca-trust/extracted/pem/directory-hash/f39fc864.0
@@ -859,6 +875,7 @@ etc/pki/ca-trust/extracted/pem/directory-hash/fa5da96b.0
 etc/pki/ca-trust/extracted/pem/directory-hash/fab9c035.0
 etc/pki/ca-trust/extracted/pem/directory-hash/fb5d2782.0
 etc/pki/ca-trust/extracted/pem/directory-hash/fb5fa911.0
+etc/pki/ca-trust/extracted/pem/directory-hash/fb717492.0
 etc/pki/ca-trust/extracted/pem/directory-hash/fc5a8f99.0
 etc/pki/ca-trust/extracted/pem/directory-hash/fc7cc874.0
 etc/pki/ca-trust/extracted/pem/directory-hash/fd08c599.0
@@ -869,6 +886,7 @@ etc/pki/ca-trust/extracted/pem/directory-hash/fe94d17d.0
 etc/pki/ca-trust/extracted/pem/directory-hash/feffd413.0
 etc/pki/ca-trust/extracted/pem/directory-hash/ff34af3f.0
 etc/pki/ca-trust/extracted/pem/directory-hash/ffa64163.0
+etc/pki/ca-trust/extracted/pem/directory-hash/ffa7f1eb.0
 etc/pki/ca-trust/extracted/pem/directory-hash/vTrus_ECC_Root_CA.pem
 etc/pki/ca-trust/extracted/pem/directory-hash/vTrus_Root_CA.pem
 etc/pki/ca-trust/extracted/pem/email-ca-bundle.pem
@@ -1170,12 +1188,11 @@ usr/lib/.build-id/14
 usr/lib/.build-id/14/2d1c0900cb0d0fec69a0de4077cc978434636a
 usr/lib/.build-id/14/53effce4072c94ddedfb1daa393c74a7b93e6f
 usr/lib/.build-id/15
-usr/lib/.build-id/15/63661a5ab218296923bafed7e0f988bd487a46
 usr/lib/.build-id/15/ff6fa6848da9e5d84fd293d1315a6d8e56e822
 usr/lib/.build-id/16
 usr/lib/.build-id/16/a58ad31ae583f54d8add5efd8972db86a6d833
-usr/lib/.build-id/16/f8395005d04fdc06b56e0bc20f622a36246f1e
 usr/lib/.build-id/18
+usr/lib/.build-id/18/0fccd8461e35d05e2799440359b5d52880f048
 usr/lib/.build-id/18/c66191963e6a2ac166ccd66864b151e1f86ceb
 usr/lib/.build-id/1a
 usr/lib/.build-id/1a/bd3b4ed9c2b625fd4fe48bf53827f33dd9cd0b
@@ -1193,14 +1210,15 @@ usr/lib/.build-id/28/68dfcae6e2507a8b0d18d5c73b52aa9c44d63d
 usr/lib/.build-id/29
 usr/lib/.build-id/29/88d02684416884598da0b6b9d507b2022f9b7f
 usr/lib/.build-id/29/e6288e037d618ab3d5bedeb66c61e682e59c13
-usr/lib/.build-id/2a
-usr/lib/.build-id/2a/6c3ace50b3d3802306e1737e6a1ad5056231a3
+usr/lib/.build-id/29/fd6d03b1d38c248e012c9f19337998f059c75f
 usr/lib/.build-id/2b
 usr/lib/.build-id/2b/8efb12102478fad89ad6ce41e3be8e7777205c
 usr/lib/.build-id/2c
 usr/lib/.build-id/2c/6327d98f843f24d48f5c52bcdba81d48ef698a
 usr/lib/.build-id/2f
 usr/lib/.build-id/2f/1432a17588eca75d775e526dab0853555bfa45
+usr/lib/.build-id/30
+usr/lib/.build-id/30/448f508336fb6b11d92bcff7f65c300f3e68e1
 usr/lib/.build-id/33
 usr/lib/.build-id/33/1f3a232a35f98a70829646222c66f34d6103dc
 usr/lib/.build-id/35
@@ -1213,7 +1231,6 @@ usr/lib/.build-id/3a
 usr/lib/.build-id/3a/9af137af2082888b3448cbbe446b7c076650f9
 usr/lib/.build-id/3b
 usr/lib/.build-id/3b/53188922e0901659fc76a4d743c575a72270ae
-usr/lib/.build-id/3b/703f6df13f944bf7aaef86af2562794d08f049
 usr/lib/.build-id/3d
 usr/lib/.build-id/3d/0fec01ef3c2cadc30fe607f4bb375db6563d2a
 usr/lib/.build-id/3f
@@ -1243,6 +1260,8 @@ usr/lib/.build-id/55
 usr/lib/.build-id/55/25f12fcbd5f66ff63b6bae4331e42eb465b2d7
 usr/lib/.build-id/57
 usr/lib/.build-id/57/d6c486df85ab1fe09726d836173a9f21603de6
+usr/lib/.build-id/59
+usr/lib/.build-id/59/912e79f0096549350f6995aa716d3c968831d9
 usr/lib/.build-id/5a
 usr/lib/.build-id/5a/c2e15ff17aac543c7989b1e1f2c5b7b03d439d
 usr/lib/.build-id/5b
@@ -1252,9 +1271,12 @@ usr/lib/.build-id/5c/37941bc412196e5a9a62fe8c741b781f4cff4b
 usr/lib/.build-id/5c/3f823a85253fef7800e31faf92d26642a0dbb0
 usr/lib/.build-id/5d
 usr/lib/.build-id/5d/746223fe54db78651f2d0e9596fe94dadbba87
+usr/lib/.build-id/5f
+usr/lib/.build-id/5f/8c699f52c3e972b50a34d319456444a205c152
 usr/lib/.build-id/60
 usr/lib/.build-id/60/e5b0771a21cec4368857977e32a2243b0d836e
 usr/lib/.build-id/61
+usr/lib/.build-id/61/1d51f9aaaddbfc37b49a8f5ae210577af965dc
 usr/lib/.build-id/61/607c43efec7ee5657b4bbdf563313f8130d0f3
 usr/lib/.build-id/63
 usr/lib/.build-id/63/a1e0f56a1f75eeecedf7c3c1680d5ccdc9c237
@@ -1283,6 +1305,7 @@ usr/lib/.build-id/70/903375076bc981ac240035b9e423db7ae5d9ef
 usr/lib/.build-id/72
 usr/lib/.build-id/72/70beeb3d24e95ec9d976394324301f6f46ad0c
 usr/lib/.build-id/72/97675e30c74dfe46f695b1f77827f8c5556701
+usr/lib/.build-id/72/e011e2fd0b11f4d50751f11bda2025fe2abac1
 usr/lib/.build-id/73
 usr/lib/.build-id/73/00bb87c9576dfae3be598e2844658278642221
 usr/lib/.build-id/74
@@ -1290,7 +1313,6 @@ usr/lib/.build-id/74/7d20b832f9bca65b928b1686837917d3332494
 usr/lib/.build-id/78
 usr/lib/.build-id/78/433723360d5bd1d193527629c5168dc3d6fa5f
 usr/lib/.build-id/7a
-usr/lib/.build-id/7a/06e94083f4024e0db84d0df29e6cb861f2fa1b
 usr/lib/.build-id/7a/99f517dd8dbf144c733909d9caf28ddd07cbc7
 usr/lib/.build-id/7d
 usr/lib/.build-id/7d/66d29f15a43d20d1bb88a962b9566c1c27b544
@@ -1298,9 +1320,12 @@ usr/lib/.build-id/7d/b4b4ce10ca5557adf4af791930cc6b70cdeef5
 usr/lib/.build-id/7d/b4b4ce10ca5557adf4af791930cc6b70cdeef5.1
 usr/lib/.build-id/7d/b4b4ce10ca5557adf4af791930cc6b70cdeef5.2
 usr/lib/.build-id/7d/b4b4ce10ca5557adf4af791930cc6b70cdeef5.3
+usr/lib/.build-id/7d/dbff8432cb09f4a2660bf2db575d7aab977dbd
 usr/lib/.build-id/7d/e07087f24a30db865a98642b6992de077246fe
 usr/lib/.build-id/80
 usr/lib/.build-id/80/8d49be0aed2ac08bfa834b87acca362689a62b
+usr/lib/.build-id/87
+usr/lib/.build-id/87/c2187a1c69ad58973c66479eb6faddd74cdf49
 usr/lib/.build-id/88
 usr/lib/.build-id/88/b2e07e9f4d286d21f91858a8541ee5e44f2869
 usr/lib/.build-id/89
@@ -1316,10 +1341,13 @@ usr/lib/.build-id/90/215085525e9b5234c3dc0d3c2c432c6f2b0ef0
 usr/lib/.build-id/90/c46395a6092f176a771044a7ddfcf9fabd39ec
 usr/lib/.build-id/91
 usr/lib/.build-id/91/62ca08f631f3303c4c92b02dbb3452c56bdc0f
+usr/lib/.build-id/92
+usr/lib/.build-id/92/24fd49f7ade43c169dd5b39d3ed558ffeabe47
 usr/lib/.build-id/93
 usr/lib/.build-id/93/b82245f97318c61e127ebb9bdc026691ae50e7
 usr/lib/.build-id/93/bac726111e6969cca4afc59dff3fa1a30c39a2
 usr/lib/.build-id/96
+usr/lib/.build-id/96/313d0ac3847ca8f601e4861aa39af5c59eb154
 usr/lib/.build-id/96/873b32647755dbafde4dfc49bcbfd19e724af6
 usr/lib/.build-id/9c
 usr/lib/.build-id/9c/8645392e69b3403ce81f9c85117e3857bd3fdb
@@ -1333,8 +1361,6 @@ usr/lib/.build-id/9e/827f5bc7db94793ef75cf0deb3dcafe39f1bd0
 usr/lib/.build-id/9e/979695af39450d658e5adbbbe43b8fee626654
 usr/lib/.build-id/9f
 usr/lib/.build-id/9f/a4698c1e215ede69a088df4a89f4ed5f386013
-usr/lib/.build-id/a0
-usr/lib/.build-id/a0/8577a362989d3900fa51cd21d0c6f364cc94a1
 usr/lib/.build-id/a4
 usr/lib/.build-id/a4/4e6cfb170e7e75508a68110fa06304fa094de5
 usr/lib/.build-id/a4/e39a8649cc64c26ea4928cc4e41f146fe45413
@@ -1345,15 +1371,14 @@ usr/lib/.build-id/a6/d21f33ab8828ce7a797f69f36e4b5a3544799e
 usr/lib/.build-id/a7
 usr/lib/.build-id/a7/3f266aff78b787831229eab244614ae8719ca8
 usr/lib/.build-id/a8
-usr/lib/.build-id/a8/4b0b221620b4944c5940d3bed62056c7d7baa4
 usr/lib/.build-id/a8/7e0b300376616e2ad04912704190a36b415bdb
 usr/lib/.build-id/a9
 usr/lib/.build-id/a9/28adb46c4b751ff3a938c479493c9e1d6c2ce5
 usr/lib/.build-id/a9/7c88f85f123cb485724b850b3699f083837034
+usr/lib/.build-id/aa
+usr/lib/.build-id/aa/2be5a76c2038f3bf0dcceb6fd498175957026e
 usr/lib/.build-id/ae
 usr/lib/.build-id/ae/8ab3ee16d785ded8e58a2c98110d473000c430
-usr/lib/.build-id/b1
-usr/lib/.build-id/b1/42968d1883fd042a6fc1bfbba990d6abee694f
 usr/lib/.build-id/b2
 usr/lib/.build-id/b2/6d11c790a8c38ec5d2090f24c2d4a1207a164a
 usr/lib/.build-id/b3
@@ -1361,10 +1386,10 @@ usr/lib/.build-id/b3/3a2ea3478f5f72c75c068d9c3dbbb099bb454b
 usr/lib/.build-id/b3/4fd0bbf41e1ef7c4d9628da546d1a510d402ff
 usr/lib/.build-id/b6
 usr/lib/.build-id/b6/77ffd90fbc26107f39f987a65a4fb520184e43
+usr/lib/.build-id/b7
+usr/lib/.build-id/b7/bec7d418d462a260401880369bce2da58817ce
 usr/lib/.build-id/b8
 usr/lib/.build-id/b8/38f59da1d96a5e36fb0d86bbe90858b837697a
-usr/lib/.build-id/ba
-usr/lib/.build-id/ba/77c0861d9ee034d09d38e590f7a38c96c1c965
 usr/lib/.build-id/bc
 usr/lib/.build-id/bc/f1c1ce7dc6b486f18db334eb5a47d15e5a12a6
 usr/lib/.build-id/bd
@@ -1385,7 +1410,6 @@ usr/lib/.build-id/c7/fa0ef0f0f2b30f2de9c8c779aaf373a4b3188a
 usr/lib/.build-id/c9
 usr/lib/.build-id/c9/551ba26b20fe22e2ad07e2f55cdc2812b8d69c
 usr/lib/.build-id/cf
-usr/lib/.build-id/cf/03ee353cf78c3dbb33b003a5a77e8824acba51
 usr/lib/.build-id/cf/1148da646c0a9aaaf96abf7b4ed330f4068cdd
 usr/lib/.build-id/d1
 usr/lib/.build-id/d1/467fab8346f507e224a809ceeae9bbeecb8395
@@ -1396,9 +1420,8 @@ usr/lib/.build-id/d3/647e90286e3bbfa6c337b8b2a6615fa84cbb4b
 usr/lib/.build-id/d3/d3c323a80b0fdbd30bd4240c03176f8a134a1e
 usr/lib/.build-id/d4
 usr/lib/.build-id/d4/259d92f3ff4f3f233dfa2eab90520f6c264fed
-usr/lib/.build-id/d5
-usr/lib/.build-id/d5/7a24d1270abb351c9169c30884f843603d9859
 usr/lib/.build-id/d7
+usr/lib/.build-id/d7/312f423451b286261342ee5b906c4f8e8b9414
 usr/lib/.build-id/d7/a727eb6625911ea9f816a3c115ef082a3d4dc8
 usr/lib/.build-id/d9
 usr/lib/.build-id/d9/01c4311530c5c01ec697228ac57bf632fece85
@@ -1414,8 +1437,6 @@ usr/lib/.build-id/dd
 usr/lib/.build-id/dd/ff605e4dc3fe556856207bcdf98f7f1f8c0da0
 usr/lib/.build-id/de
 usr/lib/.build-id/de/f7db06652df493d09f803f0bf06d8794f92b1e
-usr/lib/.build-id/df
-usr/lib/.build-id/df/524973c88cf02e180365221591f2570ade15cb
 usr/lib/.build-id/e0
 usr/lib/.build-id/e0/86b48ef0d87573fd15504d44a5592aa4404df0
 usr/lib/.build-id/e1
@@ -1433,7 +1454,6 @@ usr/lib/.build-id/e9
 usr/lib/.build-id/e9/106f3591e70c813a80ab8ca4628214decb8855
 usr/lib/.build-id/e9/9c59e95b6467f5efd495d40277d61cdc4aa874
 usr/lib/.build-id/ea
-usr/lib/.build-id/ea/2eaeb5b8ab84bf067c068512c5be6144d70c95
 usr/lib/.build-id/ea/351a57686d190c12fef04e9a0ee6534fb8c471
 usr/lib/.build-id/eb
 usr/lib/.build-id/eb/0a65f63cecc677c4ef6f7146494e861c63fe2d
@@ -1446,7 +1466,6 @@ usr/lib/.build-id/f0/46745b2731db79217afd49043bf279cacdae63
 usr/lib/.build-id/f0/57fd92e714a7691eb493d547b6ca6a449efe95
 usr/lib/.build-id/f1
 usr/lib/.build-id/f1/0819df41d4cde20996a2508d3ba27971bf0889
-usr/lib/.build-id/f1/6654f5d620c08e4e98dfc44660758f8b7e929b
 usr/lib/.build-id/f1/d2e030e017970139b225bb1f0cf47e3abcd657
 usr/lib/.build-id/f2
 usr/lib/.build-id/f2/0594aecc1b4204f84d22dfb90dd9e127dad7fa
@@ -1926,7 +1945,7 @@ usr/lib64/libyaml-0.so.2.0.9
 usr/lib64/libz.so.1
 usr/lib64/libz.so.1.2.11
 usr/lib64/libzstd.so.1
-usr/lib64/libzstd.so.1.5.2
+usr/lib64/libzstd.so.1.5.5
 usr/lib64/lua
 usr/lib64/lua/5.3
 usr/lib64/lua/5.4
@@ -2226,8 +2245,8 @@ usr/share/doc/bash/RBASH
 usr/share/doc/bash/README
 usr/share/doc/bash/bash.html
 usr/share/doc/bash/bashref.html
-usr/share/doc/ca-certificates-2023.2.60
-usr/share/doc/ca-certificates-2023.2.60/README
+usr/share/doc/ca-certificates-2023.2.62
+usr/share/doc/ca-certificates-2023.2.62/README
 usr/share/doc/dnf
 usr/share/doc/dnf/AUTHORS
 usr/share/doc/dnf/README.rst
