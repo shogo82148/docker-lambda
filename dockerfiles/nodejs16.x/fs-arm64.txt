@@ -3273,6 +3273,7 @@ var/runtime
 var/runtime/THIRD-PARTY-LICENSES.txt
 var/runtime/UserFunction.js
 var/runtime/bootstrap
+var/runtime/ca-cert.pem
 var/runtime/index.mjs
 var/runtime/node_modules
 var/runtime/node_modules/aws-sdk
