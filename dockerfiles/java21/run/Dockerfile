@@ -22,7 +22,7 @@ ENV PATH=/var/lang/bin:$PATH \
     AWS_EXECUTION_ENV=AWS_Lambda_java21
 
 COPY --from=0 /var /var
-COPY --from=0 /docker-lambda-init /var/runtime/init
+COPY --from=0 /docker-lambda-init /var/rapid/init
 
 USER sbx_user1051
 
