@@ -1,5 +1,5 @@
 // Just a test lambda, run with:
-// docker run --rm -v "$PWD":/var/task lambci/lambda:nodejs8.10
+// docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-nodejs:20 index.handle
 
 exports.handler = async (event, context) => {
   console.log(process.execPath);
