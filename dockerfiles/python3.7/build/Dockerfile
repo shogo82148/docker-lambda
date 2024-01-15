@@ -8,7 +8,7 @@ ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_6
 RUN curl -sSL "$ARCHIVE_URL_AMD64" | tar -zx -C /
 
 
-FROM public.ecr.aws/shogo82148/lambda-base:build-alami.2024.01.12
+FROM public.ecr.aws/shogo82148/lambda-base:build-alami.2024.01.14
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
