@@ -453,7 +453,9 @@ func (d *dumper) addDir(path string, info fs.FileInfo) error {
 		Mode:     int64(info.Mode()),
 		Uid:      int(sys.Uid),
 		Gid:      int(sys.Gid),
-		ModTime:  info.ModTime(),
+
+		// To ensure reproducibility, use a fixed time.
+		ModTime: time.Unix(0, 0),
 	}
 	if err := d.tw.WriteHeader(hdr); err != nil {
 		log.Fatal(err)
@@ -474,7 +476,9 @@ func (d *dumper) addSymlink(path string, info fs.FileInfo) error {
 		Mode:     int64(info.Mode()),
 		Uid:      int(sys.Uid),
 		Gid:      int(sys.Gid),
-		ModTime:  info.ModTime(),
+
+		// To ensure reproducibility, use a fixed time.
+		ModTime: time.Unix(0, 0),
 	}
 	if err := d.tw.WriteHeader(hdr); err != nil {
 		return err
