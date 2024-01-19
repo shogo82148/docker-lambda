@@ -11,7 +11,7 @@ BUCKET=$(aws cloudformation describe-stacks \
     --stack-name s3 \
     --output text \
     --query "Stacks[0].Outputs[?OutputKey=='Bucket'] | [0].OutputValue")
-DIGEST=$(openssl sha256 < "$CURRENT/build/distributions/app.zip")
+DIGEST=$(< "$CURRENT/build/distributions/app.zip" openssl dgst -sha256 -r | cut -d" " -f1)
 KEY=code/java17/$DIGEST
 aws s3 cp "$CURRENT/build/distributions/app.zip" "s3://$BUCKET/$KEY"
 
