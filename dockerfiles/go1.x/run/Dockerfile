@@ -15,7 +15,7 @@ FROM public.ecr.aws/amazonlinux/amazonlinux:1
 ARG TARGETOS
 ARG TARGETARCH
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/go1.x/90d0cc3ddf7b90c23ebfd159708829fb4ad8d1d92756612e46f9c35b7de916cf.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/go1.x/b0f7b50591362b2b505f86fc4dd3106a90d33d51f95a52fbe354bed8bb902a6d.tgz
 
 RUN curl -sSL "$ARCHIVE_URL_AMD64" | tar -zx -C /
 
