@@ -3,12 +3,12 @@ FROM public.ecr.aws/amazonlinux/amazonlinux:1
 ARG TARGETOS
 ARG TARGETARCH
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/java8/03e3db31907628c92afca7ff40195afb4ce2768d9772e0a8030c99f987e5c35e.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/java8/c06dfa1f410f5ddb88f86e4b675667cf3ebf57301705395c8f6dadebd99978ed.tgz
 
 RUN curl -sSL "$ARCHIVE_URL_AMD64" | tar -zx -C /
 
 
-FROM public.ecr.aws/shogo82148/lambda-base:build-alami.2024.01.14
+FROM public.ecr.aws/shogo82148/lambda-base:build-alami.2024.01.19
 
 ENV AWS_EXECUTION_ENV=AWS_Lambda_java8
 
