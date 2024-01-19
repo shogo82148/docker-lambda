@@ -22,6 +22,7 @@ import (
 	"strconv"
 	"strings"
 	"syscall"
+	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
@@ -431,7 +432,9 @@ func (d *dumper) addFile(path string, info fs.FileInfo) error {
 		Size:     info.Size(),
 		Uid:      int(sys.Uid),
 		Gid:      int(sys.Gid),
-		ModTime:  info.ModTime(),
+
+		// To ensure reproducibility, use a fixed time.
+		ModTime: time.Unix(0, 0),
 	}
 	if err := d.tw.WriteHeader(hdr); err != nil {
 		return err
@@ -450,7 +453,9 @@ func (d *dumper) addDir(path string, info fs.FileInfo) error {
 		Mode:     int64(info.Mode()),
 		Uid:      int(sys.Uid),
 		Gid:      int(sys.Gid),
-		ModTime:  info.ModTime(),
+
+		// To ensure reproducibility, use a fixed time.
+		ModTime: time.Unix(0, 0),
 	}
 	if err := d.tw.WriteHeader(hdr); err != nil {
 		log.Fatal(err)
@@ -471,7 +476,9 @@ func (d *dumper) addSymlink(path string, info fs.FileInfo) error {
 		Mode:     int64(info.Mode()),
 		Uid:      int(sys.Uid),
 		Gid:      int(sys.Gid),
-		ModTime:  info.ModTime(),
+
+		// To ensure reproducibility, use a fixed time.
+		ModTime: time.Unix(0, 0),
 	}
 	if err := d.tw.WriteHeader(hdr); err != nil {
 		return err
