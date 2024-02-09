@@ -15,7 +15,7 @@ FROM public.ecr.aws/amazonlinux/amazonlinux:1
 ARG TARGETOS
 ARG TARGETARCH
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/go1.x/3749e6c06ec52ac758a4bd3c42dd3a26c58145b5e2897636cc1ed083d3372b51.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/go1.x/08fd183a03e3642e1ea5001e8797460cdf59144017717277d0fbdaf9cecc7b73.tgz
 
 RUN curl -sSL "$ARCHIVE_URL_AMD64" | tar -zx -C /
 
@@ -23,7 +23,7 @@ ENV DOCKER_LAMBDA_INIT_VERSION=1.0.0
 
 RUN curl -sSL "https://github.com/shogo82148/docker-lambda-init/releases/download/v$DOCKER_LAMBDA_INIT_VERSION/docker-lambda-init_${DOCKER_LAMBDA_INIT_VERSION}_linux_${TARGETARCH}.tar.gz" | tar xzv
 
-FROM public.ecr.aws/shogo82148/lambda-base:alami.2024.01.19
+FROM public.ecr.aws/shogo82148/lambda-base:alami.2024.02.09
 
 ENV AWS_EXECUTION_ENV=AWS_Lambda_go1.x
 
