@@ -28,6 +28,12 @@
       "path": "dump/dotnetcore3.1"
     },
     {
+      "path": "dump/dotnet6"
+    },
+    {
+      "path": "dump/dotnet8"
+    },
+    {
       "path": "examples/java"
     },
     {
