@@ -23,6 +23,7 @@ my $runtimes = [
     "base.al2023",
 
     "dotnet6",
+    "dotnet8",
 
     "go1.x",
 
