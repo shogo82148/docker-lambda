@@ -25,7 +25,7 @@ ENV PATH=/root/.dotnet/tools:$DOTNET_ROOT:$PATH \
 
 COPY --from=0 /var /var
 
-RUN dnf install -y libicu && \
+RUN dnf install -y --allowerasing libicu && \
   curl -L https://dot.net/v1/dotnet-install.sh | bash -s -- -v $DOTNET_SDK_VERSION -i $DOTNET_ROOT && \
   mkdir /tmp/warmup && \
   cd /tmp/warmup && \
