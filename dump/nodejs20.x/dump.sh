@@ -3,8 +3,8 @@
 set -eux
 
 ARCH=$1
-FUNCION_NAME=dump-nodejs20x-${ARCH/_/-}
+FUNCTION_NAME=dump-nodejs20x-${ARCH/_/-}
 aws lambda invoke \
     --region us-east-1 \
-    --function-name "$FUNCION_NAME" \
+    --function-name "$FUNCTION_NAME" \
     --payload '{}' out.json
