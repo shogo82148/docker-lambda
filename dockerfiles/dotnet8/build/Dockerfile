@@ -1,6 +1,6 @@
 ﻿FROM --platform=$BUILDPLATFORM public.ecr.aws/amazonlinux/amazonlinux:2023
 
-RUN yum install -y curl tar gzip
+RUN dnf install -y tar gzip
 
 ARG TARGETOS
 ARG TARGETARCH
