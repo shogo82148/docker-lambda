@@ -136,8 +136,8 @@ ncurses-libs-5.7-4.20090207.15.amzn1.x86_64
 nspr-4.25.0-2.45.amzn1.x86_64
 nss-3.53.1-7.88.amzn1.x86_64
 nss-pem-1.0.3-4.3.amzn1.x86_64
-nss-softokn-3.53.1-6.48.amzn1.x86_64
-nss-softokn-freebl-3.53.1-6.48.amzn1.x86_64
+nss-softokn-3.53.1-6.49.amzn1.x86_64
+nss-softokn-freebl-3.53.1-6.49.amzn1.x86_64
 nss-sysinit-3.53.1-7.88.amzn1.x86_64
 nss-tools-3.53.1-7.88.amzn1.x86_64
 nss-util-3.53.1-1.58.amzn1.x86_64
