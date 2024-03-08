@@ -1,7 +1,7 @@
 FROM public.ecr.aws/shogo82148/lambda-base:build-alami.2024.03.08
 
 # https://golang.org/doc/devel/release.html
-ENV GOLANG_VERSION=1.21.4 \
+ENV GOLANG_VERSION=1.22.1 \
     GOPATH=/go \
     PATH=/go/bin:/usr/local/go/bin:$PATH \
     AWS_EXECUTION_ENV=AWS_Lambda_go1.x
