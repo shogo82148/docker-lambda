@@ -970,12 +970,8 @@ etc/update-motd.d/70-available-updates
 etc/xattr.conf
 etc/xdg
 etc/xdg/autostart
-etc/yum
 etc/yum.repos.d
 etc/yum.repos.d/amazonlinux.repo
-etc/yum/vars
-etc/yum/vars/awsdomain
-etc/yum/vars/awsregion
 home
 lambda-entrypoint.sh
 lib
