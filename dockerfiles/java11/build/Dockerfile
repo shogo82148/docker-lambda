@@ -6,7 +6,7 @@ ARG TARGETOS
 ARG TARGETARCH
 
 ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/java11/f89d7c66c637d806daaa8159b748799febcca971f2b5c7b4c71707b12236ad5a.tgz
-ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/java11/ada0bcbe4ef0ca631d31a24124594bff6cab30dccedf8d4e3736afed6c450416.tgz
+ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/java11/d5118cc801222f9c7145e43d03e41c9c4736b2267ef0a23fde4434eb14f00108.tgz
 
 RUN case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARCHIVE_URL=$ARCHIVE_URL_ARM64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
   curl -sSL "$ARCHIVE_URL" | tar -zx -C /
