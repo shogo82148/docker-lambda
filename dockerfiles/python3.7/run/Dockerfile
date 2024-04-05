@@ -7,7 +7,7 @@ ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_6
 
 RUN curl -sSL "$ARCHIVE_URL_AMD64" | tar -zx -C /
 
-ENV DOCKER_LAMBDA_INIT_VERSION=1.0.0
+ENV DOCKER_LAMBDA_INIT_VERSION=1.0.1
 
 RUN curl -sSL "https://github.com/shogo82148/docker-lambda-init/releases/download/v$DOCKER_LAMBDA_INIT_VERSION/docker-lambda-init_${DOCKER_LAMBDA_INIT_VERSION}_linux_${TARGETARCH}.tar.gz" | tar xzv
 
