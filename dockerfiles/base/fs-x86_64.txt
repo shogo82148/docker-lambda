@@ -20059,7 +20059,7 @@ var/lib/rpm/__db.003
 var/lib/rpm/__db.004
 var/lib/yum
 var/lib/yum/history
-var/lib/yum/history/2024-02-14
+var/lib/yum/history/2024-02-06
 var/lib/yum/repos
 var/lib/yum/repos/x86_64
 var/lib/yum/repos/x86_64/latest
