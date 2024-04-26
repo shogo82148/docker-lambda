@@ -1,6 +1,6 @@
-FROM --platform=$BUILDPLATFORM public.ecr.aws/amazonlinux/amazonlinux:2
+FROM --platform=$BUILDPLATFORM public.ecr.aws/amazonlinux/amazonlinux:2023
 
-RUN yum install -y tar gzip
+RUN dnf install -y tar gzip
 
 ARG TARGETOS
 ARG TARGETARCH
@@ -15,11 +15,11 @@ ENV DOCKER_LAMBDA_INIT_VERSION=1.0.1
 
 RUN curl -sSL "https://github.com/shogo82148/docker-lambda-init/releases/download/v$DOCKER_LAMBDA_INIT_VERSION/docker-lambda-init_${DOCKER_LAMBDA_INIT_VERSION}_linux_${TARGETARCH}.tar.gz" | tar xzv
 
-FROM public.ecr.aws/shogo82148/lambda-base:al2.2024.02.09
+FROM public.ecr.aws/shogo82148/lambda-base:al2023.2024.04.26
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
-    AWS_EXECUTION_ENV=AWS_Lambda_python3.11
+    AWS_EXECUTION_ENV=AWS_Lambda_python3.12
 
 COPY --from=0 /var /var
 COPY --from=0 /docker-lambda-init /var/rapid/init
