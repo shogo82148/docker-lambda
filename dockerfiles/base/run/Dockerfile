@@ -1,6 +1,6 @@
 FROM public.ecr.aws/amazonlinux/amazonlinux:2
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/base/1dd7fb2e481196fd37afb0003ce2c1ac5204a3547ade6f138a969b12be5938f8.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/base/76cb63bf859e55c029532c95e64aa706d715c1a500c2ff00417cae04c95df817.tgz
 
 RUN yum install -y curl tar gzip
 RUN cd /opt && \
