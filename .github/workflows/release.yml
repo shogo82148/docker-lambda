@@ -26,6 +26,6 @@ jobs:
 
       - uses: shogo82148/actions-setup-perl@v1
         with:
-          perl-version: "5.38"
+          perl-version: "5.40"
 
       - run: ./scripts/release.pl --force
