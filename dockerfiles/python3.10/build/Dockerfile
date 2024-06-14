@@ -5,13 +5,13 @@ RUN yum install -y curl tar gzip
 ARG TARGETOS
 ARG TARGETARCH
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/python3.10/3d7e4b8b538e6a8944238f86402ba08b8beaa4f3b76b71b3fe5c6fa7d3973297.tgz
-ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/python3.10/14ddac92fc2b6282622a75095cdbcc9fab9cd62042aef4fe881a53b9c545eba8.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/python3.10/b0a32bab9633076a957a2bba9982a173688d6b5910d19e5b9d324db5533f3e9d.tgz
+ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/python3.10/3091bb139d76acbac84d0341547aad83806f734205eb4de5a6c2e8cc11fbc3dd.tgz
 
 RUN case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARCHIVE_URL=$ARCHIVE_URL_ARM64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
   curl -sSL "$ARCHIVE_URL" | tar -zx -C /
 
-FROM public.ecr.aws/shogo82148/lambda-base:build-al2.2024.05.07
+FROM public.ecr.aws/shogo82148/lambda-base:build-al2.2024.06.14
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
