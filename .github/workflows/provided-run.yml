@@ -36,7 +36,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: shogo82148/actions-setup-perl@v1
         with:
-          perl-version: "5.38"
+          perl-version: "5.40"
       - name: build
         run: dockerfiles/provided/build-run.sh
 
