@@ -1,4 +1,4 @@
-FROM public.ecr.aws/shogo82148/lambda-base:build-alami.2024.06.14
+FROM public.ecr.aws/shogo82148/lambda-base:build-alami.2024.06.22
 
 # https://golang.org/doc/devel/release.html
 ENV GOLANG_VERSION=1.22.1 \
