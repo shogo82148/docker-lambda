@@ -5,8 +5,8 @@ ARG TARGETARCH
 
 RUN dnf install -y tar gzip
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/nodejs20.x/5389b26af6c30c4827fe7eaffcb9a5da617429646878aa49e23179cfc1cd044c.tgz
-ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/nodejs20.x/a84b8944ab622cebb6507cdb44f0ef321f6afbebb241319264e7b7316c6020b3.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/nodejs20.x/a03a3c3383b304394549ecca17e64f91e2cc36455d741b0919f8e4216f1ac29b.tgz
+ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/nodejs20.x/85a2709ed62627ab02a9de1ff888b4c21d12448b3e796d0bb7b5d318a2828631.tgz
 
 RUN case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARCHIVE_URL=$ARCHIVE_URL_ARM64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
     curl -sSL "$ARCHIVE_URL" | tar -zx -C /
