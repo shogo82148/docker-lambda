@@ -52,6 +52,8 @@ etc/dnf/protected.d/dnf.conf
 etc/dnf/vars
 etc/dnf/vars/awsdomain
 etc/dnf/vars/awsregion
+etc/dnf/vars/dualstack
+etc/dnf/vars/mirrorlist
 etc/dnf/vars/releasever
 etc/dnf/vars/repoguid
 etc/dracut.conf.d
@@ -1207,7 +1209,6 @@ usr/lib/.build-id/11/9b74fc96469de3c42f85ab77140a3fcf821b34
 usr/lib/.build-id/12
 usr/lib/.build-id/12/66bd7d6f09d6380c800881146d97c5ff95bb34
 usr/lib/.build-id/13
-usr/lib/.build-id/13/2076d8a4a0d7eaeaeab6846f1ce20b61041f1e
 usr/lib/.build-id/13/f737d1e9fd45faa3c27b543e2dd6c9e41546b8
 usr/lib/.build-id/14
 usr/lib/.build-id/14/2d1c0900cb0d0fec69a0de4077cc978434636a
@@ -1228,6 +1229,8 @@ usr/lib/.build-id/1f
 usr/lib/.build-id/1f/1766cd20b9e8c451a674019450b13434086268
 usr/lib/.build-id/20
 usr/lib/.build-id/20/fb8634209fa6cb38025466c232dc9b8a341bee
+usr/lib/.build-id/22
+usr/lib/.build-id/22/a4a2124c2562387bc4e9c6670f076a8727b7ee
 usr/lib/.build-id/24
 usr/lib/.build-id/24/dbbabbe8372d48573cdb1549630f555c99959b
 usr/lib/.build-id/26
@@ -1248,7 +1251,6 @@ usr/lib/.build-id/2f/1432a17588eca75d775e526dab0853555bfa45
 usr/lib/.build-id/30
 usr/lib/.build-id/30/448f508336fb6b11d92bcff7f65c300f3e68e1
 usr/lib/.build-id/35
-usr/lib/.build-id/35/54e56e51b71e16182dc7e2962cc7a4a8c289e2
 usr/lib/.build-id/35/ee8ece45831020a91c6780889adf3c258d7c59
 usr/lib/.build-id/38
 usr/lib/.build-id/38/bec002f27c246811f59394323ce0aca87341cf
@@ -1266,15 +1268,13 @@ usr/lib/.build-id/3d/960a2023da46b38a896957efb62386f01a51e1
 usr/lib/.build-id/3d/f356f0ad08968f4a6d212131275c584f24ff39
 usr/lib/.build-id/3d/f83a567e655e1f5a6f3f36e38a55d7e0559c6e
 usr/lib/.build-id/3f
-usr/lib/.build-id/3f/7e7c266feca6d543c4a77b0be1cd19bdb5eddc
 usr/lib/.build-id/3f/90c8278e5467d4e16bc546997d1e3f5fec6eb7
 usr/lib/.build-id/3f/f2efae61c3a519c712b9b879e62894bb3ae961
 usr/lib/.build-id/41
 usr/lib/.build-id/41/2caf0545db8ff89b78ead02dbba0b21e8853b9
-usr/lib/.build-id/43
-usr/lib/.build-id/43/84f1f15e3aeff3949dcc356e4b4330f0927134
 usr/lib/.build-id/49
 usr/lib/.build-id/49/4e57f4188111e48aa48629302e9c4f6da8a519
+usr/lib/.build-id/49/6376ca1ba3920e0321c4eff421928cc38091bb
 usr/lib/.build-id/4a
 usr/lib/.build-id/4a/581185da4aa34cb7e1462c0af4ebe640ae789b
 usr/lib/.build-id/4a/e92cbfcfdcd2ebaf1952e8926151e74c4403f0
@@ -1285,6 +1285,7 @@ usr/lib/.build-id/4e/d30b89a3867f7ea85972f1e12f0014931da336
 usr/lib/.build-id/4e/e023979f932afd5c2dda553e999c5373c7bc85
 usr/lib/.build-id/51
 usr/lib/.build-id/51/2a04437d4238b0ac10c311aea54cd4154cfcfa
+usr/lib/.build-id/51/c17045383762b9cabb8e5123e7d24ded46e3b4
 usr/lib/.build-id/51/fa953ae7cf598acdd9d0c26ee73070c61b4b83
 usr/lib/.build-id/55
 usr/lib/.build-id/55/25f12fcbd5f66ff63b6bae4331e42eb465b2d7
@@ -1305,7 +1306,6 @@ usr/lib/.build-id/5e
 usr/lib/.build-id/5e/c4f6e1e3e860b16e130e5739f9cf5b2b3235b8
 usr/lib/.build-id/5f
 usr/lib/.build-id/5f/8c699f52c3e972b50a34d319456444a205c152
-usr/lib/.build-id/5f/cee433f2d8929d1014adcb2210f6ef47ebc5b4
 usr/lib/.build-id/61
 usr/lib/.build-id/61/1d51f9aaaddbfc37b49a8f5ae210577af965dc
 usr/lib/.build-id/61/607c43efec7ee5657b4bbdf563313f8130d0f3
@@ -1316,8 +1316,8 @@ usr/lib/.build-id/65/fc98439541a1a2cb400f5a31fbd33822664da7
 usr/lib/.build-id/66
 usr/lib/.build-id/66/92f521992e238c46af7548f4a4d8814e5215c0
 usr/lib/.build-id/66/b1d4e56db7db79757f1d0c5361ffb50178bdc6
-usr/lib/.build-id/67
-usr/lib/.build-id/67/a8a0be7c687da1c9075e47e5d53541624e2748
+usr/lib/.build-id/69
+usr/lib/.build-id/69/0abdbc393c480293f570f07aad7651bcb472ca
 usr/lib/.build-id/6a
 usr/lib/.build-id/6a/c683de36e559db3eb70a5aa7b56473cbbb4936
 usr/lib/.build-id/6d
@@ -1328,6 +1328,7 @@ usr/lib/.build-id/6f/edf6d381f94a85b8c7f7d96a4f8be14df70c65
 usr/lib/.build-id/6f/eec529efa12f2defd73e045ea5aa0f52be19fa
 usr/lib/.build-id/70
 usr/lib/.build-id/70/1ce67279da0124b84a13e90e18ff06b2ed3da3
+usr/lib/.build-id/70/500621d74ad14a5acfe682f616083f27e2b3d5
 usr/lib/.build-id/70/903375076bc981ac240035b9e423db7ae5d9ef
 usr/lib/.build-id/71
 usr/lib/.build-id/71/064ae3ac01636bfd506d90d8fc4fcd58d51757
@@ -1380,9 +1381,12 @@ usr/lib/.build-id/9e/79df525cf3fc91d01003e8f8d3b2423b5c93a6
 usr/lib/.build-id/9e/979695af39450d658e5adbbbe43b8fee626654
 usr/lib/.build-id/9f
 usr/lib/.build-id/9f/a4698c1e215ede69a088df4a89f4ed5f386013
+usr/lib/.build-id/a0
+usr/lib/.build-id/a0/5c1ba68c5206e163089235aa199af0d79f09ce
 usr/lib/.build-id/a4
-usr/lib/.build-id/a4/1b045d8190dc9c4e4f5c6ef4d0022407dd7303
 usr/lib/.build-id/a4/4e6cfb170e7e75508a68110fa06304fa094de5
+usr/lib/.build-id/a5
+usr/lib/.build-id/a5/bd65adca22484c8e75ad7f4b24895d1095ae8a
 usr/lib/.build-id/a6
 usr/lib/.build-id/a6/d21f33ab8828ce7a797f69f36e4b5a3544799e
 usr/lib/.build-id/a7
@@ -1410,6 +1414,8 @@ usr/lib/.build-id/bc/f1c1ce7dc6b486f18db334eb5a47d15e5a12a6
 usr/lib/.build-id/bd
 usr/lib/.build-id/bd/34d400b98cc5a4772dc01e2cf06ea8de875f3f
 usr/lib/.build-id/bd/cc4ac1978f45e70d99eaed058587cf91bb9033
+usr/lib/.build-id/be
+usr/lib/.build-id/be/e37edff1465da1fac3aba4971b848bf76f5216
 usr/lib/.build-id/bf
 usr/lib/.build-id/bf/723ed7af5262c6bf805c7594bd843a32e4e95e
 usr/lib/.build-id/c0
@@ -1476,8 +1482,6 @@ usr/lib/.build-id/eb
 usr/lib/.build-id/eb/0a65f63cecc677c4ef6f7146494e861c63fe2d
 usr/lib/.build-id/ee
 usr/lib/.build-id/ee/859924ae42fdeb304e3cc397ed132c5658a8b8
-usr/lib/.build-id/ef
-usr/lib/.build-id/ef/7082c25ddc73d895c33983563b6d6f7b357ccd
 usr/lib/.build-id/f0
 usr/lib/.build-id/f0/46745b2731db79217afd49043bf279cacdae63
 usr/lib/.build-id/f0/57fd92e714a7691eb493d547b6ca6a449efe95
