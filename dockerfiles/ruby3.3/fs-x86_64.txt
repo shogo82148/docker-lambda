@@ -3770,7 +3770,6 @@ var/lang/share/man/man1/irb.1
 var/lang/share/man/man1/ri.1
 var/lang/share/man/man1/ruby.1
 var/rapid
-var/rapid/init
 var/runtime
 var/runtime/THIRD-PARTY-LICENSES.txt
 var/runtime/bin
