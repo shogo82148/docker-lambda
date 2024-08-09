@@ -17,7 +17,7 @@ RUN curl -sSL "https://github.com/shogo82148/docker-lambda-init/releases/downloa
 
 FROM public.ecr.aws/shogo82148/lambda-provided:al2
 
-FROM public.ecr.aws/shogo82148/lambda-base:al2.2024.06.14
+FROM public.ecr.aws/shogo82148/lambda-base:al2.2024.08.09
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
