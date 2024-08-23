@@ -8,7 +8,7 @@ ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_6
 RUN curl -sSL "$ARCHIVE_URL_AMD64" | tar -zx -C /
 
 
-FROM public.ecr.aws/shogo82148/lambda-base:build-alami.2024.07.06
+FROM public.ecr.aws/shogo82148/lambda-base:build-alami.2024.08.16
 
 ENV AWS_EXECUTION_ENV=AWS_Lambda_java8
 
