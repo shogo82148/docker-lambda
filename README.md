@@ -294,6 +294,12 @@ These follow the Lambda runtime names:
 
 - [Python Runtimes](https://gallery.ecr.aws/shogo82148/lambda-python)
 
+  - `public.ecr.aws/shogo82148/lambda-python:3.12`
+  - `public.ecr.aws/shogo82148/lambda-python:3.12-arm64`
+  - `public.ecr.aws/shogo82148/lambda-python:3.12-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.12`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.12-arm64`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.12-x86_64`
   - `public.ecr.aws/shogo82148/lambda-python:3.11`
   - `public.ecr.aws/shogo82148/lambda-python:3.11-arm64`
   - `public.ecr.aws/shogo82148/lambda-python:3.11-x86_64`
@@ -318,10 +324,6 @@ These follow the Lambda runtime names:
   - `public.ecr.aws/shogo82148/lambda-python:build-3.8`
   - `public.ecr.aws/shogo82148/lambda-python:build-3.8-arm64`
   - `public.ecr.aws/shogo82148/lambda-python:build-3.8-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-python:3.7`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.7`
-  - `public.ecr.aws/shogo82148/lambda-python:3.6`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.6`
 
 - [Ruby Runtimes](https://gallery.ecr.aws/shogo82148/lambda-ruby)
 
