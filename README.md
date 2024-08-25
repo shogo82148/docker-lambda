@@ -366,8 +366,6 @@ These follow the Lambda runtime names:
   - `public.ecr.aws/shogo82148/lambda-java:build-8.al2`
   - `public.ecr.aws/shogo82148/lambda-java:build-8.al2-arm64`
   - `public.ecr.aws/shogo82148/lambda-java:8.al2-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-java:8`
-  - `public.ecr.aws/shogo82148/lambda-java:8`
 
 - [.Net Runtimes](https://gallery.ecr.aws/shogo82148/lambda-dotnet) and [.Net Core Runtimes](https://gallery.ecr.aws/shogo82148/lambda-dotnetcore)
 
