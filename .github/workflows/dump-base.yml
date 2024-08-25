@@ -22,7 +22,6 @@ jobs:
       fail-fast: false
       matrix:
         runtime:
-          - base
           - base.al2
           - base.al2023
     steps:
