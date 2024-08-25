@@ -325,12 +325,18 @@ These follow the Lambda runtime names:
 
 - [Ruby Runtimes](https://gallery.ecr.aws/shogo82148/lambda-ruby)
 
-  - `public.ecr.aws/shogo82148/lambda-ruby:2.7`
-  - `public.ecr.aws/shogo82148/lambda-ruby:2.7-arm64`
-  - `public.ecr.aws/shogo82148/lambda-ruby:2.7-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-ruby:build-2.7`
-  - `public.ecr.aws/shogo82148/lambda-ruby:build-2.7-arm64`
-  - `public.ecr.aws/shogo82148/lambda-ruby:build-2.7-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:3.3`
+  - `public.ecr.aws/shogo82148/lambda-ruby:3.3-arm64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:3.3-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.3`
+  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.3-arm64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.3-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:3.2`
+  - `public.ecr.aws/shogo82148/lambda-ruby:3.2-arm64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:3.2-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.2`
+  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.2-arm64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.2-x86_64`
 
 - [Java Runtimes](https://gallery.ecr.aws/shogo82148/lambda-java)
 

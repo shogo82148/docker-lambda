@@ -41,7 +41,6 @@ my $runtimes = [
     "python3.11",
     "python3.12",
 
-    "ruby2.7",
     "ruby3.2",
     "ruby3.3",
 
