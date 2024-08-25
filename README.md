@@ -391,8 +391,6 @@ These follow the Lambda runtime names:
   - `public.ecr.aws/shogo82148/lambda-provided:build-al2`
   - `public.ecr.aws/shogo82148/lambda-provided:build-al2-arm64`
   - `public.ecr.aws/shogo82148/lambda-provided:build-al2-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-provided:alami`
-  - `public.ecr.aws/shogo82148/lambda-provided:build-alami`
 
 ## Environment variables
 
