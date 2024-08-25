@@ -25,8 +25,6 @@ my $runtimes = [
     "dotnet6",
     "dotnet8",
 
-    "go1.x",
-
     "java8",
     "java8.al2",
     "java11",
