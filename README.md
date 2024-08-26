@@ -291,27 +291,15 @@ These follow the Lambda runtime names:
   - `public.ecr.aws/shogo82148/lambda-nodejs:build-18`
   - `public.ecr.aws/shogo82148/lambda-nodejs:build-18-arm64`
   - `public.ecr.aws/shogo82148/lambda-nodejs:build-18-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:16`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:16-arm64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:16-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-16`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-16-arm64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-16-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:14`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:14-arm64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:14-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-14`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-14-arm64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-14-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:12`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:12-arm64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:12-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-12`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-12-arm64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-12-x86_64`
 
 - [Python Runtimes](https://gallery.ecr.aws/shogo82148/lambda-python)
 
+  - `public.ecr.aws/shogo82148/lambda-python:3.12`
+  - `public.ecr.aws/shogo82148/lambda-python:3.12-arm64`
+  - `public.ecr.aws/shogo82148/lambda-python:3.12-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.12`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.12-arm64`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.12-x86_64`
   - `public.ecr.aws/shogo82148/lambda-python:3.11`
   - `public.ecr.aws/shogo82148/lambda-python:3.11-arm64`
   - `public.ecr.aws/shogo82148/lambda-python:3.11-x86_64`
@@ -336,19 +324,21 @@ These follow the Lambda runtime names:
   - `public.ecr.aws/shogo82148/lambda-python:build-3.8`
   - `public.ecr.aws/shogo82148/lambda-python:build-3.8-arm64`
   - `public.ecr.aws/shogo82148/lambda-python:build-3.8-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-python:3.7`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.7`
-  - `public.ecr.aws/shogo82148/lambda-python:3.6`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.6`
 
 - [Ruby Runtimes](https://gallery.ecr.aws/shogo82148/lambda-ruby)
 
-  - `public.ecr.aws/shogo82148/lambda-ruby:2.7`
-  - `public.ecr.aws/shogo82148/lambda-ruby:2.7-arm64`
-  - `public.ecr.aws/shogo82148/lambda-ruby:2.7-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-ruby:build-2.7`
-  - `public.ecr.aws/shogo82148/lambda-ruby:build-2.7-arm64`
-  - `public.ecr.aws/shogo82148/lambda-ruby:build-2.7-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:3.3`
+  - `public.ecr.aws/shogo82148/lambda-ruby:3.3-arm64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:3.3-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.3`
+  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.3-arm64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.3-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:3.2`
+  - `public.ecr.aws/shogo82148/lambda-ruby:3.2-arm64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:3.2-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.2`
+  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.2-arm64`
+  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.2-x86_64`
 
 - [Java Runtimes](https://gallery.ecr.aws/shogo82148/lambda-java)
 
@@ -376,13 +366,6 @@ These follow the Lambda runtime names:
   - `public.ecr.aws/shogo82148/lambda-java:build-8.al2`
   - `public.ecr.aws/shogo82148/lambda-java:build-8.al2-arm64`
   - `public.ecr.aws/shogo82148/lambda-java:8.al2-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-java:8`
-  - `public.ecr.aws/shogo82148/lambda-java:8`
-
-- [Go runtimes](https://gallery.ecr.aws/shogo82148/lambda-go)
-
-  - `public.ecr.aws/shogo82148/lambda-go:1`
-  - `public.ecr.aws/shogo82148/lambda-go:build-1`
 
 - [.Net Runtimes](https://gallery.ecr.aws/shogo82148/lambda-dotnet) and [.Net Core Runtimes](https://gallery.ecr.aws/shogo82148/lambda-dotnetcore)
 
@@ -408,8 +391,6 @@ These follow the Lambda runtime names:
   - `public.ecr.aws/shogo82148/lambda-provided:build-al2`
   - `public.ecr.aws/shogo82148/lambda-provided:build-al2-arm64`
   - `public.ecr.aws/shogo82148/lambda-provided:build-al2-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-provided:alami`
-  - `public.ecr.aws/shogo82148/lambda-provided:build-alami`
 
 ## Environment variables
 
