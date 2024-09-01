@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM public.ecr.aws/amazonlinux/amazonlinux:2
+FROM --platform=$BUILDPLATFORM public.ecr.aws/amazonlinux/amazonlinux:2023
 
 RUN yum install -y curl tar gzip
 
