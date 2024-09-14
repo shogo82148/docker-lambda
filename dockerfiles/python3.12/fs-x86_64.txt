@@ -12589,6 +12589,7 @@ var/lang/share/man/man1
 var/lang/share/man/man1/python3.1
 var/lang/share/man/man1/python3.12.1
 var/rapid
+var/rapid/init
 var/runtime
 var/runtime/THIRD-PARTY-LICENSES.txt
 var/runtime/bootstrap
