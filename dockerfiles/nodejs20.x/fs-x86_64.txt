@@ -378,6 +378,8 @@ var/lang/lib/node_modules/npm/docs/output/commands/npx.html
 var/lang/lib/node_modules/npm/docs/output/configuring-npm
 var/lang/lib/node_modules/npm/docs/output/configuring-npm/folders.html
 var/lang/lib/node_modules/npm/docs/output/configuring-npm/install.html
+var/lang/lib/node_modules/npm/docs/output/configuring-npm/npm-global.html
+var/lang/lib/node_modules/npm/docs/output/configuring-npm/npm-json.html
 var/lang/lib/node_modules/npm/docs/output/configuring-npm/npm-shrinkwrap-json.html
 var/lang/lib/node_modules/npm/docs/output/configuring-npm/npmrc.html
 var/lang/lib/node_modules/npm/docs/output/configuring-npm/package-json.html
@@ -496,9 +498,8 @@ var/lang/lib/node_modules/npm/lib/utils/installed-shallow.js
 var/lang/lib/node_modules/npm/lib/utils/is-windows.js
 var/lang/lib/node_modules/npm/lib/utils/log-file.js
 var/lang/lib/node_modules/npm/lib/utils/npm-usage.js
-var/lang/lib/node_modules/npm/lib/utils/open-url-prompt.js
 var/lang/lib/node_modules/npm/lib/utils/open-url.js
-var/lang/lib/node_modules/npm/lib/utils/otplease.js
+var/lang/lib/node_modules/npm/lib/utils/output-error.js
 var/lang/lib/node_modules/npm/lib/utils/ping.js
 var/lang/lib/node_modules/npm/lib/utils/queryable.js
 var/lang/lib/node_modules/npm/lib/utils/read-user-info.js
@@ -511,7 +512,6 @@ var/lang/lib/node_modules/npm/lib/utils/timers.js
 var/lang/lib/node_modules/npm/lib/utils/update-workspaces.js
 var/lang/lib/node_modules/npm/lib/utils/validate-lockfile.js
 var/lang/lib/node_modules/npm/lib/utils/verify-signatures.js
-var/lang/lib/node_modules/npm/lib/utils/web-auth.js
 var/lang/lib/node_modules/npm/man
 var/lang/lib/node_modules/npm/man/man1
 var/lang/lib/node_modules/npm/man/man1/npm-access.1
@@ -697,6 +697,7 @@ var/lang/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/node.js
 var/lang/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/optional-set.js
 var/lang/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/override-resolves.js
 var/lang/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/override-set.js
+var/lang/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/packument-cache.js
 var/lang/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/peer-entry-sets.js
 var/lang/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/place-dep.js
 var/lang/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/printable.js
@@ -931,6 +932,7 @@ var/lang/lib/node_modules/npm/node_modules/@sigstore/sign/dist/bundler/message.j
 var/lang/lib/node_modules/npm/node_modules/@sigstore/sign/dist/error.js
 var/lang/lib/node_modules/npm/node_modules/@sigstore/sign/dist/external
 var/lang/lib/node_modules/npm/node_modules/@sigstore/sign/dist/external/error.js
+var/lang/lib/node_modules/npm/node_modules/@sigstore/sign/dist/external/fetch.js
 var/lang/lib/node_modules/npm/node_modules/@sigstore/sign/dist/external/fulcio.js
 var/lang/lib/node_modules/npm/node_modules/@sigstore/sign/dist/external/rekor.js
 var/lang/lib/node_modules/npm/node_modules/@sigstore/sign/dist/external/tsa.js
@@ -1100,10 +1102,6 @@ var/lang/lib/node_modules/npm/node_modules/brace-expansion
 var/lang/lib/node_modules/npm/node_modules/brace-expansion/LICENSE
 var/lang/lib/node_modules/npm/node_modules/brace-expansion/index.js
 var/lang/lib/node_modules/npm/node_modules/brace-expansion/package.json
-var/lang/lib/node_modules/npm/node_modules/builtins
-var/lang/lib/node_modules/npm/node_modules/builtins/License
-var/lang/lib/node_modules/npm/node_modules/builtins/index.js
-var/lang/lib/node_modules/npm/node_modules/builtins/package.json
 var/lang/lib/node_modules/npm/node_modules/cacache
 var/lang/lib/node_modules/npm/node_modules/cacache/LICENSE.md
 var/lang/lib/node_modules/npm/node_modules/cacache/lib
@@ -1147,7 +1145,8 @@ var/lang/lib/node_modules/npm/node_modules/ci-info/package.json
 var/lang/lib/node_modules/npm/node_modules/ci-info/vendors.json
 var/lang/lib/node_modules/npm/node_modules/cidr-regex
 var/lang/lib/node_modules/npm/node_modules/cidr-regex/LICENSE
-var/lang/lib/node_modules/npm/node_modules/cidr-regex/index.js
+var/lang/lib/node_modules/npm/node_modules/cidr-regex/dist
+var/lang/lib/node_modules/npm/node_modules/cidr-regex/dist/index.js
 var/lang/lib/node_modules/npm/node_modules/cidr-regex/package.json
 var/lang/lib/node_modules/npm/node_modules/clean-stack
 var/lang/lib/node_modules/npm/node_modules/clean-stack/index.js
@@ -1507,7 +1506,8 @@ var/lang/lib/node_modules/npm/node_modules/ip-regex/index.js
 var/lang/lib/node_modules/npm/node_modules/ip-regex/license
 var/lang/lib/node_modules/npm/node_modules/ip-regex/package.json
 var/lang/lib/node_modules/npm/node_modules/is-cidr
-var/lang/lib/node_modules/npm/node_modules/is-cidr/index.js
+var/lang/lib/node_modules/npm/node_modules/is-cidr/dist
+var/lang/lib/node_modules/npm/node_modules/is-cidr/dist/index.js
 var/lang/lib/node_modules/npm/node_modules/is-cidr/package.json
 var/lang/lib/node_modules/npm/node_modules/is-core-module
 var/lang/lib/node_modules/npm/node_modules/is-core-module/LICENSE
@@ -2017,8 +2017,9 @@ var/lang/lib/node_modules/npm/node_modules/p-map/package.json
 var/lang/lib/node_modules/npm/node_modules/pacote
 var/lang/lib/node_modules/npm/node_modules/pacote/LICENSE
 var/lang/lib/node_modules/npm/node_modules/pacote/README.md
+var/lang/lib/node_modules/npm/node_modules/pacote/bin
+var/lang/lib/node_modules/npm/node_modules/pacote/bin/index.js
 var/lang/lib/node_modules/npm/node_modules/pacote/lib
-var/lang/lib/node_modules/npm/node_modules/pacote/lib/bin.js
 var/lang/lib/node_modules/npm/node_modules/pacote/lib/dir.js
 var/lang/lib/node_modules/npm/node_modules/pacote/lib/fetcher.js
 var/lang/lib/node_modules/npm/node_modules/pacote/lib/file.js
@@ -2031,6 +2032,7 @@ var/lang/lib/node_modules/npm/node_modules/pacote/lib/util/add-git-sha.js
 var/lang/lib/node_modules/npm/node_modules/pacote/lib/util/cache-dir.js
 var/lang/lib/node_modules/npm/node_modules/pacote/lib/util/is-package-bin.js
 var/lang/lib/node_modules/npm/node_modules/pacote/lib/util/npm.js
+var/lang/lib/node_modules/npm/node_modules/pacote/lib/util/protected.js
 var/lang/lib/node_modules/npm/node_modules/pacote/lib/util/tar-create-options.js
 var/lang/lib/node_modules/npm/node_modules/pacote/lib/util/trailing-slashes.js
 var/lang/lib/node_modules/npm/node_modules/pacote/package.json
@@ -2233,13 +2235,9 @@ var/lang/lib/node_modules/npm/node_modules/semver/internal
 var/lang/lib/node_modules/npm/node_modules/semver/internal/constants.js
 var/lang/lib/node_modules/npm/node_modules/semver/internal/debug.js
 var/lang/lib/node_modules/npm/node_modules/semver/internal/identifiers.js
+var/lang/lib/node_modules/npm/node_modules/semver/internal/lrucache.js
 var/lang/lib/node_modules/npm/node_modules/semver/internal/parse-options.js
 var/lang/lib/node_modules/npm/node_modules/semver/internal/re.js
-var/lang/lib/node_modules/npm/node_modules/semver/node_modules
-var/lang/lib/node_modules/npm/node_modules/semver/node_modules/lru-cache
-var/lang/lib/node_modules/npm/node_modules/semver/node_modules/lru-cache/LICENSE
-var/lang/lib/node_modules/npm/node_modules/semver/node_modules/lru-cache/index.js
-var/lang/lib/node_modules/npm/node_modules/semver/node_modules/lru-cache/package.json
 var/lang/lib/node_modules/npm/node_modules/semver/package.json
 var/lang/lib/node_modules/npm/node_modules/semver/preload.js
 var/lang/lib/node_modules/npm/node_modules/semver/range.bnf
@@ -2607,7 +2605,6 @@ var/lang/share/man
 var/lang/share/man/man1
 var/lang/share/man/man1/node.1
 var/rapid
-var/rapid/init
 var/runtime
 var/runtime/THIRD-PARTY-LICENSES.txt
 var/runtime/UserFunction.js
