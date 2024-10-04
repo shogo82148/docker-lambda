@@ -426,6 +426,7 @@ var/lang/lib/server/runtime.jsa
 var/lang/lib/tzdb.dat
 var/lang/release
 var/rapid
+var/rapid/init
 var/runtime
 var/runtime/bootstrap
 var/runtime/lib
