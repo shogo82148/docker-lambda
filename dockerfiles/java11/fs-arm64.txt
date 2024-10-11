@@ -440,7 +440,6 @@ var/lang/lib/server/runtime.jsa
 var/lang/lib/tzdb.dat
 var/lang/release
 var/rapid
-var/rapid/init
 var/runtime
 var/runtime/amzn-log4j-security-jdk11-0.1alpha.jar
 var/runtime/bootstrap
