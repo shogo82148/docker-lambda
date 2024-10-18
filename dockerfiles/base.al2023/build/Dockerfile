@@ -9,7 +9,7 @@ RUN mkdir /opt/etc && \
   --releasever="$(rpm --query --file --queryformat '%{VERSION}' /etc/system-release)" \
   install -y dnf dnf-plugins-core
 
-FROM public.ecr.aws/shogo82148/lambda-base:al2023.2024.08.30
+FROM public.ecr.aws/shogo82148/lambda-base:al2023.2024.10.18
 
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin \
   PIPX_BIN_DIR=/usr/local/bin \
