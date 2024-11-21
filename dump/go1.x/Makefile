@@ -1,4 +1,4 @@
-.PHONEY: all
+.PHONY: all
 all: dist.zip
 
 dist.zip: dist/index
@@ -9,21 +9,21 @@ dist/index: dump.go go.mod go.sum
 	mkdir -p dist
 	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o dist/index dump.go
 
-.PHONEY: deploy
+.PHONY: deploy
 deploy: dist.zip
 	./deploy.sh x86_64
 
-.PHONEY: dump
+.PHONY: dump
 dump:
 	./dump.sh x86_64
 
-.PHONEY: test
+.PHONY: test
 test:
 	bash -n deploy.sh
 	bash -n dump.sh
 	go test ./...
 
-.PHONEY: clean
+.PHONY: clean
 clean:
 	-rm -rf dist
 	-rm -f dist.zip

@@ -1,4 +1,4 @@
-.PHONEY: all
+.PHONY: all
 all: dist.zip
 
 dist.zip: dist/bootstrap
@@ -9,21 +9,21 @@ dist/bootstrap: bootstrap
 	mkdir -p dist
 	cp $< $@
 
-.PHONEY: deploy
+.PHONY: deploy
 deploy: dist.zip
 	./deploy.sh x86_64
 
-.PHONEY: dump
+.PHONY: dump
 dump:
 	./dump.sh x86_64
 
-.PHONEY: test
+.PHONY: test
 test:
 	bash -n bootstrap
 	bash -n deploy.sh
 	bash -n dump.sh
 
-.PHONEY: clean
+.PHONY: clean
 clean:
 	-rm -rf dist
 	-rm -f dist.zip

@@ -1,4 +1,4 @@
-.PHONEY: all
+.PHONY: all
 all: dist.zip
 
 dist.zip: dist/index.rb
@@ -9,22 +9,22 @@ dist/index.rb: index.rb
 	mkdir -p dist
 	cp $< $@
 
-.PHONEY: deploy
+.PHONY: deploy
 deploy: dist.zip
 	./deploy.sh x86_64
 	./deploy.sh arm64
 
-.PHONEY: dump
+.PHONY: dump
 dump:
 	./dump.sh x86_64
 	./dump.sh arm64
 
-.PHONEY: test
+.PHONY: test
 test:
 	bash -n deploy.sh
 	bash -n dump.sh
 
-.PHONEY: clean
+.PHONY: clean
 clean:
 	-rm -rf dist
 	-rm -f dist.zip
