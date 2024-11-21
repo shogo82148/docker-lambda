@@ -1,14 +1,14 @@
-.PHONEY: all
+.PHONY: all
 all:
 
-.PHONEY: deploy
+.PHONY: deploy
 deploy:
 
-.PHONEY: dump
+.PHONY: dump
 dump:
 
-.PHONEY: test
+.PHONY: test
 test:
 
-.PHONEY: clean
+.PHONY: clean
 clean:

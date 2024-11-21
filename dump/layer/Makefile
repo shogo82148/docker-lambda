@@ -1,4 +1,4 @@
-.PHONEY: all
+.PHONY: all
 all: dist/x86_64.zip dist/arm64.zip
 
 dist/x86_64.zip: dist/x86_64/bin/lambda-dump
@@ -17,16 +17,16 @@ dist/arm64/bin/lambda-dump: main.go go.mod go.sum
 	mkdir -p dist/arm64/bin
 	CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o $@ $<
 
-.PHONEY: deploy
+.PHONY: deploy
 deploy: dist/x86_64.zip dist/arm64.zip
 	./deploy.sh x86_64
 	./deploy.sh arm64
 
-.PHONEY: test
+.PHONY: test
 test:
 	bash -n deploy.sh
 	go test ./...
 
-.PHONEY: clean
+.PHONY: clean
 clean:
 	-rm -rf dist
