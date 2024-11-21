@@ -279,6 +279,12 @@ These follow the Lambda runtime names:
 
 - [Node.js Runtimes](https://gallery.ecr.aws/shogo82148/lambda-nodejs)
 
+  - `public.ecr.aws/shogo82148/lambda-nodejs:22`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:22-arm64`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:22-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:build-22`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:build-22-arm64`
+  - `public.ecr.aws/shogo82148/lambda-nodejs:build-22-x86_64`
   - `public.ecr.aws/shogo82148/lambda-nodejs:20`
   - `public.ecr.aws/shogo82148/lambda-nodejs:20-arm64`
   - `public.ecr.aws/shogo82148/lambda-nodejs:20-x86_64`
