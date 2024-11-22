@@ -61,6 +61,7 @@ var/lang/legal/java.base/c-libutl.md
 var/lang/legal/java.base/cldr.md
 var/lang/legal/java.base/icu.md
 var/lang/legal/java.base/public_suffix.md
+var/lang/legal/java.base/siphash.md
 var/lang/legal/java.base/unicode.md
 var/lang/legal/java.compiler
 var/lang/legal/java.compiler/ADDITIONAL_LICENSE_INFO
@@ -82,6 +83,7 @@ var/lang/legal/java.desktop/jpeg.md
 var/lang/legal/java.desktop/lcms.md
 var/lang/legal/java.desktop/libpng.md
 var/lang/legal/java.desktop/mesa3d.md
+var/lang/legal/java.desktop/pipewire.md
 var/lang/legal/java.desktop/xwd.md
 var/lang/legal/java.instrument
 var/lang/legal/java.instrument/ADDITIONAL_LICENSE_INFO
@@ -430,7 +432,7 @@ var/runtime/bootstrap
 var/runtime/lib
 var/runtime/lib/Log4jHotPatch.jar
 var/runtime/lib/aws-lambda-java-core-1.2.3.jar
-var/runtime/lib/aws-lambda-java-runtime-interface-client-2.5.1-linux-aarch_64.jar
+var/runtime/lib/aws-lambda-java-runtime-interface-client-2.6.0-linux-aarch_64.jar
 var/runtime/lib/aws-lambda-java-serialization-1.1.5.jar
 var/runtime/lib/jni
 var/runtime/lib/jni/libaws-lambda-jni.linux-aarch_64.so
