@@ -300,6 +300,12 @@ These follow the Lambda runtime names:
 
 - [Python Runtimes](https://gallery.ecr.aws/shogo82148/lambda-python)
 
+  - `public.ecr.aws/shogo82148/lambda-python:3.13`
+  - `public.ecr.aws/shogo82148/lambda-python:3.13-arm64`
+  - `public.ecr.aws/shogo82148/lambda-python:3.13-x86_64`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.13`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.13-arm64`
+  - `public.ecr.aws/shogo82148/lambda-python:build-3.13-x86_64`
   - `public.ecr.aws/shogo82148/lambda-python:3.12`
   - `public.ecr.aws/shogo82148/lambda-python:3.12-arm64`
   - `public.ecr.aws/shogo82148/lambda-python:3.12-x86_64`
