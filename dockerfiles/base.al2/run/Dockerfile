@@ -7,7 +7,7 @@ RUN yum install -y curl tar gzip
 ARG TARGETOS
 ARG TARGETARCH
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/base.al2/b71ad9dfcd2bd268fc5bc2aa3ea90820b4cb40583339839a343a23021363cca5.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/base.al2/b8db0b7c8f4377f2858621ba390e1acd919d27b660e8547271687309de57042b.tgz
 ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/base.al2/36f6ade2dbbab98093840fa46bafdc8b676f0ac704d3ccf62c9c5c61bcc301f4.tgz
 
 RUN cd /opt && \
