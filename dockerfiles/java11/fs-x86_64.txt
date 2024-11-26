@@ -64,6 +64,7 @@ var/lang/legal/java.base/c-libutl.md
 var/lang/legal/java.base/cldr.md
 var/lang/legal/java.base/icu.md
 var/lang/legal/java.base/public_suffix.md
+var/lang/legal/java.base/siphash.md
 var/lang/legal/java.base/unicode.md
 var/lang/legal/java.compiler
 var/lang/legal/java.compiler/ADDITIONAL_LICENSE_INFO
