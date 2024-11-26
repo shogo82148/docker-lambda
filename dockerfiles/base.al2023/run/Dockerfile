@@ -7,7 +7,7 @@ RUN dnf install -y tar gzip
 ARG TARGETOS
 ARG TARGETARCH
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/base.al2023/f031e9a3c3e8d20740db71c1789898b23f84929b8986ce15c0eb3ea1100b4a9e.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/base.al2023/6c8109f3dfc968e19f48736ebf47cf3ff40d61ddf0f2e97002a5f0c8910aa725.tgz
 ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/base.al2023/57df73537e2fcb0dcbb78ca5a714be9bed03f885091a5b74f26f5fb26be1dcc8.tgz
 
 RUN cd /opt && \
