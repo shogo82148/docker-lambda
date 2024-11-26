@@ -1,4 +1,4 @@
-FROM public.ecr.aws/shogo82148/lambda-python:3.6
+FROM public.ecr.aws/shogo82148/lambda-python:3.13
 
 FROM public.ecr.aws/shogo82148/lambda-base:build-al2
 
