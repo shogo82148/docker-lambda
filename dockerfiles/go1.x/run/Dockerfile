@@ -1,6 +1,6 @@
 # Go is easy to run cross platform build,
 # so we use native platform here
-FROM --platform=$BUILDPLATFORM golang:1.23.3
+FROM --platform=$BUILDPLATFORM golang:1.23.4
 WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
