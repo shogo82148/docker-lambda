@@ -41,7 +41,7 @@ ncurses-libs-6.0-8.20170212.amzn2.1.8.x86_64
 nspr-4.35.0-1.amzn2.x86_64
 nss-softokn-freebl-3.90.0-6.amzn2.0.2.x86_64
 nss-util-3.90.0-1.amzn2.x86_64
-openssl-snapsafe-libs-1.0.2k-24.amzn2.0.12.x86_64
+openssl-snapsafe-libs-1.0.2k-24.amzn2.0.13.x86_64
 p11-kit-0.23.22-1.amzn2.0.1.x86_64
 p11-kit-trust-0.23.22-1.amzn2.0.1.x86_64
 pcre-8.32-17.amzn2.0.3.x86_64
