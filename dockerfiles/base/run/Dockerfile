@@ -1,4 +1,4 @@
-FROM public.ecr.aws/amazonlinux/amazonlinux:2
+FROM ghcr.io/amazonlinux/amazonlinux:2
 
 ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/base/4222b8c3cfa3d3a746bdb4c63678864bdb57c6382f8fb3f942ad4b279425d5b6.tgz
 

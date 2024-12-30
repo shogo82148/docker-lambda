@@ -1,6 +1,6 @@
-FROM public.ecr.aws/shogo82148/lambda-python:3.6
+FROM ghcr.io/shogo82148/lambda-python:3.6
 
-FROM public.ecr.aws/shogo82148/lambda-base:build-al2
+FROM ghcr.io/shogo82148/lambda-base:build-al2
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \

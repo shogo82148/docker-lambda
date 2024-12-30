@@ -96,11 +96,11 @@ sub update_image($runtime, $variant, $image, $tag) {
     say STDERR "updating $runtime-$variant to $version";
 
     my $dockerfile_build = slurp("$basedir/build/Dockerfile");
-    $dockerfile_build =~ s(^FROM public.ecr.aws/shogo82148/lambda-$image:$tag[.][0-9.]+$)(FROM public.ecr.aws/shogo82148/lambda-$image:$tag.$version)gm;
+    $dockerfile_build =~ s(^FROM ghcr.io/shogo82148/lambda-$image:$tag[.][0-9.]+$)(FROM ghcr.io/shogo82148/lambda-$image:$tag.$version)gm;
     spew("$basedir/build/Dockerfile", $dockerfile_build);
 
     my $dockerfile_run = slurp("$basedir/run/Dockerfile");
-    $dockerfile_run =~ s(^FROM public.ecr.aws/shogo82148/lambda-$image:$tag[.][0-9.]+$)(FROM public.ecr.aws/shogo82148/lambda-$image:$tag.$version)gm;
+    $dockerfile_run =~ s(^FROM ghcr.io/shogo82148/lambda-$image:$tag[.][0-9.]+$)(FROM ghcr.io/shogo82148/lambda-$image:$tag.$version)gm;
     spew("$basedir/run/Dockerfile", $dockerfile_run);
 }
 
