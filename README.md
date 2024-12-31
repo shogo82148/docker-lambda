@@ -47,7 +47,7 @@ handler and the second for the event, ie:
 docker run --rm \
   -v <code_dir>:/var/task:ro,delegated \
   [-v <layer_dir>:/opt:ro,delegated] \
-  public.ecr.aws/shogo82148/lambda-<runtime>:<runtime-version> \
+  ghcr.io/shogo82148/lambda-<runtime>:<runtime-version> \
   [<handler>] [<event>]
 ```
 
@@ -56,6 +56,10 @@ and the `ro,delegated` options ensure the directories are mounted read-only and 
 
 You can pass environment variables (eg `-e AWS_ACCESS_KEY_ID=abcd`) to talk to live AWS services,
 or modify aspects of the runtime. See [below](#environment-variables) for a list.
+
+> [!WARNING]
+> public.ecr.aws/shogo82148 has been deprecated.
+> It will no longer receive updates.
 
 #### Running in "stay-open" API mode
 
@@ -70,7 +74,7 @@ docker run --rm [-d] \
   -p 9001:9001 \
   -v <code_dir>:/var/task:ro,delegated \
   [-v <layer_dir>:/opt:ro,delegated] \
-  public.ecr.aws/shogo82148/lambda-<runtime>:<runtime-version> \
+  ghcr.io/shogo82148/lambda-<runtime>:<runtime-version> \
   [<handler>]
 ```
 
@@ -118,7 +122,7 @@ To enable this, pass `-e DOCKER_LAMBDA_WATCH=1` to `docker run`:
 docker run --rm \
   -e DOCKER_LAMBDA_WATCH=1 -e DOCKER_LAMBDA_STAY_OPEN=1 -p 9001:9001 \
   -v "$PWD":/var/task:ro,delegated \
-  public.ecr.aws/shogo82148/lambda-java:11 handler
+  ghcr.io/shogo82148/lambda-java:11 handler
 ```
 
 Then when you make changes to any file in the mounted directory, you'll see:
@@ -141,7 +145,7 @@ need to run watch mode like this instead:
 docker run --restart on-failure \
   -e DOCKER_LAMBDA_WATCH=1 -e DOCKER_LAMBDA_STAY_OPEN=1 -p 9001:9001 \
   -v "$PWD":/var/task:ro,delegated \
-  public.ecr.aws/shogo82148/lambda-java:11 handler
+  ghcr.io/shogo82148/lambda-java:11 handler
 ```
 
 When you make changes to any file in the mounted directory, you'll see:
@@ -160,7 +164,7 @@ If none of the above strategies work for you, you can use a file-watching utilit
 nodemon -w ./ -e '' -s SIGINT -x docker -- run --rm \
   -e DOCKER_LAMBDA_STAY_OPEN=1 -p 9001:9001 \
   -v "$PWD":/var/task:ro,delegated \
-  public.ecr.aws/shogo82148/lambda-provided:al2 handler
+  ghcr.io/shogo82148/lambda-provided:al2 handler
 ```
 
 ### Building Lambda functions
@@ -171,53 +175,53 @@ intended for building and packaging your Lambda functions. You can run your buil
 all from within the image.
 
 ```sh
-docker run [--rm] -v <code_dir>:/var/task [-v <layer_dir>:/opt] public.ecr.aws/shogo82148/lambda-<runtime>:build-<runtime-version> <build-cmd>
+docker run [--rm] -v <code_dir>:/var/task [-v <layer_dir>:/opt] ghcr.io/shogo82148/lambda-<runtime>:build-<runtime-version> <build-cmd>
 ```
 
 ## Migrate from lambci/docker-lambda
 
-Replace `lambci/lambda:<runtime><runtime-version>` into `public.ecr.aws/shogo82148/lambda-<runtime>:<runtime-version>`, and `lambci/lambda:build-<runtime><runtime-version>` into `public.ecr.aws/shogo82148/lambda-<runtime>:build-<runtime-version>`.
+Replace `lambci/lambda:<runtime><runtime-version>` into `ghcr.io/shogo82148/lambda-<runtime>:<runtime-version>`, and `lambci/lambda:build-<runtime><runtime-version>` into `ghcr.io/shogo82148/lambda-<runtime>:build-<runtime-version>`.
 See [Docker tags](#docker-tags) for available tags.
 
 ## Run Examples
 
 ```sh
 # Test a `handler` function from an `index.js` file in the current directory on Node.js v18.x
-docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-nodejs:18 index.handler
+docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-nodejs:18 index.handler
 
 # Using a different file and handler, with a custom event
-docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-nodejs:18 app.myHandler '{"some": "event"}'
+docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-nodejs:18 app.myHandler '{"some": "event"}'
 
 # Test a `lambda_handler` function in `lambda_function.py` with an empty event on Python 3.10
-docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-python:3.10 lambda_function.lambda_handler
+docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-python:3.10 lambda_function.lambda_handler
 
 # Similarly with Ruby 2.7
-docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-ruby:2.7 lambda_function.lambda_handler
+docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-ruby:2.7 lambda_function.lambda_handler
 
 # Test on provided.al2 with a compiled handler named my_handler and a custom event
-docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-provided:al2 my_handler '{"some": "event"}'
+docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-provided:al2 my_handler '{"some": "event"}'
 
 # Test a function from the current directory on Java 17
 # The directory must be laid out in the same way the Lambda zip file is,
 # with top-level package source directories and a `lib` directory for third-party jars
 # https://docs.aws.amazon.com/lambda/latest/dg/java-package.html
-docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-java:17 org.myorg.MyHandler
+docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-java:17 org.myorg.MyHandler
 
 # Test on .NET 6 given a test.dll assembly in the current directory,
 # a class named Function with a FunctionHandler method, and a custom event
-docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-dotnet:6 test::test.Function::FunctionHandler '{"some": "event"}'
+docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-dotnet:6 test::test.Function::FunctionHandler '{"some": "event"}'
 
 # Test with a provided.al2 runtime (assumes you have a `bootstrap` executable in the current directory)
-docker run --rm -v "$PWD":/var/task:ro,delegated public.ecr.aws/shogo82148/lambda-provided:al2 handler '{"some": "event"}'
+docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-provided:al2 handler '{"some": "event"}'
 
 # Test with layers (assumes your function code is in `./fn` and your layers in `./layer`)
-docker run --rm -v "$PWD"/fn:/var/task:ro,delegated -v "$PWD"/layer:/opt:ro,delegated public.ecr.aws/shogo82148/lambda-nodejs:18
+docker run --rm -v "$PWD"/fn:/var/task:ro,delegated -v "$PWD"/layer:/opt:ro,delegated ghcr.io/shogo82148/lambda-nodejs:18
 
 # Run custom commands
-docker run --rm --entrypoint node public.ecr.aws/shogo82148/lambda-nodejs:18 -v
+docker run --rm --entrypoint node ghcr.io/shogo82148/lambda-nodejs:18 -v
 
 # For large events you can pipe them into stdin if you set DOCKER_LAMBDA_USE_STDIN
-echo '{"some": "event"}' | docker run --rm -v "$PWD":/var/task:ro,delegated -i -e DOCKER_LAMBDA_USE_STDIN=1 public.ecr.aws/shogo82148/lambda-nodejs:18
+echo '{"some": "event"}' | docker run --rm -v "$PWD":/var/task:ro,delegated -i -e DOCKER_LAMBDA_USE_STDIN=1 ghcr.io/shogo82148/lambda-nodejs:18
 ```
 
 You can see more examples of how to build docker images and run different
@@ -229,23 +233,23 @@ To use the build images, for compilation, deployment, etc:
 
 ```sh
 # To compile native deps in node_modules
-docker run --rm -v "$PWD":/var/task public.ecr.aws/shogo82148/lambda-nodejs:build-18 npm rebuild --build-from-source
+docker run --rm -v "$PWD":/var/task ghcr.io/shogo82148/lambda-nodejs:build-18 npm rebuild --build-from-source
 
 # To install defined poetry dependencies
-docker run --rm -v "$PWD":/var/task public.ecr.aws/shogo82148/lambda-python:build-3.10 poetry install
+docker run --rm -v "$PWD":/var/task ghcr.io/shogo82148/lambda-python:build-3.10 poetry install
 
 # To resolve dependencies on provided.al2 (working directory is /go/src/handler)
-docker run --rm -v "$PWD":/go/src/handler public.ecr.aws/shogo82148/lambda-provided:build-al2 go mod download
+docker run --rm -v "$PWD":/go/src/handler ghcr.io/shogo82148/lambda-provided:build-al2 go mod download
 
 # For .NET, this will publish the compiled code to `./pub`,
 # which you can then use to run with `-v "$PWD"/pub:/var/task`
-docker run --rm -v "$PWD":/var/task public.ecr.aws/shogo82148/lambda-dotnet:build-6 dotnet publish -c Release -o pub
+docker run --rm -v "$PWD":/var/task ghcr.io/shogo82148/lambda-dotnet:build-6 dotnet publish -c Release -o pub
 
 # Run custom commands on a build container
-docker run --rm public.ecr.aws/shogo82148/lambda-python:build-3.10 aws --version
+docker run --rm ghcr.io/shogo82148/lambda-python:build-3.10 aws --version
 
 # To run an interactive session on a build container
-docker run -it public.ecr.aws/shogo82148/lambda-python:build-3.10 bash
+docker run -it ghcr.io/shogo82148/lambda-python:build-3.10 bash
 ```
 
 ## Using a Dockerfile to build
@@ -253,7 +257,7 @@ docker run -it public.ecr.aws/shogo82148/lambda-python:build-3.10 bash
 Create your own Docker image to build and deploy:
 
 ```dockerfile
-FROM public.ecr.aws/shogo82148/lambda-nodejs:build-14
+FROM ghcr.io/shogo82148/lambda-nodejs:build-14
 
 ENV AWS_DEFAULT_REGION us-east-1
 
@@ -279,130 +283,130 @@ These follow the Lambda runtime names:
 
 - [Node.js Runtimes](https://gallery.ecr.aws/shogo82148/lambda-nodejs)
 
-  - `public.ecr.aws/shogo82148/lambda-nodejs:22`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:22-arm64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:22-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-22`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-22-arm64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-22-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:20`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:20-arm64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:20-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-20`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-20-arm64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-20-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:18`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:18-arm64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:18-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-18`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-18-arm64`
-  - `public.ecr.aws/shogo82148/lambda-nodejs:build-18-x86_64`
+  - `ghcr.io/shogo82148/lambda-nodejs:22`
+  - `ghcr.io/shogo82148/lambda-nodejs:22-arm64`
+  - `ghcr.io/shogo82148/lambda-nodejs:22-x86_64`
+  - `ghcr.io/shogo82148/lambda-nodejs:build-22`
+  - `ghcr.io/shogo82148/lambda-nodejs:build-22-arm64`
+  - `ghcr.io/shogo82148/lambda-nodejs:build-22-x86_64`
+  - `ghcr.io/shogo82148/lambda-nodejs:20`
+  - `ghcr.io/shogo82148/lambda-nodejs:20-arm64`
+  - `ghcr.io/shogo82148/lambda-nodejs:20-x86_64`
+  - `ghcr.io/shogo82148/lambda-nodejs:build-20`
+  - `ghcr.io/shogo82148/lambda-nodejs:build-20-arm64`
+  - `ghcr.io/shogo82148/lambda-nodejs:build-20-x86_64`
+  - `ghcr.io/shogo82148/lambda-nodejs:18`
+  - `ghcr.io/shogo82148/lambda-nodejs:18-arm64`
+  - `ghcr.io/shogo82148/lambda-nodejs:18-x86_64`
+  - `ghcr.io/shogo82148/lambda-nodejs:build-18`
+  - `ghcr.io/shogo82148/lambda-nodejs:build-18-arm64`
+  - `ghcr.io/shogo82148/lambda-nodejs:build-18-x86_64`
 
 - [Python Runtimes](https://gallery.ecr.aws/shogo82148/lambda-python)
 
-  - `public.ecr.aws/shogo82148/lambda-python:3.13`
-  - `public.ecr.aws/shogo82148/lambda-python:3.13-arm64`
-  - `public.ecr.aws/shogo82148/lambda-python:3.13-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.13`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.13-arm64`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.13-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-python:3.12`
-  - `public.ecr.aws/shogo82148/lambda-python:3.12-arm64`
-  - `public.ecr.aws/shogo82148/lambda-python:3.12-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.12`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.12-arm64`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.12-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-python:3.11`
-  - `public.ecr.aws/shogo82148/lambda-python:3.11-arm64`
-  - `public.ecr.aws/shogo82148/lambda-python:3.11-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.11`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.11-arm64`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.11-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-python:3.10`
-  - `public.ecr.aws/shogo82148/lambda-python:3.10-arm64`
-  - `public.ecr.aws/shogo82148/lambda-python:3.10-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.10`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.10-arm64`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.10-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-python:3.9`
-  - `public.ecr.aws/shogo82148/lambda-python:3.9-arm64`
-  - `public.ecr.aws/shogo82148/lambda-python:3.9-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.9`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.9-arm64`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.9-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-python:3.8`
-  - `public.ecr.aws/shogo82148/lambda-python:3.8-arm64`
-  - `public.ecr.aws/shogo82148/lambda-python:3.8-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.8`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.8-arm64`
-  - `public.ecr.aws/shogo82148/lambda-python:build-3.8-x86_64`
+  - `ghcr.io/shogo82148/lambda-python:3.13`
+  - `ghcr.io/shogo82148/lambda-python:3.13-arm64`
+  - `ghcr.io/shogo82148/lambda-python:3.13-x86_64`
+  - `ghcr.io/shogo82148/lambda-python:build-3.13`
+  - `ghcr.io/shogo82148/lambda-python:build-3.13-arm64`
+  - `ghcr.io/shogo82148/lambda-python:build-3.13-x86_64`
+  - `ghcr.io/shogo82148/lambda-python:3.12`
+  - `ghcr.io/shogo82148/lambda-python:3.12-arm64`
+  - `ghcr.io/shogo82148/lambda-python:3.12-x86_64`
+  - `ghcr.io/shogo82148/lambda-python:build-3.12`
+  - `ghcr.io/shogo82148/lambda-python:build-3.12-arm64`
+  - `ghcr.io/shogo82148/lambda-python:build-3.12-x86_64`
+  - `ghcr.io/shogo82148/lambda-python:3.11`
+  - `ghcr.io/shogo82148/lambda-python:3.11-arm64`
+  - `ghcr.io/shogo82148/lambda-python:3.11-x86_64`
+  - `ghcr.io/shogo82148/lambda-python:build-3.11`
+  - `ghcr.io/shogo82148/lambda-python:build-3.11-arm64`
+  - `ghcr.io/shogo82148/lambda-python:build-3.11-x86_64`
+  - `ghcr.io/shogo82148/lambda-python:3.10`
+  - `ghcr.io/shogo82148/lambda-python:3.10-arm64`
+  - `ghcr.io/shogo82148/lambda-python:3.10-x86_64`
+  - `ghcr.io/shogo82148/lambda-python:build-3.10`
+  - `ghcr.io/shogo82148/lambda-python:build-3.10-arm64`
+  - `ghcr.io/shogo82148/lambda-python:build-3.10-x86_64`
+  - `ghcr.io/shogo82148/lambda-python:3.9`
+  - `ghcr.io/shogo82148/lambda-python:3.9-arm64`
+  - `ghcr.io/shogo82148/lambda-python:3.9-x86_64`
+  - `ghcr.io/shogo82148/lambda-python:build-3.9`
+  - `ghcr.io/shogo82148/lambda-python:build-3.9-arm64`
+  - `ghcr.io/shogo82148/lambda-python:build-3.9-x86_64`
+  - `ghcr.io/shogo82148/lambda-python:3.8`
+  - `ghcr.io/shogo82148/lambda-python:3.8-arm64`
+  - `ghcr.io/shogo82148/lambda-python:3.8-x86_64`
+  - `ghcr.io/shogo82148/lambda-python:build-3.8`
+  - `ghcr.io/shogo82148/lambda-python:build-3.8-arm64`
+  - `ghcr.io/shogo82148/lambda-python:build-3.8-x86_64`
 
 - [Ruby Runtimes](https://gallery.ecr.aws/shogo82148/lambda-ruby)
 
-  - `public.ecr.aws/shogo82148/lambda-ruby:3.3`
-  - `public.ecr.aws/shogo82148/lambda-ruby:3.3-arm64`
-  - `public.ecr.aws/shogo82148/lambda-ruby:3.3-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.3`
-  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.3-arm64`
-  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.3-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-ruby:3.2`
-  - `public.ecr.aws/shogo82148/lambda-ruby:3.2-arm64`
-  - `public.ecr.aws/shogo82148/lambda-ruby:3.2-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.2`
-  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.2-arm64`
-  - `public.ecr.aws/shogo82148/lambda-ruby:build-3.2-x86_64`
+  - `ghcr.io/shogo82148/lambda-ruby:3.3`
+  - `ghcr.io/shogo82148/lambda-ruby:3.3-arm64`
+  - `ghcr.io/shogo82148/lambda-ruby:3.3-x86_64`
+  - `ghcr.io/shogo82148/lambda-ruby:build-3.3`
+  - `ghcr.io/shogo82148/lambda-ruby:build-3.3-arm64`
+  - `ghcr.io/shogo82148/lambda-ruby:build-3.3-x86_64`
+  - `ghcr.io/shogo82148/lambda-ruby:3.2`
+  - `ghcr.io/shogo82148/lambda-ruby:3.2-arm64`
+  - `ghcr.io/shogo82148/lambda-ruby:3.2-x86_64`
+  - `ghcr.io/shogo82148/lambda-ruby:build-3.2`
+  - `ghcr.io/shogo82148/lambda-ruby:build-3.2-arm64`
+  - `ghcr.io/shogo82148/lambda-ruby:build-3.2-x86_64`
 
 - [Java Runtimes](https://gallery.ecr.aws/shogo82148/lambda-java)
 
-  - `public.ecr.aws/shogo82148/lambda-java:21`
-  - `public.ecr.aws/shogo82148/lambda-java:21-arm64`
-  - `public.ecr.aws/shogo82148/lambda-java:21-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-java:build-21`
-  - `public.ecr.aws/shogo82148/lambda-java:build-21-arm64`
-  - `public.ecr.aws/shogo82148/lambda-java:build-21-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-java:17`
-  - `public.ecr.aws/shogo82148/lambda-java:17-arm64`
-  - `public.ecr.aws/shogo82148/lambda-java:17-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-java:build-17`
-  - `public.ecr.aws/shogo82148/lambda-java:build-17-arm64`
-  - `public.ecr.aws/shogo82148/lambda-java:build-17-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-java:11`
-  - `public.ecr.aws/shogo82148/lambda-java:11-arm64`
-  - `public.ecr.aws/shogo82148/lambda-java:11-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-java:build-11`
-  - `public.ecr.aws/shogo82148/lambda-java:build-11-arm64`
-  - `public.ecr.aws/shogo82148/lambda-java:build-11-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-java:8.al2`
-  - `public.ecr.aws/shogo82148/lambda-java:8.al2-arm64`
-  - `public.ecr.aws/shogo82148/lambda-java:8.al2-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-java:build-8.al2`
-  - `public.ecr.aws/shogo82148/lambda-java:build-8.al2-arm64`
-  - `public.ecr.aws/shogo82148/lambda-java:8.al2-x86_64`
+  - `ghcr.io/shogo82148/lambda-java:21`
+  - `ghcr.io/shogo82148/lambda-java:21-arm64`
+  - `ghcr.io/shogo82148/lambda-java:21-x86_64`
+  - `ghcr.io/shogo82148/lambda-java:build-21`
+  - `ghcr.io/shogo82148/lambda-java:build-21-arm64`
+  - `ghcr.io/shogo82148/lambda-java:build-21-x86_64`
+  - `ghcr.io/shogo82148/lambda-java:17`
+  - `ghcr.io/shogo82148/lambda-java:17-arm64`
+  - `ghcr.io/shogo82148/lambda-java:17-x86_64`
+  - `ghcr.io/shogo82148/lambda-java:build-17`
+  - `ghcr.io/shogo82148/lambda-java:build-17-arm64`
+  - `ghcr.io/shogo82148/lambda-java:build-17-x86_64`
+  - `ghcr.io/shogo82148/lambda-java:11`
+  - `ghcr.io/shogo82148/lambda-java:11-arm64`
+  - `ghcr.io/shogo82148/lambda-java:11-x86_64`
+  - `ghcr.io/shogo82148/lambda-java:build-11`
+  - `ghcr.io/shogo82148/lambda-java:build-11-arm64`
+  - `ghcr.io/shogo82148/lambda-java:build-11-x86_64`
+  - `ghcr.io/shogo82148/lambda-java:8.al2`
+  - `ghcr.io/shogo82148/lambda-java:8.al2-arm64`
+  - `ghcr.io/shogo82148/lambda-java:8.al2-x86_64`
+  - `ghcr.io/shogo82148/lambda-java:build-8.al2`
+  - `ghcr.io/shogo82148/lambda-java:build-8.al2-arm64`
+  - `ghcr.io/shogo82148/lambda-java:8.al2-x86_64`
 
 - [.Net Runtimes](https://gallery.ecr.aws/shogo82148/lambda-dotnet) and [.Net Core Runtimes](https://gallery.ecr.aws/shogo82148/lambda-dotnetcore)
 
-  - `public.ecr.aws/shogo82148/lambda-dotnet:6`
-  - `public.ecr.aws/shogo82148/lambda-dotnet:6-arm64`
-  - `public.ecr.aws/shogo82148/lambda-dotnet:6-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-dotnet:build-6`
-  - `public.ecr.aws/shogo82148/lambda-dotnet:build-6-arm64`
-  - `public.ecr.aws/shogo82148/lambda-dotnet:build-6-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-dotnetcore:3.1`
-  - `public.ecr.aws/shogo82148/lambda-dotnetcore:build-3.1`
+  - `ghcr.io/shogo82148/lambda-dotnet:6`
+  - `ghcr.io/shogo82148/lambda-dotnet:6-arm64`
+  - `ghcr.io/shogo82148/lambda-dotnet:6-x86_64`
+  - `ghcr.io/shogo82148/lambda-dotnet:build-6`
+  - `ghcr.io/shogo82148/lambda-dotnet:build-6-arm64`
+  - `ghcr.io/shogo82148/lambda-dotnet:build-6-x86_64`
+  - `ghcr.io/shogo82148/lambda-dotnetcore:3.1`
+  - `ghcr.io/shogo82148/lambda-dotnetcore:build-3.1`
 
 - [Provided Runtimes](https://gallery.ecr.aws/shogo82148/lambda-provided)
-  - `public.ecr.aws/shogo82148/lambda-provided:al2023`
-  - `public.ecr.aws/shogo82148/lambda-provided:al2023-arm64`
-  - `public.ecr.aws/shogo82148/lambda-provided:al2023-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-provided:build-al2023`
-  - `public.ecr.aws/shogo82148/lambda-provided:build-al2023-arm64`
-  - `public.ecr.aws/shogo82148/lambda-provided:build-al2023-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-provided:al2`
-  - `public.ecr.aws/shogo82148/lambda-provided:al2-arm64`
-  - `public.ecr.aws/shogo82148/lambda-provided:al2-x86_64`
-  - `public.ecr.aws/shogo82148/lambda-provided:build-al2`
-  - `public.ecr.aws/shogo82148/lambda-provided:build-al2-arm64`
-  - `public.ecr.aws/shogo82148/lambda-provided:build-al2-x86_64`
+  - `ghcr.io/shogo82148/lambda-provided:al2023`
+  - `ghcr.io/shogo82148/lambda-provided:al2023-arm64`
+  - `ghcr.io/shogo82148/lambda-provided:al2023-x86_64`
+  - `ghcr.io/shogo82148/lambda-provided:build-al2023`
+  - `ghcr.io/shogo82148/lambda-provided:build-al2023-arm64`
+  - `ghcr.io/shogo82148/lambda-provided:build-al2023-x86_64`
+  - `ghcr.io/shogo82148/lambda-provided:al2`
+  - `ghcr.io/shogo82148/lambda-provided:al2-arm64`
+  - `ghcr.io/shogo82148/lambda-provided:al2-x86_64`
+  - `ghcr.io/shogo82148/lambda-provided:build-al2`
+  - `ghcr.io/shogo82148/lambda-provided:build-al2-arm64`
+  - `ghcr.io/shogo82148/lambda-provided:build-al2-x86_64`
 
 ## Environment variables
 

@@ -1,7 +1,7 @@
-FROM public.ecr.aws/shogo82148/lambda-provided:alami
+FROM ghcr.io/shogo82148/lambda-provided:alami
 
 
-FROM public.ecr.aws/shogo82148/lambda-base:alami
+FROM ghcr.io/shogo82148/lambda-base:alami
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \

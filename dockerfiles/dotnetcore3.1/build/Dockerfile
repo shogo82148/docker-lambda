@@ -1,6 +1,6 @@
-﻿FROM public.ecr.aws/shogo82148/lambda-base:build-al2
+﻿FROM ghcr.io/shogo82148/lambda-base:build-al2
 
-# Run: docker run --rm --entrypoint dotnet public.ecr.aws/shogo82148/lambda-dotnetcore:3.1 --info
+# Run: docker run --rm --entrypoint dotnet ghcr.io/shogo82148/lambda-dotnetcore:3.1 --info
 # Check https://dotnet.microsoft.com/en-us/download/dotnet/3.1 for versions
 ENV DOTNET_ROOT=/var/lang/bin
 ENV PATH=/root/.dotnet/tools:$DOTNET_ROOT:$PATH \
