@@ -1,4 +1,4 @@
-FROM ghcr.io/shogo82148/lambda-python:3.6
+FROM ghcr.io/shogo82148/lambda-python:3.13
 
 FROM ghcr.io/shogo82148/lambda-base:build-al2
 
