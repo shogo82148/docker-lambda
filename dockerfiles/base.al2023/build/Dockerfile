@@ -9,7 +9,7 @@ RUN mkdir /opt/etc && \
   --releasever="$(rpm --query --file --queryformat '%{VERSION}' /etc/system-release)" \
   install -y dnf dnf-plugins-core
 
-FROM ghcr.io/shogo82148/lambda-base:al2023.2025.02.05
+FROM ghcr.io/shogo82148/lambda-base:al2023.2025.02.14
 
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin \
   PIPX_BIN_DIR=/usr/local/bin \
