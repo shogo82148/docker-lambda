@@ -1,5 +1,5 @@
 alternatives-1.15-2.amzn2023.0.2.x86_64
-amazon-linux-repo-cdn-2023.5.20241001-0.amzn2023.noarch
+amazon-linux-repo-cdn-2023.6.20241031-0.amzn2023.noarch
 audit-libs-3.0.6-1.amzn2023.0.2.x86_64
 basesystem-11-11.amzn2023.0.2.noarch
 bash-5.2.15-1.amzn2023.0.2.x86_64
@@ -25,7 +25,7 @@ json-c-0.14-8.amzn2023.0.2.x86_64
 keyutils-libs-1.6.3-1.amzn2023.0.1.x86_64
 krb5-libs-1.21.3-1.amzn2023.0.1.x86_64
 libacl-2.3.1-2.amzn2023.0.2.x86_64
-libarchive-3.7.4-2.amzn2023.0.1.x86_64
+libarchive-3.7.4-2.amzn2023.0.2.x86_64
 libassuan-2.5.5-1.amzn2023.0.2.x86_64
 libattr-2.5.1-3.amzn2023.0.2.x86_64
 libblkid-2.37.4-1.amzn2023.0.4.x86_64
@@ -36,7 +36,7 @@ libcurl-minimal-8.5.0-1.amzn2023.0.4.x86_64
 libdnf-0.69.0-8.amzn2023.0.5.x86_64
 libffi-3.4.4-1.amzn2023.0.1.x86_64
 libgcc-11.4.1-2.amzn2023.0.2.x86_64
-libgcrypt-1.10.2-1.amzn2023.0.1.x86_64
+libgcrypt-1.10.2-1.amzn2023.0.2.x86_64
 libgpg-error-1.42-1.amzn2023.0.2.x86_64
 libidn2-2.3.2-1.amzn2023.0.5.x86_64
 libmodulemd-2.13.0-2.amzn2023.0.2.x86_64
@@ -61,13 +61,13 @@ libyaml-0.2.5-5.amzn2023.0.2.x86_64
 libzstd-1.5.5-1.amzn2023.0.1.x86_64
 lua-libs-5.4.4-3.amzn2023.0.2.x86_64
 lz4-libs-1.9.4-1.amzn2023.0.2.x86_64
-microdnf-3.8.1-1.amzn2023.0.1.x86_64
-microdnf-dnf-3.8.1-1.amzn2023.0.1.x86_64
+microdnf-3.10.0-2.amzn2023.0.1.x86_64
+microdnf-dnf-3.10.0-2.amzn2023.0.1.x86_64
 mpfr-4.1.0-7.amzn2023.0.2.x86_64
 ncurses-base-6.2-4.20200222.amzn2023.0.6.noarch
 ncurses-libs-6.2-4.20200222.amzn2023.0.6.x86_64
 npth-1.6-6.amzn2023.0.2.x86_64
-openssl-snapsafe-libs-3.0.8-1.amzn2023.0.14.x86_64
+openssl-snapsafe-libs-3.0.8-1.amzn2023.0.16.x86_64
 p11-kit-0.24.1-2.amzn2023.0.3.x86_64
 p11-kit-trust-0.24.1-2.amzn2023.0.3.x86_64
 pcre2-10.40-1.amzn2023.0.3.x86_64
@@ -80,7 +80,7 @@ rpm-libs-4.16.1.3-29.amzn2023.0.6.x86_64
 sed-4.8-7.amzn2023.0.2.x86_64
 setup-2.13.7-3.amzn2023.0.2.noarch
 sqlite-libs-3.40.0-1.amzn2023.0.4.x86_64
-system-release-2023.5.20241001-0.amzn2023.noarch
+system-release-2023.6.20241031-0.amzn2023.noarch
 tzdata-2024a-1.amzn2023.0.1.noarch
 xz-libs-5.2.5-9.amzn2023.0.2.x86_64
 zlib-1.2.11-33.amzn2023.0.5.x86_64
