@@ -281,7 +281,7 @@ docker run --rm -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY mylambda
 
 These follow the Lambda runtime names:
 
-- [Node.js Runtimes](https://gallery.ecr.aws/shogo82148/lambda-nodejs)
+- [Node.js Runtimes](https://github.com/shogo82148/docker-lambda/pkgs/container/lambda-nodejs)
 
   - `ghcr.io/shogo82148/lambda-nodejs:22`
   - `ghcr.io/shogo82148/lambda-nodejs:22-arm64`
@@ -302,7 +302,7 @@ These follow the Lambda runtime names:
   - `ghcr.io/shogo82148/lambda-nodejs:build-18-arm64`
   - `ghcr.io/shogo82148/lambda-nodejs:build-18-x86_64`
 
-- [Python Runtimes](https://gallery.ecr.aws/shogo82148/lambda-python)
+- [Python Runtimes](https://github.com/shogo82148/docker-lambda/pkgs/container/shogo82148/lambda-python)
 
   - `ghcr.io/shogo82148/lambda-python:3.13`
   - `ghcr.io/shogo82148/lambda-python:3.13-arm64`
@@ -341,7 +341,7 @@ These follow the Lambda runtime names:
   - `ghcr.io/shogo82148/lambda-python:build-3.8-arm64`
   - `ghcr.io/shogo82148/lambda-python:build-3.8-x86_64`
 
-- [Ruby Runtimes](https://gallery.ecr.aws/shogo82148/lambda-ruby)
+- [Ruby Runtimes](https://github.com/shogo82148/docker-lambda/pkgs/container/shogo82148/lambda-ruby)
 
   - `ghcr.io/shogo82148/lambda-ruby:3.3`
   - `ghcr.io/shogo82148/lambda-ruby:3.3-arm64`
@@ -356,7 +356,7 @@ These follow the Lambda runtime names:
   - `ghcr.io/shogo82148/lambda-ruby:build-3.2-arm64`
   - `ghcr.io/shogo82148/lambda-ruby:build-3.2-x86_64`
 
-- [Java Runtimes](https://gallery.ecr.aws/shogo82148/lambda-java)
+- [Java Runtimes](https://github.com/shogo82148/docker-lambda/pkgs/container/shogo82148/lambda-java)
 
   - `ghcr.io/shogo82148/lambda-java:21`
   - `ghcr.io/shogo82148/lambda-java:21-arm64`
@@ -383,7 +383,7 @@ These follow the Lambda runtime names:
   - `ghcr.io/shogo82148/lambda-java:build-8.al2-arm64`
   - `ghcr.io/shogo82148/lambda-java:8.al2-x86_64`
 
-- [.Net Runtimes](https://gallery.ecr.aws/shogo82148/lambda-dotnet) and [.Net Core Runtimes](https://gallery.ecr.aws/shogo82148/lambda-dotnetcore)
+- [.Net Runtimes](https://github.com/shogo82148/docker-lambda/pkgs/container/shogo82148/lambda-dotnet) and [.Net Core Runtimes](https://github.com/shogo82148/docker-lambda/pkgs/container/shogo82148/lambda-dotnetcore)
 
   - `ghcr.io/shogo82148/lambda-dotnet:6`
   - `ghcr.io/shogo82148/lambda-dotnet:6-arm64`
@@ -394,7 +394,7 @@ These follow the Lambda runtime names:
   - `ghcr.io/shogo82148/lambda-dotnetcore:3.1`
   - `ghcr.io/shogo82148/lambda-dotnetcore:build-3.1`
 
-- [Provided Runtimes](https://gallery.ecr.aws/shogo82148/lambda-provided)
+- [Provided Runtimes](https://github.com/shogo82148/docker-lambda/pkgs/container/shogo82148/lambda-provided)
   - `ghcr.io/shogo82148/lambda-provided:al2023`
   - `ghcr.io/shogo82148/lambda-provided:al2023-arm64`
   - `ghcr.io/shogo82148/lambda-provided:al2023-x86_64`
