@@ -17,7 +17,7 @@ RUN curl -sSL "https://github.com/shogo82148/docker-lambda-init/releases/downloa
 
 FROM ghcr.io/shogo82148/lambda-provided:al2
 
-FROM ghcr.io/shogo82148/lambda-base:al2.2025.03.07
+FROM ghcr.io/shogo82148/lambda-base:al2.2025.03.28
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \

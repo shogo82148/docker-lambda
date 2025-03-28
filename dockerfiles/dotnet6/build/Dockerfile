@@ -11,7 +11,7 @@ ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64
 RUN case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARCHIVE_URL=$ARCHIVE_URL_ARM64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
   curl -sSL "$ARCHIVE_URL" | tar -zx -C /
 
-FROM ghcr.io/shogo82148/lambda-base:build-al2.2025.03.07
+FROM ghcr.io/shogo82148/lambda-base:build-al2.2025.03.28
 
 # Run: docker run --rm --entrypoint dotnet ghcr.io/shogo82148/lambda-dotnetcore:6 --info
 # Check https://dotnet.microsoft.com/en-us/download/dotnet/6.0 for versions
