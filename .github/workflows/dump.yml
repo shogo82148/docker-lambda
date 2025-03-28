@@ -34,6 +34,7 @@ jobs:
           - python3.10
           - python3.11
           - python3.12
+          - python3.13
           - ruby3.2
           - ruby3.3
           - provided.al2
@@ -62,7 +63,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           ./scripts/update_dockerfile.pl ${{ matrix.runtime }}
-      
+
       # commit and push
       - id: generate
         uses: shogo82148/actions-github-app-token@v1
