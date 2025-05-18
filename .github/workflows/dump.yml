@@ -29,6 +29,7 @@ jobs:
           - java21
           - nodejs18.x
           - nodejs20.x
+          - nodejs22.x
           - python3.8
           - python3.9
           - python3.10
