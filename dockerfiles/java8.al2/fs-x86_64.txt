@@ -141,7 +141,6 @@ var/lang/lib/security/policy/unlimited/local_policy.jar
 var/lang/lib/sound.properties
 var/lang/lib/tzdb.dat
 var/rapid
-var/rapid/init
 var/runtime
 var/runtime/amzn-log4j-security-jdk8-0.1alpha.jar
 var/runtime/bootstrap
