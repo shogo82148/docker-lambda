@@ -12,7 +12,7 @@ RUN case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARC
   curl -sSL "$ARCHIVE_URL" | tar -zx -C /
 
 
-FROM ghcr.io/shogo82148/lambda-base:build-al2.2025.03.28
+FROM ghcr.io/shogo82148/lambda-base:build-al2.2025.06.06
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
