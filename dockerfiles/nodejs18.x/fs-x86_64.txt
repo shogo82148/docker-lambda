@@ -2556,7 +2556,6 @@ var/lang/share/systemtap
 var/lang/share/systemtap/tapset
 var/lang/share/systemtap/tapset/node.stp
 var/rapid
-var/rapid/init
 var/runtime
 var/runtime/THIRD-PARTY-LICENSES.txt
 var/runtime/UserFunction.js
