@@ -3086,9 +3086,9 @@ var/lang/lib/python3.11/lib-dynload/xxlimited_35.cpython-311-x86_64-linux-gnu.so
 var/lang/lib/python3.11/lib-dynload/zlib.cpython-311-x86_64-linux-gnu.so
 var/lang/lib/python3.11/lib2to3
 var/lang/lib/python3.11/lib2to3/Grammar.txt
-var/lang/lib/python3.11/lib2to3/Grammar3.11.11.final.0.pickle
+var/lang/lib/python3.11/lib2to3/Grammar3.11.12.final.0.pickle
 var/lang/lib/python3.11/lib2to3/PatternGrammar.txt
-var/lang/lib/python3.11/lib2to3/PatternGrammar3.11.11.final.0.pickle
+var/lang/lib/python3.11/lib2to3/PatternGrammar3.11.12.final.0.pickle
 var/lang/lib/python3.11/lib2to3/__init__.py
 var/lang/lib/python3.11/lib2to3/__main__.py
 var/lang/lib/python3.11/lib2to3/__pycache__
@@ -13389,7 +13389,6 @@ var/lang/share/man/man1
 var/lang/share/man/man1/python3.1
 var/lang/share/man/man1/python3.11.1
 var/rapid
-var/rapid/init
 var/runtime
 var/runtime/THIRD-PARTY-LICENSES.txt
 var/runtime/bootstrap
