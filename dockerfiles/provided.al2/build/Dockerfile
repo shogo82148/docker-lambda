@@ -9,6 +9,6 @@ ENV DOCKER_LAMBDA_INIT_VERSION=1.0.1
 
 RUN curl -sSL "https://github.com/shogo82148/docker-lambda-init/releases/download/v$DOCKER_LAMBDA_INIT_VERSION/docker-lambda-init_${DOCKER_LAMBDA_INIT_VERSION}_linux_${TARGETARCH}.tar.gz" | tar xzv
 
-FROM ghcr.io/shogo82148/lambda-base:build-al2.2025.06.06
+FROM ghcr.io/shogo82148/lambda-base:build-al2.2025.08.15
 
 COPY --from=0 /docker-lambda-init /var/runtime/init
