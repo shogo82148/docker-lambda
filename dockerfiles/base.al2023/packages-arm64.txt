@@ -67,6 +67,7 @@ mpfr-4.1.0-7.amzn2023.0.2.aarch64
 ncurses-base-6.2-4.20200222.amzn2023.0.6.noarch
 ncurses-libs-6.2-4.20200222.amzn2023.0.6.aarch64
 npth-1.6-6.amzn2023.0.2.aarch64
+openssl-3.2.2-1.amzn2023.0.1.aarch64
 openssl-fips-provider-latest-3.2.2-1.amzn2023.0.1.aarch64
 openssl-snapsafe-libs-3.2.2-1.amzn2023.0.1.aarch64
 p11-kit-0.24.1-2.amzn2023.0.3.aarch64
