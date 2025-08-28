@@ -5,7 +5,7 @@ ARG TARGETARCH
 
 RUN yum install -y tar gzip
 
-ENV DOCKER_LAMBDA_INIT_VERSION=1.0.1
+ENV DOCKER_LAMBDA_INIT_VERSION=1.0.2
 
 RUN curl -sSL "https://github.com/shogo82148/docker-lambda-init/releases/download/v$DOCKER_LAMBDA_INIT_VERSION/docker-lambda-init_${DOCKER_LAMBDA_INIT_VERSION}_linux_${TARGETARCH}.tar.gz" | tar xzv
 
