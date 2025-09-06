@@ -9,7 +9,7 @@ repositories {
 
 dependencies {
     implementation (
-        'com.amazonaws:aws-lambda-java-core:1.3.0',
+        'com.amazonaws:aws-lambda-java-core:1.4.0',
     )
 }
 
