@@ -27,7 +27,7 @@ libcap-2.54-1.amzn2.0.3.x86_64
 libcom_err-1.42.9-19.amzn2.0.1.x86_64
 libffi-3.0.13-18.amzn2.0.2.x86_64
 libgcc-7.3.1-17.amzn2.x86_64
-libicu-50.2-4.amzn2.0.1.x86_64
+libicu-50.2-4.amzn2.0.2.x86_64
 libpng-1.5.13-8.amzn2.0.5.x86_64
 libselinux-2.5-12.amzn2.0.2.x86_64
 libsepol-2.5-10.amzn2.0.1.x86_64
