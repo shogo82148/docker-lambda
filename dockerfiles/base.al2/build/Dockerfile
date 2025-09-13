@@ -10,7 +10,7 @@ RUN mkdir /opt/etc && \
     --releasever="$(rpm --query --file --queryformat '%{VERSION}' /etc/system-release)" \
     install -y yum yum-plugin-ovl yum-plugin-priorities
 
-FROM ghcr.io/shogo82148/lambda-base:al2.2025.08.15
+FROM ghcr.io/shogo82148/lambda-base:al2.2025.09.13
 
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin \
   PIPX_BIN_DIR=/usr/local/bin \
