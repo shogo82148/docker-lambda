@@ -5,13 +5,13 @@ RUN yum install -y curl tar gzip
 ARG TARGETOS
 ARG TARGETARCH
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/dotnet6/7c542223679475610ced89f70d9a60546cd6b1b63a1f217c9bff37f86db040af.tgz
-ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/dotnet6/fbc93549ced9fe9bdb4a00b980229e29ff2d430e932884f71965a289c4972285.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/dotnet6/20d581bcc7be9c71c7523409bea07b769ecef2536def579f4f3b1c5b3f9385d2.tgz
+ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/dotnet6/2c13f6326b93ee3d28f1454cc7c9c471a30b65950bb457bd54115a7da6c4302b.tgz
 
 RUN case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARCHIVE_URL=$ARCHIVE_URL_ARM64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
   curl -sSL "$ARCHIVE_URL" | tar -zx -C /
 
-FROM ghcr.io/shogo82148/lambda-base:build-al2.2025.08.15
+FROM ghcr.io/shogo82148/lambda-base:build-al2.2025.09.13
 
 # Run: docker run --rm --entrypoint dotnet ghcr.io/shogo82148/lambda-dotnetcore:6 --info
 # Check https://dotnet.microsoft.com/en-us/download/dotnet/6.0 for versions
