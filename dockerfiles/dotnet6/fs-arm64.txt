@@ -328,7 +328,6 @@ var/lang/bin/shared/Microsoft.NETCore.App/6.0.36/libmscordbi.so
 var/lang/bin/shared/Microsoft.NETCore.App/6.0.36/mscorlib.dll
 var/lang/bin/shared/Microsoft.NETCore.App/6.0.36/netstandard.dll
 var/rapid
-var/rapid/init
 var/runtime
 var/runtime/Amazon.Lambda.Core.dll
 var/runtime/Amazon.Lambda.Core.pdb
