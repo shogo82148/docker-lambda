@@ -387,9 +387,9 @@ usr/lib/dracut/modules.d/05nss-softokn
 usr/lib/dracut/modules.d/05nss-softokn/module-setup.sh
 usr/lib/fontconfig
 usr/lib/fontconfig/cache
-usr/lib/fontconfig/cache/6458cda8-57e3-45ad-b439-687991ab07fb-le64.cache-7
+usr/lib/fontconfig/cache/8e99487c-aa45-4d0b-81f5-26f289843fab-le64.cache-7
 usr/lib/fontconfig/cache/CACHEDIR.TAG
-usr/lib/fontconfig/cache/b024ad82-1f88-48dd-9469-2a3d8e8d8887-le64.cache-7
+usr/lib/fontconfig/cache/bdce9b48-121d-42f6-984e-32d4d93da867-le64.cache-7
 usr/lib/games
 usr/lib/locale
 usr/lib/locale/C.utf8
@@ -5179,7 +5179,7 @@ var/lib/rpm/Sigmd5
 var/lib/rpm/Triggername
 var/lib/yum
 var/lib/yum/history
-var/lib/yum/history/2025-07-30
+var/lib/yum/history/2025-09-03
 var/lib/yum/repos
 var/lib/yum/repos/x86_64
 var/lib/yum/repos/x86_64/2
