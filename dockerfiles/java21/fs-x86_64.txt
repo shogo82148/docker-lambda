@@ -431,9 +431,10 @@ var/runtime
 var/runtime/bootstrap
 var/runtime/lib
 var/runtime/lib/Log4jHotPatch.jar
-var/runtime/lib/aws-lambda-java-core-1.3.0.jar
-var/runtime/lib/aws-lambda-java-runtime-interface-client-2.8.2-linux-x86_64.jar
+var/runtime/lib/aws-lambda-java-core-1.4.0.jar
+var/runtime/lib/aws-lambda-java-runtime-interface-client-2.8.6-linux-x86_64.jar
 var/runtime/lib/aws-lambda-java-serialization-1.1.5.jar
 var/runtime/lib/jni
 var/runtime/lib/jni/libaws-lambda-jni.linux-x86_64.so
+var/runtime/lib/utils-lite-2.34.0.jar
 var/runtime/runtime-release
