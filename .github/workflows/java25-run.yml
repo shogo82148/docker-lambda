@@ -1,0 +1,53 @@
+name: Build java25 run image
+
+on:
+  push:
+    tags:
+      - "java25-run/*"
+  pull_request:
+    paths:
+      - ".github/workflows/java25-run.yml"
+      - "dockerfiles/java25/**"
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: write
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to GitHub Packages Container registry
+        env:
+          USERNAME: ${{ github.repository_owner }}
+          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin ghcr.io
+
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+      - uses: actions/checkout@v5
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: "5.40"
+      - name: build
+        run: dockerfiles/java25/build-run.sh
+
+      - name: Publish to DockerHub
+        env:
+          USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
+          PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+        run: |
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin
+          dockerfiles/java25/publish-run.sh "$USERNAME"
+          docker logout
+
+      - name: Publish to GitHub Packages Container registry
+        env:
+          USERNAME: ${{ github.repository_owner }}
+          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          dockerfiles/java25/publish-run.sh "ghcr.io/$USERNAME"
+          docker logout ghcr.io

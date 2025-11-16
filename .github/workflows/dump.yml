@@ -27,6 +27,7 @@ jobs:
           - java11
           - java17
           - java21
+          - java25
           - nodejs18.x
           - nodejs20.x
           - nodejs22.x
@@ -36,6 +37,7 @@ jobs:
           - python3.11
           - python3.12
           - python3.13
+          - python3.14
           - ruby3.2
           - ruby3.3
           - provided.al2

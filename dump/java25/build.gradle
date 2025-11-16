@@ -1,0 +1,23 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation (
+        'com.amazonaws:aws-lambda-java-core:1.4.0',
+    )
+}
+
+task buildZip(type: Zip) {
+    from compileJava
+    from processResources
+    into('lib') {
+        from configurations.runtimeClasspath
+    }
+}
+
+build.dependsOn buildZip
+
+// docker run --rm -v "$PWD":/app -w /app gradle:jdk25 gradle build
