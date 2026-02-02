@@ -1,4 +1,4 @@
-FROM public.ecr.aws/amazonlinux/amazonlinux:1
+FROM public.ecr.aws/amazonlinux/amazonlinux:2
 
 ARG TARGETOS
 ARG TARGETARCH
