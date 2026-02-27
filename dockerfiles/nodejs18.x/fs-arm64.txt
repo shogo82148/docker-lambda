@@ -7915,9 +7915,8 @@ var/runtime/node_modules/@aws-sdk/node_modules/@aws-crypto/util/tsconfig.module.
 var/runtime/node_modules/@aws-sdk/node_modules/@aws/lambda-invoke-store
 var/runtime/node_modules/@aws-sdk/node_modules/@aws/lambda-invoke-store/LICENSE
 var/runtime/node_modules/@aws-sdk/node_modules/@aws/lambda-invoke-store/README.md
-var/runtime/node_modules/@aws-sdk/node_modules/@aws/lambda-invoke-store/dist
-var/runtime/node_modules/@aws-sdk/node_modules/@aws/lambda-invoke-store/dist/invoke-store.d.ts
-var/runtime/node_modules/@aws-sdk/node_modules/@aws/lambda-invoke-store/dist/invoke-store.js
+var/runtime/node_modules/@aws-sdk/node_modules/@aws/lambda-invoke-store/dist-cjs
+var/runtime/node_modules/@aws-sdk/node_modules/@aws/lambda-invoke-store/dist-cjs/invoke-store.js
 var/runtime/node_modules/@aws-sdk/node_modules/@aws/lambda-invoke-store/package.json
 var/runtime/node_modules/@aws-sdk/node_modules/@httptoolkit
 var/runtime/node_modules/@aws-sdk/node_modules/@httptoolkit/websocket-stream
