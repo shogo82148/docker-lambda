@@ -9894,7 +9894,7 @@ var/rapid
 var/runtime
 var/runtime/THIRD-PARTY-LICENSES.txt
 var/runtime/__pycache__
-var/runtime/__pycache__/six.cpython-310.pyc
+var/runtime/__pycache__/snapshot_restore_py.cpython-310.pyc
 var/runtime/awslambdaric
 var/runtime/awslambdaric-3.1.1.dist-info
 var/runtime/awslambdaric-3.1.1.dist-info/INSTALLER
