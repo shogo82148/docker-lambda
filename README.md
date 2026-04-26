@@ -206,7 +206,7 @@ docker run --rm -v "$PWD"/fn:/var/task:ro,delegated -v "$PWD"/layer:/opt:ro,dele
 docker run --rm --entrypoint node ghcr.io/shogo82148/lambda-nodejs:24 -v
 
 # For large events you can pipe them into stdin if you set DOCKER_LAMBDA_USE_STDIN
-echo '{"some": "event"}' | docker run --rm -v "$PWD":/var/task:ro,delegated -i -e DOCKER_LAMBDA_USE_STDIN=1 ghcr.io/shogo82148/lambda-nodejs:18
+echo '{"some": "event"}' | docker run --rm -v "$PWD":/var/task:ro,delegated -i -e DOCKER_LAMBDA_USE_STDIN=1 ghcr.io/shogo82148/lambda-nodejs:24
 ```
 
 You can see more examples of how to build docker images and run different
