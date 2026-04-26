@@ -1,4 +1,4 @@
-﻿FROM --platform=$BUILDPLATFORM public.ecr.aws/amazonlinux/amazonlinux:2023
+FROM --platform=$BUILDPLATFORM public.ecr.aws/amazonlinux/amazonlinux:2023
 
 RUN dnf install -y tar gzip
 
