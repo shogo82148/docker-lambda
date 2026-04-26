@@ -13,8 +13,8 @@ RUN case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARC
 
 FROM ghcr.io/shogo82148/lambda-base:build-al2023.2026.04.25
 
-# Run: docker run --rm --entrypoint dotnet ghcr.io/shogo82148/lambda-dotnetcore:8 --info
-# Check https://dotnet.microsoft.com/en-us/download/dotnet/8.0 for versions
+# Run: docker run --rm --entrypoint dotnet ghcr.io/shogo82148/lambda-dotnet:10 --info
+# Check https://dotnet.microsoft.com/en-us/download/dotnet/10.0 for versions
 ENV DOTNET_ROOT=/var/lang/bin
 ENV PATH=/root/.dotnet/tools:$DOTNET_ROOT:$PATH \
   LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
