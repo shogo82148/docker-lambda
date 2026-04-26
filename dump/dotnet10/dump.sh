@@ -7,4 +7,4 @@ FUNCTION_NAME=dump-dotnet10-${ARCH/_/-}
 aws lambda invoke \
     --region us-east-1 \
     --function-name "$FUNCTION_NAME" \
-    --payload '{}' out.json
+    --payload '{}' "out-${ARCH}.json"
