@@ -29,9 +29,9 @@ jobs:
           - java17
           - java21
           - java25
-          - nodejs18.x
           - nodejs20.x
           - nodejs22.x
+          - nodejs24.x
           - python3.10
           - python3.11
           - python3.12
