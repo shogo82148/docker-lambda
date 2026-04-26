@@ -392,14 +392,18 @@ These follow the Lambda runtime names:
   - `ghcr.io/shogo82148/lambda-java:8.al2-x86_64`
 
 - [.Net Runtimes](https://github.com/shogo82148/docker-lambda/pkgs/container/shogo82148/lambda-dotnet) and [.Net Core Runtimes](https://github.com/shogo82148/docker-lambda/pkgs/container/shogo82148/lambda-dotnetcore)
-  - `ghcr.io/shogo82148/lambda-dotnet:6`
-  - `ghcr.io/shogo82148/lambda-dotnet:6-arm64`
-  - `ghcr.io/shogo82148/lambda-dotnet:6-x86_64`
-  - `ghcr.io/shogo82148/lambda-dotnet:build-6`
-  - `ghcr.io/shogo82148/lambda-dotnet:build-6-arm64`
-  - `ghcr.io/shogo82148/lambda-dotnet:build-6-x86_64`
-  - `ghcr.io/shogo82148/lambda-dotnetcore:3.1`
-  - `ghcr.io/shogo82148/lambda-dotnetcore:build-3.1`
+  - `ghcr.io/shogo82148/lambda-dotnet:10`
+  - `ghcr.io/shogo82148/lambda-dotnet:10-arm64`
+  - `ghcr.io/shogo82148/lambda-dotnet:10-x86_64`
+  - `ghcr.io/shogo82148/lambda-dotnet:build-10`
+  - `ghcr.io/shogo82148/lambda-dotnet:build-10-arm64`
+  - `ghcr.io/shogo82148/lambda-dotnet:build-10-x86_64`
+  - `ghcr.io/shogo82148/lambda-dotnet:8`
+  - `ghcr.io/shogo82148/lambda-dotnet:8-arm64`
+  - `ghcr.io/shogo82148/lambda-dotnet:8-x86_64`
+  - `ghcr.io/shogo82148/lambda-dotnet:build-8`
+  - `ghcr.io/shogo82148/lambda-dotnet:build-8-arm64`
+  - `ghcr.io/shogo82148/lambda-dotnet:build-8-x86_64`
 
 - [Provided Runtimes](https://github.com/shogo82148/docker-lambda/pkgs/container/shogo82148/lambda-provided)
   - `ghcr.io/shogo82148/lambda-provided:al2023`
