@@ -282,6 +282,12 @@ docker run --rm -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY mylambda
 These follow the Lambda runtime names:
 
 - [Node.js Runtimes](https://github.com/shogo82148/docker-lambda/pkgs/container/lambda-nodejs)
+  - `ghcr.io/shogo82148/lambda-nodejs:24`
+  - `ghcr.io/shogo82148/lambda-nodejs:24-arm64`
+  - `ghcr.io/shogo82148/lambda-nodejs:24-x86_64`
+  - `ghcr.io/shogo82148/lambda-nodejs:build-24`
+  - `ghcr.io/shogo82148/lambda-nodejs:build-24-arm64`
+  - `ghcr.io/shogo82148/lambda-nodejs:build-24-x86_64`
   - `ghcr.io/shogo82148/lambda-nodejs:22`
   - `ghcr.io/shogo82148/lambda-nodejs:22-arm64`
   - `ghcr.io/shogo82148/lambda-nodejs:22-x86_64`
