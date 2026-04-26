@@ -2,7 +2,19 @@
 
 set -eux
 
+if [[ $# -lt 1 || -z "${1:-}" ]]; then
+  echo "Usage: $0 <architecture>" >&2
+  exit 1
+fi
 ARCH=$1
+
+case "$ARCH" in
+  x86_64|arm64) ;;
+  *)
+    echo "Unsupported architecture: $ARCH (expected: x86_64 or arm64)" >&2
+    exit 1
+    ;;
+esac
 CURRENT=$(cd "$(dirname "$0")" && pwd)
 
 # upload the code
