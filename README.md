@@ -360,6 +360,12 @@ These follow the Lambda runtime names:
   - `ghcr.io/shogo82148/lambda-ruby:build-3.2-x86_64`
 
 - [Java Runtimes](https://github.com/shogo82148/docker-lambda/pkgs/container/shogo82148/lambda-java)
+  - `ghcr.io/shogo82148/lambda-java:25`
+  - `ghcr.io/shogo82148/lambda-java:25-arm64`
+  - `ghcr.io/shogo82148/lambda-java:25-x86_64`
+  - `ghcr.io/shogo82148/lambda-java:build-25`
+  - `ghcr.io/shogo82148/lambda-java:build-25-arm64`
+  - `ghcr.io/shogo82148/lambda-java:build-25-x86_64`
   - `ghcr.io/shogo82148/lambda-java:21`
   - `ghcr.io/shogo82148/lambda-java:21-arm64`
   - `ghcr.io/shogo82148/lambda-java:21-x86_64`
