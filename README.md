@@ -133,21 +133,6 @@ Handler/layer file changed, restarting bootstrap...
 
 And the next invoke will reload your handler with the latest version of your code.
 
-NOTE: This doesn't work in exactly the same way with some of the older runtimes due to the way they're loaded. Specifically: `nodejs8.10` and earlier, `python3.6` and earlier, `dotnetcore2.1` and earlier, `java8` and `go1.x`. These runtimes will instead exit with error code 2
-when they are in watch mode and files in the handler or layer are changed.
-
-That way you can use the `--restart on-failure` capabilities of `docker run` to have the container automatically restart instead.
-
-So, for `nodejs8.10`, `nodejs6.10`, `nodejs4.3`, `python3.6`, `python2.7`, `dotnetcore2.1`, `dotnetcore2.0`, `java8` and `go1.x`, you'll
-need to run watch mode like this instead:
-
-```
-docker run --restart on-failure \
-  -e DOCKER_LAMBDA_WATCH=1 -e DOCKER_LAMBDA_STAY_OPEN=1 -p 9001:9001 \
-  -v "$PWD":/var/task:ro,delegated \
-  ghcr.io/shogo82148/lambda-java:25 handler
-```
-
 When you make changes to any file in the mounted directory, you'll see:
 
 ```
