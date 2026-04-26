@@ -22,7 +22,6 @@ jobs:
       fail-fast: false
       matrix:
         runtime:
-          - dotnet6
           - dotnet8
           - dotnet10
           - java8.al2
