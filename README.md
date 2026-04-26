@@ -145,7 +145,7 @@ need to run watch mode like this instead:
 docker run --restart on-failure \
   -e DOCKER_LAMBDA_WATCH=1 -e DOCKER_LAMBDA_STAY_OPEN=1 -p 9001:9001 \
   -v "$PWD":/var/task:ro,delegated \
-  ghcr.io/shogo82148/lambda-java:11 handler
+  ghcr.io/shogo82148/lambda-java:25 handler
 ```
 
 When you make changes to any file in the mounted directory, you'll see:
@@ -164,7 +164,7 @@ If none of the above strategies work for you, you can use a file-watching utilit
 nodemon -w ./ -e '' -s SIGINT -x docker -- run --rm \
   -e DOCKER_LAMBDA_STAY_OPEN=1 -p 9001:9001 \
   -v "$PWD":/var/task:ro,delegated \
-  ghcr.io/shogo82148/lambda-provided:al2 handler
+  ghcr.io/shogo82148/lambda-provided:al2023 handler
 ```
 
 ### Building Lambda functions
@@ -186,39 +186,39 @@ See [Docker tags](#docker-tags) for available tags.
 ## Run Examples
 
 ```sh
-# Test a `handler` function from an `index.js` file in the current directory on Node.js v18.x
-docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-nodejs:18 index.handler
+# Test a `handler` function from an `index.js` file in the current directory on Node.js v24.x
+docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-nodejs:24 index.handler
 
 # Using a different file and handler, with a custom event
-docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-nodejs:18 app.myHandler '{"some": "event"}'
+docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-nodejs:24 app.myHandler '{"some": "event"}'
 
-# Test a `lambda_handler` function in `lambda_function.py` with an empty event on Python 3.10
-docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-python:3.10 lambda_function.lambda_handler
+# Test a `lambda_handler` function in `lambda_function.py` with an empty event on Python 3.14
+docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-python:3.14 lambda_function.lambda_handler
 
-# Similarly with Ruby 2.7
-docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-ruby:2.7 lambda_function.lambda_handler
+# Similarly with Ruby 3.4
+docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-ruby:3.4 lambda_function.lambda_handler
 
-# Test on provided.al2 with a compiled handler named my_handler and a custom event
-docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-provided:al2 my_handler '{"some": "event"}'
+# Test on provided.al2023 with a compiled handler named my_handler and a custom event
+docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-provided:al2023 my_handler '{"some": "event"}'
 
-# Test a function from the current directory on Java 17
+# Test a function from the current directory on Java 25
 # The directory must be laid out in the same way the Lambda zip file is,
 # with top-level package source directories and a `lib` directory for third-party jars
 # https://docs.aws.amazon.com/lambda/latest/dg/java-package.html
-docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-java:17 org.myorg.MyHandler
+docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-java:25 org.myorg.MyHandler
 
-# Test on .NET 6 given a test.dll assembly in the current directory,
+# Test on .NET 10 given a test.dll assembly in the current directory,
 # a class named Function with a FunctionHandler method, and a custom event
-docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-dotnet:6 test::test.Function::FunctionHandler '{"some": "event"}'
+docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-dotnet:10 test::test.Function::FunctionHandler '{"some": "event"}'
 
-# Test with a provided.al2 runtime (assumes you have a `bootstrap` executable in the current directory)
-docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-provided:al2 handler '{"some": "event"}'
+# Test with a provided.al2023 runtime (assumes you have a `bootstrap` executable in the current directory)
+docker run --rm -v "$PWD":/var/task:ro,delegated ghcr.io/shogo82148/lambda-provided:al2023 handler '{"some": "event"}'
 
 # Test with layers (assumes your function code is in `./fn` and your layers in `./layer`)
-docker run --rm -v "$PWD"/fn:/var/task:ro,delegated -v "$PWD"/layer:/opt:ro,delegated ghcr.io/shogo82148/lambda-nodejs:18
+docker run --rm -v "$PWD"/fn:/var/task:ro,delegated -v "$PWD"/layer:/opt:ro,delegated ghcr.io/shogo82148/lambda-nodejs:24
 
 # Run custom commands
-docker run --rm --entrypoint node ghcr.io/shogo82148/lambda-nodejs:18 -v
+docker run --rm --entrypoint node ghcr.io/shogo82148/lambda-nodejs:24 -v
 
 # For large events you can pipe them into stdin if you set DOCKER_LAMBDA_USE_STDIN
 echo '{"some": "event"}' | docker run --rm -v "$PWD":/var/task:ro,delegated -i -e DOCKER_LAMBDA_USE_STDIN=1 ghcr.io/shogo82148/lambda-nodejs:18
@@ -233,23 +233,23 @@ To use the build images, for compilation, deployment, etc:
 
 ```sh
 # To compile native deps in node_modules
-docker run --rm -v "$PWD":/var/task ghcr.io/shogo82148/lambda-nodejs:build-18 npm rebuild --build-from-source
+docker run --rm -v "$PWD":/var/task ghcr.io/shogo82148/lambda-nodejs:build-24 npm rebuild --build-from-source
 
 # To install defined poetry dependencies
-docker run --rm -v "$PWD":/var/task ghcr.io/shogo82148/lambda-python:build-3.10 poetry install
+docker run --rm -v "$PWD":/var/task ghcr.io/shogo82148/lambda-python:build-3.14 poetry install
 
-# To resolve dependencies on provided.al2 (working directory is /go/src/handler)
-docker run --rm -v "$PWD":/go/src/handler ghcr.io/shogo82148/lambda-provided:build-al2 go mod download
+# To resolve dependencies on provided.al2023 (working directory is /go/src/handler)
+docker run --rm -v "$PWD":/go/src/handler ghcr.io/shogo82148/lambda-provided:build-al2023 go mod download
 
 # For .NET, this will publish the compiled code to `./pub`,
 # which you can then use to run with `-v "$PWD"/pub:/var/task`
-docker run --rm -v "$PWD":/var/task ghcr.io/shogo82148/lambda-dotnet:build-6 dotnet publish -c Release -o pub
+docker run --rm -v "$PWD":/var/task ghcr.io/shogo82148/lambda-dotnet:build-10 dotnet publish -c Release -o pub
 
 # Run custom commands on a build container
-docker run --rm ghcr.io/shogo82148/lambda-python:build-3.10 aws --version
+docker run --rm ghcr.io/shogo82148/lambda-python:build-3.14 aws --version
 
 # To run an interactive session on a build container
-docker run -it ghcr.io/shogo82148/lambda-python:build-3.10 bash
+docker run -it ghcr.io/shogo82148/lambda-python:build-3.14 bash
 ```
 
 ## Using a Dockerfile to build
