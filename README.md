@@ -308,6 +308,12 @@ These follow the Lambda runtime names:
   - `ghcr.io/shogo82148/lambda-nodejs:build-18-x86_64`
 
 - [Python Runtimes](https://github.com/shogo82148/docker-lambda/pkgs/container/shogo82148/lambda-python)
+  - `ghcr.io/shogo82148/lambda-python:3.14`
+  - `ghcr.io/shogo82148/lambda-python:3.14-arm64`
+  - `ghcr.io/shogo82148/lambda-python:3.14-x86_64`
+  - `ghcr.io/shogo82148/lambda-python:build-3.14`
+  - `ghcr.io/shogo82148/lambda-python:build-3.14-arm64`
+  - `ghcr.io/shogo82148/lambda-python:build-3.14-x86_64`
   - `ghcr.io/shogo82148/lambda-python:3.13`
   - `ghcr.io/shogo82148/lambda-python:3.13-arm64`
   - `ghcr.io/shogo82148/lambda-python:3.13-x86_64`
