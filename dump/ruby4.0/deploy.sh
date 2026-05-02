@@ -2,10 +2,11 @@
 
 set -eux
 
-ARCH=$1
+ARCH=${1:-}
 if [ -z "$ARCH" ]; then
   echo "Usage: $0 <architecture>"
   exit 1
+fi
 fi
 CURRENT=$(cd "$(dirname "$0")" && pwd)
 
