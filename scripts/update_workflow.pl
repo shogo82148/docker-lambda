@@ -43,6 +43,7 @@ my $runtimes = [
     "ruby3.2",
     "ruby3.3",
     "ruby3.4",
+    "ruby4.0",
 
     "provided.al2",
     "provided.al2023",
