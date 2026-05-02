@@ -7,7 +7,6 @@ if [ -z "$ARCH" ]; then
   echo "Usage: $0 <architecture>"
   exit 1
 fi
-fi
 CURRENT=$(cd "$(dirname "$0")" && pwd)
 
 # upload the code

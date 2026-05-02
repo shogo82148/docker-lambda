@@ -7,7 +7,6 @@ if [ -z "$ARCH" ]; then
   echo "Usage: $0 <architecture>"
   exit 1
 fi
-fi
 FUNCTION_NAME=dump-ruby40-${ARCH/_/-}
 aws lambda invoke \
     --region us-east-1 \
