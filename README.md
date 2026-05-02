@@ -319,6 +319,12 @@ These follow the Lambda runtime names:
   - `ghcr.io/shogo82148/lambda-python:build-3.10-x86_64`
 
 - [Ruby Runtimes](https://github.com/shogo82148/docker-lambda/pkgs/container/lambda-ruby)
+  - `ghcr.io/shogo82148/lambda-ruby:4.0`
+  - `ghcr.io/shogo82148/lambda-ruby:4.0-arm64`
+  - `ghcr.io/shogo82148/lambda-ruby:4.0-x86_64`
+  - `ghcr.io/shogo82148/lambda-ruby:build-4.0`
+  - `ghcr.io/shogo82148/lambda-ruby:build-4.0-arm64`
+  - `ghcr.io/shogo82148/lambda-ruby:build-4.0-x86_64`
   - `ghcr.io/shogo82148/lambda-ruby:3.4`
   - `ghcr.io/shogo82148/lambda-ruby:3.4-arm64`
   - `ghcr.io/shogo82148/lambda-ruby:3.4-x86_64`
