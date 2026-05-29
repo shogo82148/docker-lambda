@@ -5,8 +5,8 @@ RUN yum install -y tar gzip
 ARG TARGETOS
 ARG TARGETARCH
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/dotnet10/1988f11ef39cbfa09867ee8175c9a6c535d5e83277aaad920ac26a8ae3601c76.tgz
-ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/dotnet10/c713eb55ff6716672379d470073cd3e24a4eeca2464c32445053b8dbdf18302d.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/dotnet10/bc6243db7cae7f9565bef8d338a330e746cd92b83c1e26dd005936d6ea47b5d1.tgz
+ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/dotnet10/1486169b2731f89a592baccbe0721ad45e12acb37483afe5875e4fe220979dcb.tgz
 
 RUN case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARCHIVE_URL=$ARCHIVE_URL_ARM64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
     curl -sSL "$ARCHIVE_URL" | tar -zx -C /
