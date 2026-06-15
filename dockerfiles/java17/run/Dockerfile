@@ -24,6 +24,18 @@ ENV PATH=/var/lang/bin:$PATH \
 COPY --from=0 /var /var
 COPY --from=0 /docker-lambda-init /var/rapid/init
 
+# The published fs tarball normalises every file mtime to epoch 0 for
+# reproducible hashes (see dump/layer/main.go), invalidating the AppCDS archive
+# the managed runtime ships in runtime.jsa: it records each classpath jar's
+# original mtime, so the bootstrap's forced -Xshare:on refuses to map it
+# ("timestamp has changed") and the JVM aborts before it starts. Regenerate it
+# against the shipped jars. No-op once the archive maps (CP comes back empty).
+RUN CP=$(java -Xshare:on -XX:SharedArchiveFile=/var/lang/lib/server/runtime.jsa -Xlog:class+path=info -version 2>&1 | sed -n 's/.*Expecting -Djava.class.path=//p' | grep -m1 . || true) && \
+    if [ -n "$CP" ]; then \
+        java -XX:ArchiveClassesAtExit=/var/lang/lib/server/runtime.jsa -cp "$CP" -version >/dev/null 2>&1 && \
+        java -Xshare:on -XX:SharedArchiveFile=/var/lang/lib/server/runtime.jsa -cp "$CP" -version >/dev/null; \
+    fi
+
 USER sbx_user1051
 
 ENTRYPOINT ["/var/rapid/init", "--bootstrap", "/var/runtime/bootstrap", "--enable-msg-logs"]
