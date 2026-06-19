@@ -61,6 +61,7 @@ var/lang/legal/java.base/aes.md
 var/lang/legal/java.base/asm.md
 var/lang/legal/java.base/c-libutl.md
 var/lang/legal/java.base/cldr.md
+var/lang/legal/java.base/gcc.md
 var/lang/legal/java.base/icu.md
 var/lang/legal/java.base/public_suffix.md
 var/lang/legal/java.base/siphash.md
