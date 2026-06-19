@@ -1030,7 +1030,6 @@ usr/bin/gpg
 usr/bin/gpg-error
 usr/bin/gpg2
 usr/bin/gpgme-json
-usr/bin/gpgv2
 usr/bin/grep
 usr/bin/groups
 usr/bin/gsettings
@@ -1156,6 +1155,7 @@ usr/lib/.build-id/09
 usr/lib/.build-id/09/cdea33c63507b387aff4b8d088c62618bd7302
 usr/lib/.build-id/0d
 usr/lib/.build-id/0d/49441141b264054933e6c27b2565c455eb3a5e
+usr/lib/.build-id/0d/a1b1897fd08ce16ec4088cae154ccd624e607c
 usr/lib/.build-id/0e
 usr/lib/.build-id/0e/00aee99aaed61e86913da8f99c825a1f395fbd
 usr/lib/.build-id/0e/1e38a3e99e22bab910e7664b215fb3dbe17c07
@@ -1171,7 +1171,7 @@ usr/lib/.build-id/14
 usr/lib/.build-id/14/700c2a24c608739e5eaa1adb919ae6c4a3ad56
 usr/lib/.build-id/15
 usr/lib/.build-id/15/25d05ad028081d83c74eee421a3a9d71980001
-usr/lib/.build-id/15/4161755cc83b46885118c789097fe7eb7a66e7
+usr/lib/.build-id/15/2ce81459ce5782fb5b78d297272ae927657143
 usr/lib/.build-id/16
 usr/lib/.build-id/16/9449d1e5bffb7e24b35aa2a11f35a699896a40
 usr/lib/.build-id/18
@@ -1192,7 +1192,6 @@ usr/lib/.build-id/1f
 usr/lib/.build-id/1f/9b1a25d22f62ef2add7a9c49800552e75bdd59
 usr/lib/.build-id/20
 usr/lib/.build-id/20/030b19dc2112ebb0aa9d93fc24952926b52395
-usr/lib/.build-id/20/4f0cdd8f3800024b186c2ab59a2a0e83b84c57
 usr/lib/.build-id/21
 usr/lib/.build-id/21/2e5f08d56f8810360d18cd3108b14a967bdbe4
 usr/lib/.build-id/21/635d34cb24908b07766a583cef5b2f3dd3c0d7
@@ -1207,7 +1206,6 @@ usr/lib/.build-id/27
 usr/lib/.build-id/27/96db9b99393fd2e5ca37d648806a78a305aefc
 usr/lib/.build-id/28
 usr/lib/.build-id/28/55d8b10701357767df6de4bd7d93998c0181c6
-usr/lib/.build-id/28/9b6e67401996bd9504e217f89e43b9040750ac
 usr/lib/.build-id/28/f8eaba4c4722cd8f66efb7e66f8a75fbda084e
 usr/lib/.build-id/2c
 usr/lib/.build-id/2c/9ca758a1bac3bc630b2331c04b9b259946ac97
@@ -1339,6 +1337,8 @@ usr/lib/.build-id/9b/7a072082933c53b99c8d2113a8737332761aae
 usr/lib/.build-id/9c
 usr/lib/.build-id/9c/30faeba664279df1d4850de808b9db5d031255
 usr/lib/.build-id/9c/e93289b41e6b56c55e33ba1d5643011fa4b419
+usr/lib/.build-id/9d
+usr/lib/.build-id/9d/b2efb296cd7303cef8f38340d91756f5194ef9
 usr/lib/.build-id/9e
 usr/lib/.build-id/9e/dd80d50f57a82c35938ea785ca43f7f4f0c92b
 usr/lib/.build-id/9f
@@ -1421,13 +1421,13 @@ usr/lib/.build-id/d2
 usr/lib/.build-id/d2/47bf92ac4a53ebff2cfa05c3a2efe89ed71a2d
 usr/lib/.build-id/d5
 usr/lib/.build-id/d5/6480e78b251b4dfb23af6016f8723e4d6bf830
-usr/lib/.build-id/d5/6c305db4a51c1b05890bfe93fead2d5845473a
 usr/lib/.build-id/d5/895417b9e076e621c747ac37b86377a37a385d
 usr/lib/.build-id/da
 usr/lib/.build-id/da/660d16294c09c6b95595bc21503fa43fda26d7
 usr/lib/.build-id/db
 usr/lib/.build-id/db/bd793112e10bc20ca4158e6ea6fea229573a6f.1
 usr/lib/.build-id/dc
+usr/lib/.build-id/dc/0c9a94971e55b1bed53b067d742bd13ad53006
 usr/lib/.build-id/dc/826836aed15920d46223bf2c0af8c6178f535b
 usr/lib/.build-id/dc/e0c513d44bb9c2e6e094db8970c96224dd1f0b
 usr/lib/.build-id/dc/eea3cf1e44a267ddfaadc852c4c4245e9a7536
@@ -1441,7 +1441,6 @@ usr/lib/.build-id/e3/6d15016b632a73df79b6be0c67980b55330aa8
 usr/lib/.build-id/e4
 usr/lib/.build-id/e4/e47835ec58321fe45c6ace620e74112dd0adf6
 usr/lib/.build-id/e5
-usr/lib/.build-id/e5/7ecab1a15666f56e96fab500b0ac9805d3f938
 usr/lib/.build-id/e5/fbbb1096fddebf4d4ac4d8855087e41806bc95
 usr/lib/.build-id/e7
 usr/lib/.build-id/e7/a57c7203b4b7a4ea94f45c03e5bded8db643a0
@@ -1449,6 +1448,8 @@ usr/lib/.build-id/e8
 usr/lib/.build-id/e8/c63344d520823bcfe86fceaafc59bf6aba41f8
 usr/lib/.build-id/ef
 usr/lib/.build-id/ef/bea49c98bb6f86cb923949fb6937763a5878e9
+usr/lib/.build-id/f0
+usr/lib/.build-id/f0/d405927d54f9ebdaa9f75d77559318ad2c9b64
 usr/lib/.build-id/f2
 usr/lib/.build-id/f2/caf7678bcb7e7d116f91109985f2f0209e714b
 usr/lib/.build-id/f3
@@ -2460,7 +2461,6 @@ usr/libexec/p11-kit/p11-kit-remote
 usr/libexec/p11-kit/trust-extract-compat
 usr/local
 usr/local/bin
-usr/local/bin/aws-lambda-rie
 usr/local/etc
 usr/local/games
 usr/local/include

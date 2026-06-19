@@ -1030,7 +1030,6 @@ usr/bin/gpg
 usr/bin/gpg-error
 usr/bin/gpg2
 usr/bin/gpgme-json
-usr/bin/gpgv2
 usr/bin/grep
 usr/bin/groups
 usr/bin/gsettings
@@ -1162,6 +1161,8 @@ usr/lib/.build-id/11
 usr/lib/.build-id/11/9b74fc96469de3c42f85ab77140a3fcf821b34
 usr/lib/.build-id/12
 usr/lib/.build-id/12/66bd7d6f09d6380c800881146d97c5ff95bb34
+usr/lib/.build-id/13
+usr/lib/.build-id/13/a22fab021421d1a34d9890e211ddb7203b2776
 usr/lib/.build-id/14
 usr/lib/.build-id/14/143344f21fcde39837bf44181d31f508445e7a
 usr/lib/.build-id/14/2d1c0900cb0d0fec69a0de4077cc978434636a
@@ -1212,6 +1213,7 @@ usr/lib/.build-id/38/bec002f27c246811f59394323ce0aca87341cf
 usr/lib/.build-id/39
 usr/lib/.build-id/39/ec9b75ec504ac139dd6726f04acb7c316c3e40
 usr/lib/.build-id/3b
+usr/lib/.build-id/3b/0237c6e855136e523937d4049dbee3eec874de
 usr/lib/.build-id/3b/1f33f4b01ee6678f666ce48f3b1ab31b8f064d
 usr/lib/.build-id/3b/8791a7c3790c3a48c92a0f1f12a9e042fd0276
 usr/lib/.build-id/3b/a63e448d34d6ef6d039f383252ab5c3bad9e2d
@@ -1224,8 +1226,6 @@ usr/lib/.build-id/40/36452dccfd713374963eed884b5435dc82c8ad
 usr/lib/.build-id/40/f9e0d7331e1ca15eec756f37f00c1c70f1a644
 usr/lib/.build-id/41
 usr/lib/.build-id/41/2caf0545db8ff89b78ead02dbba0b21e8853b9
-usr/lib/.build-id/42
-usr/lib/.build-id/42/20991368078a034362e45d82c2f926bf879020
 usr/lib/.build-id/44
 usr/lib/.build-id/44/27814dd32c09bc9d2b4fa55a4e24c924d2d185
 usr/lib/.build-id/48
@@ -1319,7 +1319,6 @@ usr/lib/.build-id/8b/13953bffe9dd8a4b882c74623ddf91d21d9afe
 usr/lib/.build-id/8b/24dc96041ba90a9c95d57ecf6e07127dd81936
 usr/lib/.build-id/8b/cae47f04e57f7afbfbc1c65f781bcc7d1a95f2
 usr/lib/.build-id/8f
-usr/lib/.build-id/8f/2e97cdc2d390becfa776e8793e0008b09521f1
 usr/lib/.build-id/8f/7f3b4386b054550e0305021ddc90f94231d9f5
 usr/lib/.build-id/90
 usr/lib/.build-id/90/215085525e9b5234c3dc0d3c2c432c6f2b0ef0
@@ -1333,6 +1332,8 @@ usr/lib/.build-id/93
 usr/lib/.build-id/93/b82245f97318c61e127ebb9bdc026691ae50e7
 usr/lib/.build-id/95
 usr/lib/.build-id/95/d9677238e376d334f834b457d3c403161f8a32
+usr/lib/.build-id/97
+usr/lib/.build-id/97/9fb56ecf7faa02a1f98f56b6543f48bcf1b9fc
 usr/lib/.build-id/98
 usr/lib/.build-id/98/f220c7e41ff84d551532ad2171f67d918b7337
 usr/lib/.build-id/9a
@@ -1350,6 +1351,7 @@ usr/lib/.build-id/9e/979695af39450d658e5adbbbe43b8fee626654
 usr/lib/.build-id/9f
 usr/lib/.build-id/9f/3c962d0f0a4a5a24d0726f8ee421d778c62c23
 usr/lib/.build-id/9f/a4698c1e215ede69a088df4a89f4ed5f386013
+usr/lib/.build-id/9f/d9e6136788f468709a9d1d4a778206ceed4a81
 usr/lib/.build-id/a3
 usr/lib/.build-id/a3/bd508b1912482cb9aff0f849b61f10a96b88fe
 usr/lib/.build-id/a6
@@ -1413,14 +1415,11 @@ usr/lib/.build-id/da
 usr/lib/.build-id/da/59c36a45f67567f776a955fd108057f894c953
 usr/lib/.build-id/da/76ae5980793f78d45011f54e7db71a07669b2c
 usr/lib/.build-id/dc
-usr/lib/.build-id/dc/145c38b12c7361f688bfad11c48c75904f7b11
 usr/lib/.build-id/dc/61fe3157bbb710b5c082230870479a952af67e
 usr/lib/.build-id/dc/7950294386f429126e9324de2bc5ea26de51e7
 usr/lib/.build-id/de
 usr/lib/.build-id/de/bfafeda00f0e192bef131785c87ed2826d3e40
 usr/lib/.build-id/de/f7db06652df493d09f803f0bf06d8794f92b1e
-usr/lib/.build-id/e0
-usr/lib/.build-id/e0/1f291cf6021babc24dbb7f6069ed307ead1d65
 usr/lib/.build-id/e1
 usr/lib/.build-id/e1/1c9661adf61561fd05b7dfcf332031a7df0fe5
 usr/lib/.build-id/e3
@@ -1449,6 +1448,7 @@ usr/lib/.build-id/ee
 usr/lib/.build-id/ee/885d477e6d53191adcc4677dc34a54fd48af6f
 usr/lib/.build-id/f0
 usr/lib/.build-id/f0/57fd92e714a7691eb493d547b6ca6a449efe95
+usr/lib/.build-id/f0/7b37c68ac01e4f141c6c50432a47ed29c270f8
 usr/lib/.build-id/f1
 usr/lib/.build-id/f1/0819df41d4cde20996a2508d3ba27971bf0889
 usr/lib/.build-id/f1/267d70d56f65605141448759f2c63a3cca233f
@@ -1456,7 +1456,6 @@ usr/lib/.build-id/f1/886657c8238aaa655c860b8134c85d8d3afeb5
 usr/lib/.build-id/f1/8ad7f66a21ad3c32e93e04ab632a3efcc67b81
 usr/lib/.build-id/f1/9b47702a156f0b9d1f74e01ca850f198b570d9
 usr/lib/.build-id/f2
-usr/lib/.build-id/f2/72aa838db85055a63d6886f3ca9646107c1609
 usr/lib/.build-id/f2/b01e18badc85638d1e27515c573a625dd435dc
 usr/lib/.build-id/f2/e05bb099994712a4efaad7de70bac3962bd632
 usr/lib/.build-id/f4
@@ -2465,7 +2464,6 @@ usr/libexec/p11-kit/p11-kit-remote
 usr/libexec/p11-kit/trust-extract-compat
 usr/local
 usr/local/bin
-usr/local/bin/aws-lambda-rie
 usr/local/etc
 usr/local/games
 usr/local/include
