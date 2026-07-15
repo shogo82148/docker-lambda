@@ -27,7 +27,7 @@ public class DumpJava8 implements RequestHandler<Object, Object> {
         }
 
         String filename = "java8.al2023.tgz";
-        String cmd = "lambda-dump -bucket " + env.get("BUCKET") + " -key fs/__ARCH__/java8.al2023/" + filename;
+        String cmd = "lambda-dump -bucket " + env.get("BUCKET") + " -key fs/__ARCH__/" + filename;
 
         try {
             Process process = Runtime.getRuntime().exec(new String[] { "sh", "-c", cmd });
