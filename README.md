@@ -357,18 +357,36 @@ These follow the Lambda runtime names:
   - `ghcr.io/shogo82148/lambda-java:build-21`
   - `ghcr.io/shogo82148/lambda-java:build-21-arm64`
   - `ghcr.io/shogo82148/lambda-java:build-21-x86_64`
+  - `ghcr.io/shogo82148/lambda-java:17.al203`
+  - `ghcr.io/shogo82148/lambda-java:17.al203-arm64`
+  - `ghcr.io/shogo82148/lambda-java:17.al203-x86_64`
+  - `ghcr.io/shogo82148/lambda-java:build-17.al203`
+  - `ghcr.io/shogo82148/lambda-java:build-17.al203-arm64`
+  - `ghcr.io/shogo82148/lambda-java:build-17.al203-x86_64`
   - `ghcr.io/shogo82148/lambda-java:17`
   - `ghcr.io/shogo82148/lambda-java:17-arm64`
   - `ghcr.io/shogo82148/lambda-java:17-x86_64`
   - `ghcr.io/shogo82148/lambda-java:build-17`
   - `ghcr.io/shogo82148/lambda-java:build-17-arm64`
   - `ghcr.io/shogo82148/lambda-java:build-17-x86_64`
+  - `ghcr.io/shogo82148/lambda-java:11.al2023`
+  - `ghcr.io/shogo82148/lambda-java:11.al2023-arm64`
+  - `ghcr.io/shogo82148/lambda-java:11.al2023-x86_64`
+  - `ghcr.io/shogo82148/lambda-java:build-11.al2023`
+  - `ghcr.io/shogo82148/lambda-java:build-11.al2023-arm64`
+  - `ghcr.io/shogo82148/lambda-java:build-11.al2023-x86_64`
   - `ghcr.io/shogo82148/lambda-java:11`
   - `ghcr.io/shogo82148/lambda-java:11-arm64`
   - `ghcr.io/shogo82148/lambda-java:11-x86_64`
   - `ghcr.io/shogo82148/lambda-java:build-11`
   - `ghcr.io/shogo82148/lambda-java:build-11-arm64`
   - `ghcr.io/shogo82148/lambda-java:build-11-x86_64`
+  - `ghcr.io/shogo82148/lambda-java:8.al2023`
+  - `ghcr.io/shogo82148/lambda-java:8.al2023-arm64`
+  - `ghcr.io/shogo82148/lambda-java:8.al2023-x86_64`
+  - `ghcr.io/shogo82148/lambda-java:build-8.al2023`
+  - `ghcr.io/shogo82148/lambda-java:build-8.al2023-arm64`
+  - `ghcr.io/shogo82148/lambda-java:8.al2023-x86_64`
   - `ghcr.io/shogo82148/lambda-java:8.al2`
   - `ghcr.io/shogo82148/lambda-java:8.al2-arm64`
   - `ghcr.io/shogo82148/lambda-java:8.al2-x86_64`
