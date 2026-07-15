@@ -32,7 +32,6 @@ jobs:
           - java17.al2023
           - java21
           - java25
-          - nodejs20.x
           - nodejs22.x
           - nodejs24.x
           - python3.10

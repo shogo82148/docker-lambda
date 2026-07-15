@@ -279,12 +279,6 @@ These follow the Lambda runtime names:
   - `ghcr.io/shogo82148/lambda-nodejs:build-22`
   - `ghcr.io/shogo82148/lambda-nodejs:build-22-arm64`
   - `ghcr.io/shogo82148/lambda-nodejs:build-22-x86_64`
-  - `ghcr.io/shogo82148/lambda-nodejs:20`
-  - `ghcr.io/shogo82148/lambda-nodejs:20-arm64`
-  - `ghcr.io/shogo82148/lambda-nodejs:20-x86_64`
-  - `ghcr.io/shogo82148/lambda-nodejs:build-20`
-  - `ghcr.io/shogo82148/lambda-nodejs:build-20-arm64`
-  - `ghcr.io/shogo82148/lambda-nodejs:build-20-x86_64`
 
 - [Python Runtimes](https://github.com/shogo82148/docker-lambda/pkgs/container/lambda-python)
   - `ghcr.io/shogo82148/lambda-python:3.14`
