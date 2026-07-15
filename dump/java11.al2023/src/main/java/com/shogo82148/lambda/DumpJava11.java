@@ -45,8 +45,9 @@ public class DumpJava11 implements RequestHandler<Object, Object> {
             }
 
             process.waitFor();
-            if (process.exitValue() != 0) {
-                return null;
+            int exitCode = process.exitValue();
+            if (exitCode != 0) {
+                throw new IllegalStateException("lambda-dump failed with exit code: " + exitCode);
             }
 
             System.out.println("Zipping done! Uploading...");
