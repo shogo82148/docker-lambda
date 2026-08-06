@@ -19,7 +19,7 @@ FROM ghcr.io/shogo82148/lambda-base:al2023.2026.07.31
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
-    AWS_EXECUTION_ENV=AWS_Lambda_nodejs24.x
+    AWS_EXECUTION_ENV=AWS_Lambda_nodejs26.x
 
 COPY --from=0 /var /var
 COPY --from=0 /docker-lambda-init /var/rapid/init

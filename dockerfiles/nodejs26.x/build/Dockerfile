@@ -15,7 +15,7 @@ FROM ghcr.io/shogo82148/lambda-base:build-al2023.2026.07.31
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
-    AWS_EXECUTION_ENV=AWS_Lambda_nodejs24.x \
-    NODE_PATH=/opt/nodejs/node24/node_modules:/opt/nodejs/node_modules:/var/runtime/node_modules
+    AWS_EXECUTION_ENV=AWS_Lambda_nodejs26.x \
+    NODE_PATH=/opt/nodejs/node26/node_modules:/opt/nodejs/node_modules:/var/runtime/node_modules
 
 COPY --from=0 /var /var
