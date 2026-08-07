@@ -25,6 +25,12 @@ sub spew($file, $content) {
     rename "$file.tmp$$", $file or die "failed to rename $file.tmp$$ to $file: $!";
 }
 
+sub spew_sorted_lines($file, $content) {
+    my @lines = grep { length } split /\n/, $content;
+    @lines = sort { $a cmp $b } @lines;
+    spew($file, join("\n", @lines) . "\n");
+}
+
 # update_archive updates the archive URL of the runtime.
 sub update_archive($name, $arch) {
     # fetch the latest version of the archive url.
@@ -47,10 +53,11 @@ sub update_archive($name, $arch) {
 
     # dump the file list
     say STDERR "dumping file list of $url";
-    system("curl -sSL --retry 3 '$url' | tar -tz | sort > $basedir/fs-$arch.txt");
+    my $file_list = `curl -sSL --retry 3 '$url' | tar -tz`;
     if ($? != 0) {
         die "failed to dump the file list of $runtime";
     }
+    spew_sorted_lines("$basedir/fs-$arch.txt", $file_list);
 }
 
 sub dump_packages($arch, $image, $command) {
@@ -74,13 +81,14 @@ sub dump_packages($arch, $image, $command) {
         die "failed to dump the package list of $runtime";
     }
     system("tar xzf base.tgz --strip-components=2 -- var/lib/rpm");
-    system(
-        "docker run " .
-        "--rm " .
-        "-v '$basedir/.tmp/rpm':/rpm " .
-        "--platform $platform $image $command " .
-        "| grep -v ^gpg-pubkey- | sort > $basedir/packages-$arch.txt"
-    );
+    my $packages = `docker run --rm -v '$basedir/.tmp/rpm':/rpm --platform $platform $image $command`;
+    if ($? != 0) {
+        die "failed to dump the package list of $runtime";
+    }
+
+    my @packages = grep { !/^gpg-pubkey-/ } split /^/m, $packages;
+    @packages = sort { $a cmp $b } @packages;
+    spew("$basedir/packages-$arch.txt", join("", @packages));
 
     chdir "$basedir" or die "Can't chdir to $runtime: $!";
 }
