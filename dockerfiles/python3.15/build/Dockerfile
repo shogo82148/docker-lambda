@@ -15,6 +15,6 @@ FROM ghcr.io/shogo82148/lambda-base:build-al2023.2026.07.31
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
-    AWS_EXECUTION_ENV=AWS_Lambda_python3.14
+    AWS_EXECUTION_ENV=AWS_Lambda_python3.15
 
 COPY --from=0 /var /var
