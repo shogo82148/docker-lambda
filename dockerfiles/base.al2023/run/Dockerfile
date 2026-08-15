@@ -7,8 +7,8 @@ RUN dnf install -y tar gzip
 ARG TARGETOS
 ARG TARGETARCH
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/base.al2023/048edc7ba38dc56719476e503b5f0cc8b8f80ed511cef31359caff5378645c15.tgz
-ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/base.al2023/9d600429ab29bd44c6088e590e28b21d4b406fca1977cd1edb442fbaf61c5b84.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/base.al2023/235a15b1de19cece8854e8f17aefeccef1952e14a2664752144ebfa7ac5cbc02.tgz
+ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/base.al2023/bdca54b4e64fbf784966d8c8253c2f97ddef2a99a87be6d11060c2fa3daa48b3.tgz
 
 RUN cd /opt && \
     case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARCHIVE_URL=$ARCHIVE_URL_ARM64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
