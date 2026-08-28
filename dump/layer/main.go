@@ -270,7 +270,7 @@ func newDumper() *dumper {
 
 func (d *dumper) close() error {
 	var err error
-	if err0 := d.tw.Close(); err == nil && err0 != nil {
+	if err0 := d.tw.Close(); err0 != nil {
 		err = err0
 	}
 	if err0 := d.gw.Close(); err == nil && err0 != nil {
