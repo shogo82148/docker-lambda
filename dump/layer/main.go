@@ -31,6 +31,7 @@ import (
 )
 
 func main() {
+	var exitCode int
 	var flagBase bool
 	var bucket, key string
 	flag.BoolVar(&flagBase, "base", false, "dump base files")
@@ -41,20 +42,20 @@ func main() {
 	ctx, cancel := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer cancel()
 	if err := dump(ctx, flagBase, bucket, key); err != nil {
-		log.Fatal("failed to dump file system", err)
+		exitCode = 1
+		log.Print("failed to dump file system", err)
 	}
 
 	if err := dumpEnv(); err != nil {
-		log.Fatal("failed to dump environment values", err)
-	}
-
-	if err := dumpProcEnviron(); err != nil {
-		log.Fatal("failed to dump /proc/1/environ", err)
+		exitCode = 1
+		log.Print("failed to dump environment values", err)
 	}
 
 	if err := dumpCmdline(); err != nil {
-		log.Fatal("failed to dump cmdline", err)
+		exitCode = 1
+		log.Print("failed to dump cmdline", err)
 	}
+	os.Exit(exitCode)
 }
 
 func dump(ctx context.Context, base bool, bucket, key string) error {
@@ -83,7 +84,7 @@ func dump(ctx context.Context, base bool, bucket, key string) error {
 	svc := s3.NewFromConfig(cfg)
 
 	// upload to s3
-	tgzKey := strings.Replace(key, "__ARCH__", arch(), -1)
+	tgzKey := strings.ReplaceAll(key, "__ARCH__", arch())
 	if err := upload(ctx, svc, data, bucket, tgzKey, "application/tar+gzip"); err != nil {
 		return err
 	}
@@ -151,36 +152,28 @@ func arch() string {
 	panic("unknown platform: " + runtime.GOARCH)
 }
 
-func dumpEnv() error {
-	log.Println("dump environment values")
-	data, err := json.Marshal(os.Environ())
-	if err != nil {
-		return err
+func maskSensitive(env string) string {
+	switch {
+	case strings.HasPrefix(env, "AWS_ACCESS_KEY_ID="):
+		return "AWS_ACCESS_KEY_ID=****"
+	case strings.HasPrefix(env, "AWS_SECRET_ACCESS_KEY="):
+		return "AWS_SECRET_ACCESS_KEY=****"
+	case strings.HasPrefix(env, "AWS_SESSION_TOKEN="):
+		return "AWS_SESSION_TOKEN=****"
 	}
-	log.Println(string(data))
-	return nil
+	return env
 }
 
-func dumpProcEnviron() error {
-	log.Println("dump /proc/1/environ")
-	env, err := os.ReadFile("/proc/1/environ")
-	if err != nil {
-		return err
+func dumpEnv() error {
+	log.Println("dump environment values")
+	for _, env := range os.Environ() {
+		log.Println(maskSensitive(env))
 	}
-	res := []string{}
-	for _, v := range bytes.Split(env, []byte{0x00}) {
-		res = append(res, string(v))
-	}
-	data, err := json.Marshal(res)
-	if err != nil {
-		return err
-	}
-	log.Println(string(data))
 	return nil
 }
 
 func dumpCmdline() error {
-	log.Println("dump /proc/${pid}/environ")
+	log.Println("dump /proc/${pid}/cmdline")
 
 	proc, err := os.Open("/proc")
 	if err != nil {
@@ -207,7 +200,7 @@ func dumpCmdline() error {
 			continue
 		}
 		res := []string{}
-		for _, v := range bytes.Split(cmdline, []byte{0x00}) {
+		for v := range bytes.SplitSeq(cmdline, []byte{0x00}) {
 			res = append(res, string(v))
 		}
 		data, err := json.Marshal(res)
@@ -270,7 +263,7 @@ func newDumper() *dumper {
 
 func (d *dumper) close() error {
 	var err error
-	if err0 := d.tw.Close(); err == nil && err0 != nil {
+	if err0 := d.tw.Close(); err0 != nil {
 		err = err0
 	}
 	if err0 := d.gw.Close(); err == nil && err0 != nil {

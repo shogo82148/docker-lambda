@@ -8,7 +8,7 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-func handleRequest(ctx context.Context, event interface{}) (map[string]interface{}, error) {
+func handleRequest(ctx context.Context, event any) (map[string]any, error) {
 	dump, err := exec.LookPath("lambda-dump")
 	if err != nil {
 		return nil, err
@@ -21,7 +21,7 @@ func handleRequest(ctx context.Context, event interface{}) (map[string]interface
 		return nil, err
 	}
 
-	return map[string]interface{}{}, nil
+	return map[string]any{}, nil
 }
 
 func main() {
