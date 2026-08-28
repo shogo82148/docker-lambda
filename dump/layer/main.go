@@ -41,19 +41,19 @@ func main() {
 	ctx, cancel := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer cancel()
 	if err := dump(ctx, flagBase, bucket, key); err != nil {
-		log.Fatal("failed to dump file system", err)
+		log.Print("failed to dump file system", err)
 	}
 
 	if err := dumpEnv(); err != nil {
-		log.Fatal("failed to dump environment values", err)
+		log.Print("failed to dump environment values", err)
 	}
 
 	if err := dumpProcEnviron(); err != nil {
-		log.Fatal("failed to dump /proc/1/environ", err)
+		log.Print("failed to dump /proc/1/environ", err)
 	}
 
 	if err := dumpCmdline(); err != nil {
-		log.Fatal("failed to dump cmdline", err)
+		log.Print("failed to dump cmdline", err)
 	}
 }
 
@@ -151,13 +151,23 @@ func arch() string {
 	panic("unknown platform: " + runtime.GOARCH)
 }
 
+func maskSensitive(env string) string {
+	switch {
+	case strings.HasPrefix(env, "AWS_ACCESS_KEY_ID="):
+		return "AWS_ACCESS_KEY_ID=****"
+	case strings.HasPrefix(env, "AWS_SECRET_ACCESS_KEY="):
+		return "AWS_SECRET_ACCESS_KEY=****"
+	case strings.HasPrefix(env, "AWS_SESSION_TOKEN="):
+		return "AWS_SESSION_TOKEN=****"
+	}
+	return env
+}
+
 func dumpEnv() error {
 	log.Println("dump environment values")
-	data, err := json.Marshal(os.Environ())
-	if err != nil {
-		return err
+	for _, env := range os.Environ() {
+		log.Println(maskSensitive(env))
 	}
-	log.Println(string(data))
 	return nil
 }
 
