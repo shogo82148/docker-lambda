@@ -5,17 +5,17 @@ ARG TARGETARCH
 
 RUN dnf install -y tar gzip
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/java25/b4c03740e064b456fb87c7a4d9a56dfab3809ac420556f8245527c25444e3b63.tgz
-ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/java25/2e3c1dc06d8e2d230486a44001d566fb4378ebc566e53ae23d37e23169b9ed76.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/java25/a3d5cd3eaa4c387664adaa9157cbeeb9e1ad0e918e71ab241fed365481242975.tgz
+ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/java25/6cef8dc6ef4fededecc3755ae3cb4198658e042156f671c3977d5d308cc1f5ea.tgz
 
 RUN case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARCHIVE_URL=$ARCHIVE_URL_ARM64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
     curl -sSL "$ARCHIVE_URL" | tar -zx -C /
 
-ENV DOCKER_LAMBDA_INIT_VERSION=1.0.3
+ENV DOCKER_LAMBDA_INIT_VERSION=1.0.4
 
 RUN curl -sSL "https://github.com/shogo82148/docker-lambda-init/releases/download/v$DOCKER_LAMBDA_INIT_VERSION/docker-lambda-init_${DOCKER_LAMBDA_INIT_VERSION}_linux_${TARGETARCH}.tar.gz" | tar xzv
 
-FROM ghcr.io/shogo82148/lambda-base:al2023.2026.08.15
+FROM ghcr.io/shogo82148/lambda-base:al2023.2026.08.28
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
