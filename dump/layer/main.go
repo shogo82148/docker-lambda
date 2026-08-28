@@ -168,7 +168,7 @@ func dumpProcEnviron() error {
 		return err
 	}
 	res := []string{}
-	for _, v := range bytes.Split(env, []byte{0x00}) {
+	for v := range bytes.SplitSeq(env, []byte{0x00}) {
 		res = append(res, string(v))
 	}
 	data, err := json.Marshal(res)
@@ -207,7 +207,7 @@ func dumpCmdline() error {
 			continue
 		}
 		res := []string{}
-		for _, v := range bytes.Split(cmdline, []byte{0x00}) {
+		for v := range bytes.SplitSeq(cmdline, []byte{0x00}) {
 			res = append(res, string(v))
 		}
 		data, err := json.Marshal(res)
