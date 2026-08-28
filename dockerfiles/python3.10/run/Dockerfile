@@ -5,13 +5,13 @@ RUN yum install -y tar gzip
 ARG TARGETOS
 ARG TARGETARCH
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/python3.10/1716acb0fcf00a33d479304204bf935888a17d95a56c2ffccf1f079c6d9359b2.tgz
-ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/python3.10/85880038c8a848bac9038e9a205898b2e88eedfe9d3ab8f67d9d69969586ec94.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/python3.10/c9c6394238c176277c8e3a9c35c9b8255f07593d5af4613b1af4261aa0bae905.tgz
+ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/python3.10/555cbcdbad062d01af78e8f2a7c495e30b8d02f3fd8b64e7e5e0de9d8c95234d.tgz
 
 RUN case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARCHIVE_URL=$ARCHIVE_URL_ARM64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
     curl -sSL "$ARCHIVE_URL" | tar -zx -C /
 
-ENV DOCKER_LAMBDA_INIT_VERSION=1.0.3
+ENV DOCKER_LAMBDA_INIT_VERSION=1.0.4
 
 RUN curl -sSL "https://github.com/shogo82148/docker-lambda-init/releases/download/v$DOCKER_LAMBDA_INIT_VERSION/docker-lambda-init_${DOCKER_LAMBDA_INIT_VERSION}_linux_${TARGETARCH}.tar.gz" | tar xzv
 
