@@ -22,7 +22,7 @@ Resources:
         S3Bucket: !Ref S3Bucket
         S3Key: !Ref S3Key
       Handler: "index"
-      Description: !Sub "dump Go 1.x runtime ${Architecture}"
+      Description: !Sub "dump base.al2023 runtime for ${Architecture}"
       Runtime: "provided.al2023"
       Timeout: 900
       MemorySize: 1769
