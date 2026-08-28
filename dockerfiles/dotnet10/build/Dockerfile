@@ -5,13 +5,13 @@ RUN dnf install -y tar gzip
 ARG TARGETOS
 ARG TARGETARCH
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/dotnet10/4f43828c25a641698dc9796d9fff9087733c90d3049256185834660fb7dd7f10.tgz
-ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/dotnet10/0a0c86d3ef109af7a8057b3896e82520b14f6da1d2819957a273d68e9de2f771.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/dotnet10/f22cadd06016c390ad947f0fe9a6319048097f61a741dad6e3fe7de711d7ffa0.tgz
+ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/dotnet10/569ec725fcee44445604fd75ef4be42f4d2dcfbec1b51298698dc5bbead1d574.tgz
 
 RUN case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARCHIVE_URL=$ARCHIVE_URL_ARM64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
   curl -sSL "$ARCHIVE_URL" | tar -zx -C /
 
-FROM ghcr.io/shogo82148/lambda-base:build-al2023.2026.08.15
+FROM ghcr.io/shogo82148/lambda-base:build-al2023.2026.08.28
 
 # Run: docker run --rm --entrypoint dotnet ghcr.io/shogo82148/lambda-dotnet:10 --info
 # Check https://dotnet.microsoft.com/en-us/download/dotnet/10.0 for versions
