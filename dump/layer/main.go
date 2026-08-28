@@ -31,6 +31,7 @@ import (
 )
 
 func main() {
+	var exitCode int
 	var flagBase bool
 	var bucket, key string
 	flag.BoolVar(&flagBase, "base", false, "dump base files")
@@ -41,20 +42,20 @@ func main() {
 	ctx, cancel := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer cancel()
 	if err := dump(ctx, flagBase, bucket, key); err != nil {
+		exitCode = 1
 		log.Print("failed to dump file system", err)
 	}
 
 	if err := dumpEnv(); err != nil {
+		exitCode = 1
 		log.Print("failed to dump environment values", err)
 	}
 
-	if err := dumpProcEnviron(); err != nil {
-		log.Print("failed to dump /proc/1/environ", err)
-	}
-
 	if err := dumpCmdline(); err != nil {
+		exitCode = 1
 		log.Print("failed to dump cmdline", err)
 	}
+	os.Exit(exitCode)
 }
 
 func dump(ctx context.Context, base bool, bucket, key string) error {
@@ -171,26 +172,8 @@ func dumpEnv() error {
 	return nil
 }
 
-func dumpProcEnviron() error {
-	log.Println("dump /proc/1/environ")
-	env, err := os.ReadFile("/proc/1/environ")
-	if err != nil {
-		return err
-	}
-	res := []string{}
-	for v := range bytes.SplitSeq(env, []byte{0x00}) {
-		res = append(res, string(v))
-	}
-	data, err := json.Marshal(res)
-	if err != nil {
-		return err
-	}
-	log.Println(string(data))
-	return nil
-}
-
 func dumpCmdline() error {
-	log.Println("dump /proc/${pid}/environ")
+	log.Println("dump /proc/${pid}/cmdline")
 
 	proc, err := os.Open("/proc")
 	if err != nil {
