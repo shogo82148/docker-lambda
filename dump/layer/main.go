@@ -83,7 +83,7 @@ func dump(ctx context.Context, base bool, bucket, key string) error {
 	svc := s3.NewFromConfig(cfg)
 
 	// upload to s3
-	tgzKey := strings.Replace(key, "__ARCH__", arch(), -1)
+	tgzKey := strings.ReplaceAll(key, "__ARCH__", arch())
 	if err := upload(ctx, svc, data, bucket, tgzKey, "application/tar+gzip"); err != nil {
 		return err
 	}
