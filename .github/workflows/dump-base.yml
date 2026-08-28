@@ -22,7 +22,6 @@ jobs:
       fail-fast: false
       matrix:
         runtime:
-          - base.al2
           - base.al2023
     steps:
       - uses: docker/setup-qemu-action@v4
@@ -48,7 +47,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           ./scripts/update_dockerfile.pl ${{ matrix.runtime }}
-      
+
       # commit and push
       - id: generate
         uses: shogo82148/actions-github-app-token@v1

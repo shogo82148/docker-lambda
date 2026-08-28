@@ -18,7 +18,6 @@ sub slurp($file) {
 my $template = slurp("$FindBin::Bin/template.yml");
 
 my $runtimes = [
-    "base.al2",
     "base.al2023",
 
     "dotnet10",
@@ -48,7 +47,6 @@ my $runtimes = [
     "ruby3.4",
     "ruby4.0",
 
-    "provided.al2",
     "provided.al2023",
 ];
 
