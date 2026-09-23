@@ -9,7 +9,6 @@ jobs:
   release:
     runs-on: ubuntu-latest
 
-    # ref. https://github.com/fuller-inc/actions-aws-assume-role#about-security-hardening-with-openid-connect
     permissions:
       id-token: write
       contents: read
