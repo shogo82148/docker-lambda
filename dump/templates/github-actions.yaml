@@ -2,6 +2,13 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: for docker-lambda GitHub Actions
 
 Resources:
+  GitHubOIDCProvider:
+    Type: AWS::IAM::OIDCProvider
+    Properties:
+      Url: https://token.actions.githubusercontent.com
+      ClientIdList:
+        - sts.amazonaws.com
+
   GitHubActionsRole:
     Type: AWS::IAM::Role
     Properties:
@@ -11,7 +18,7 @@ Resources:
         Statement:
           - Effect: Allow
             Principal:
-              Federated: !Sub "arn:${AWS::Partition}:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com"
+              Federated: !Ref GitHubOIDCProvider
             Action:
               - "sts:AssumeRoleWithWebIdentity"
             Condition:
