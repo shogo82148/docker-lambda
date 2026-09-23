@@ -25,7 +25,7 @@ Resources:
               StringEquals:
                 "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
               StringLike:
-                "token.actions.githubusercontent.com:sub": "repo:shogo82148@1157344/docker-lambda@411329256:*"
+                "token.actions.githubusercontent.com:sub": "repo:shogo82148@1157344/docker-lambda@411329256:ref:refs/heads/main"
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/service-role/AWSLambdaRole
 
