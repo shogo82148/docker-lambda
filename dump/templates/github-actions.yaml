@@ -6,23 +6,19 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       RoleName: !Sub "GitHubActions-${AWS::Region}"
-      # trust policy for using https://github.com/fuller-inc/actions-aws-assume-role
       AssumeRolePolicyDocument:
         Version: "2012-10-17"
         Statement:
           - Effect: Allow
             Principal:
-              AWS: arn:aws:iam::053160724612:root
+              Federated: !Sub "arn:${AWS::Partition}:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com"
             Action:
-              - "sts:AssumeRole"
+              - "sts:AssumeRoleWithWebIdentity"
             Condition:
               StringEquals:
-                "sts:ExternalId": "shogo82148/docker-lambda"
-          - Effect: Allow
-            Principal:
-              AWS: arn:aws:iam::053160724612:root
-            Action:
-              - 'sts:TagSession'
+                "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+              StringLike:
+                "token.actions.githubusercontent.com:sub": "repo:shogo82148@1157344/docker-lambda@411329256:*"
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/service-role/AWSLambdaRole
 
