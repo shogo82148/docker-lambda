@@ -23,11 +23,8 @@ var/lang/lib/amd64/libattach.so
 var/lang/lib/amd64/libawt.so
 var/lang/lib/amd64/libawt_headless.so
 var/lang/lib/amd64/libawt_xawt.so
-var/lang/lib/amd64/libdecora_sse.so
 var/lang/lib/amd64/libdt_socket.so
 var/lang/lib/amd64/libfontmanager.so
-var/lang/lib/amd64/libglass.so
-var/lang/lib/amd64/libglassgtk2.so
 var/lang/lib/amd64/libhprof.so
 var/lang/lib/amd64/libinstrument.so
 var/lang/lib/amd64/libj2gss.so
@@ -36,10 +33,6 @@ var/lang/lib/amd64/libj2pkcs11.so
 var/lang/lib/amd64/libjaas_unix.so
 var/lang/lib/amd64/libjava.so
 var/lang/lib/amd64/libjava_crw_demo.so
-var/lang/lib/amd64/libjavafx_font.so
-var/lang/lib/amd64/libjavafx_font_freetype.so
-var/lang/lib/amd64/libjavafx_font_pango.so
-var/lang/lib/amd64/libjavafx_iio.so
 var/lang/lib/amd64/libjawt.so
 var/lang/lib/amd64/libjdwp.so
 var/lang/lib/amd64/libjpeg.so
@@ -53,9 +46,6 @@ var/lang/lib/amd64/libmlib_image.so
 var/lang/lib/amd64/libnet.so
 var/lang/lib/amd64/libnio.so
 var/lang/lib/amd64/libnpt.so
-var/lang/lib/amd64/libprism_common.so
-var/lang/lib/amd64/libprism_es2.so
-var/lang/lib/amd64/libprism_sw.so
 var/lang/lib/amd64/libsaproc.so
 var/lang/lib/amd64/libsctp.so
 var/lang/lib/amd64/libsplashscreen.so
@@ -83,7 +73,6 @@ var/lang/lib/ext
 var/lang/lib/ext/cldrdata.jar
 var/lang/lib/ext/dnsns.jar
 var/lang/lib/ext/jaccess.jar
-var/lang/lib/ext/jfxrt.jar
 var/lang/lib/ext/localedata.jar
 var/lang/lib/ext/meta-index
 var/lang/lib/ext/nashorn.jar
@@ -103,14 +92,12 @@ var/lang/lib/images/cursors/motif_LinkDrop32x32.gif
 var/lang/lib/images/cursors/motif_LinkNoDrop32x32.gif
 var/lang/lib/images/cursors/motif_MoveDrop32x32.gif
 var/lang/lib/images/cursors/motif_MoveNoDrop32x32.gif
-var/lang/lib/javafx.properties
 var/lang/lib/jce.jar
 var/lang/lib/jexec
 var/lang/lib/jfr
 var/lang/lib/jfr.jar
 var/lang/lib/jfr/default.jfc
 var/lang/lib/jfr/profile.jfc
-var/lang/lib/jfxswt.jar
 var/lang/lib/jsse.jar
 var/lang/lib/jvm.hprof.txt
 var/lang/lib/logging.properties
