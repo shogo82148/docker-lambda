@@ -257,6 +257,7 @@ var/lang/lib/node_modules/npm/docs/content/commands/npm-help-search.md
 var/lang/lib/node_modules/npm/docs/content/commands/npm-help.md
 var/lang/lib/node_modules/npm/docs/content/commands/npm-init.md
 var/lang/lib/node_modules/npm/docs/content/commands/npm-install-ci-test.md
+var/lang/lib/node_modules/npm/docs/content/commands/npm-install-scripts.md
 var/lang/lib/node_modules/npm/docs/content/commands/npm-install-test.md
 var/lang/lib/node_modules/npm/docs/content/commands/npm-install.md
 var/lang/lib/node_modules/npm/docs/content/commands/npm-link.md
@@ -353,6 +354,7 @@ var/lang/lib/node_modules/npm/docs/output/commands/npm-help-search.html
 var/lang/lib/node_modules/npm/docs/output/commands/npm-help.html
 var/lang/lib/node_modules/npm/docs/output/commands/npm-init.html
 var/lang/lib/node_modules/npm/docs/output/commands/npm-install-ci-test.html
+var/lang/lib/node_modules/npm/docs/output/commands/npm-install-scripts.html
 var/lang/lib/node_modules/npm/docs/output/commands/npm-install-test.html
 var/lang/lib/node_modules/npm/docs/output/commands/npm-install.html
 var/lang/lib/node_modules/npm/docs/output/commands/npm-link.html
@@ -458,6 +460,7 @@ var/lang/lib/node_modules/npm/lib/commands/help-search.js
 var/lang/lib/node_modules/npm/lib/commands/help.js
 var/lang/lib/node_modules/npm/lib/commands/init.js
 var/lang/lib/node_modules/npm/lib/commands/install-ci-test.js
+var/lang/lib/node_modules/npm/lib/commands/install-scripts.js
 var/lang/lib/node_modules/npm/lib/commands/install-test.js
 var/lang/lib/node_modules/npm/lib/commands/install.js
 var/lang/lib/node_modules/npm/lib/commands/link.js
@@ -521,6 +524,7 @@ var/lang/lib/node_modules/npm/lib/package-url-cmd.js
 var/lang/lib/node_modules/npm/lib/trust-cmd.js
 var/lang/lib/node_modules/npm/lib/utils
 var/lang/lib/node_modules/npm/lib/utils/allow-scripts-cmd.js
+var/lang/lib/node_modules/npm/lib/utils/allow-scripts-prune.js
 var/lang/lib/node_modules/npm/lib/utils/allow-scripts-remediation.js
 var/lang/lib/node_modules/npm/lib/utils/allow-scripts-writer.js
 var/lang/lib/node_modules/npm/lib/utils/audit-error.js
@@ -593,6 +597,7 @@ var/lang/lib/node_modules/npm/man/man1/npm-help-search.1
 var/lang/lib/node_modules/npm/man/man1/npm-help.1
 var/lang/lib/node_modules/npm/man/man1/npm-init.1
 var/lang/lib/node_modules/npm/man/man1/npm-install-ci-test.1
+var/lang/lib/node_modules/npm/man/man1/npm-install-scripts.1
 var/lang/lib/node_modules/npm/man/man1/npm-install-test.1
 var/lang/lib/node_modules/npm/man/man1/npm-install.1
 var/lang/lib/node_modules/npm/man/man1/npm-link.1
