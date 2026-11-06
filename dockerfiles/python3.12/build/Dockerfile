@@ -5,13 +5,13 @@ RUN dnf install -y tar gzip
 ARG TARGETOS
 ARG TARGETARCH
 
-ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/python3.12/efee0bcf6925a05c76708454e45d19bc6821606dc017f48c80168f6cb7a4097b.tgz
-ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/python3.12/6b08037144f15eea26af1f89a0a72034dc9b3c8da7d84466f5084e58ff5c7b7b.tgz
+ENV ARCHIVE_URL_AMD64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/x86_64/python3.12/f4c17f1dd9f8cb466d3b533ba69c76e0b16d537b545e31f901c0585e82e1e74e.tgz
+ENV ARCHIVE_URL_ARM64=https://shogo82148-docker-lambda.s3.amazonaws.com/fs/arm64/python3.12/df6d73cd5c67888d5c89025d6792713e4f1426882e551483508ed5ee902f2500.tgz
 
 RUN case ${TARGETARCH} in "amd64") ARCHIVE_URL=$ARCHIVE_URL_AMD64;; "arm64") ARCHIVE_URL=$ARCHIVE_URL_ARM64;; *) echo "unknown architecture:" ${TARGETARCH}; exit 1;; esac && \
   curl -sSL "$ARCHIVE_URL" | tar -zx -C /
 
-FROM ghcr.io/shogo82148/lambda-base:build-al2023.2026.09.26
+FROM ghcr.io/shogo82148/lambda-base:build-al2023.2026.10.30
 
 ENV PATH=/var/lang/bin:$PATH \
     LD_LIBRARY_PATH=/var/lang/lib:$LD_LIBRARY_PATH \
