@@ -23,7 +23,7 @@ jobs:
           token: ${{ steps.generate.outputs.token }}
           fetch-depth: 0 # we need all tags
 
-      - uses: shogo82148/actions-setup-perl@v1.44.4
+      - uses: shogo82148/actions-setup-perl@v1.44.5
         with:
           perl-version: "5.40"
 
