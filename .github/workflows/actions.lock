@@ -245,7 +245,7 @@ workflows:
         - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/reviewdog.yml':
         - 'actions/checkout@v7.0.1'
-        - 'reviewdog/action-actionlint@v1.81.2'
+        - 'reviewdog/action-actionlint@v1.83.0'
         - 'reviewdog/action-golangci-lint@v2.10.2'
         - 'shogo82148/actions-cfn-lint@v4.85.0'
     '.github/workflows/ruby3.3-build.yml':
@@ -307,9 +307,9 @@ dependencies:
         commit: 'sha1-99012661954931238ded8c8b007157a8430204e1'
         owner_id: 5429470
         repo_id: 288487894
-    'reviewdog/action-actionlint@v1.81.2':
-        ref: 'v1.81.2'
-        commit: 'sha1-7abf25e1607ec65838b73d0484ff31f8e9499d80'
+    'reviewdog/action-actionlint@v1.83.0':
+        ref: 'v1.83.0'
+        commit: 'sha1-a7d35aaf8c309203a4ae861d32b7bd490baa7bf3'
         owner_id: 48765237
         repo_id: 385059686
     'reviewdog/action-golangci-lint@v2.10.2':
