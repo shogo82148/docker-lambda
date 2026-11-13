@@ -3086,9 +3086,9 @@ var/lang/lib/python3.11/lib-dynload/xxlimited_35.cpython-311-x86_64-linux-gnu.so
 var/lang/lib/python3.11/lib-dynload/zlib.cpython-311-x86_64-linux-gnu.so
 var/lang/lib/python3.11/lib2to3
 var/lang/lib/python3.11/lib2to3/Grammar.txt
-var/lang/lib/python3.11/lib2to3/Grammar3.11.17.final.0.pickle
+var/lang/lib/python3.11/lib2to3/Grammar3.11.18.final.0.pickle
 var/lang/lib/python3.11/lib2to3/PatternGrammar.txt
-var/lang/lib/python3.11/lib2to3/PatternGrammar3.11.17.final.0.pickle
+var/lang/lib/python3.11/lib2to3/PatternGrammar3.11.18.final.0.pickle
 var/lang/lib/python3.11/lib2to3/__init__.py
 var/lang/lib/python3.11/lib2to3/__main__.py
 var/lang/lib/python3.11/lib2to3/__pycache__
@@ -10683,6 +10683,7 @@ var/lang/lib/python3.11/test/certdata/capath/6e88d7b8.0
 var/lang/lib/python3.11/test/certdata/capath/99d0fa06.0
 var/lang/lib/python3.11/test/certdata/capath/b1930218.0
 var/lang/lib/python3.11/test/certdata/capath/ceff1710.0
+var/lang/lib/python3.11/test/certdata/distrusted.zip
 var/lang/lib/python3.11/test/certdata/ffdh3072.pem
 var/lang/lib/python3.11/test/certdata/idnsans.pem
 var/lang/lib/python3.11/test/certdata/keycert.passwd.pem
