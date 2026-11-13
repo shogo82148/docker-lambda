@@ -2508,9 +2508,9 @@ var/lang/lib/python3.12/lib-dynload/xxsubtype.cpython-312-aarch64-linux-gnu.so
 var/lang/lib/python3.12/lib-dynload/zlib.cpython-312-aarch64-linux-gnu.so
 var/lang/lib/python3.12/lib2to3
 var/lang/lib/python3.12/lib2to3/Grammar.txt
-var/lang/lib/python3.12/lib2to3/Grammar3.12.15.final.0.pickle
+var/lang/lib/python3.12/lib2to3/Grammar3.12.16.final.0.pickle
 var/lang/lib/python3.12/lib2to3/PatternGrammar.txt
-var/lang/lib/python3.12/lib2to3/PatternGrammar3.12.15.final.0.pickle
+var/lang/lib/python3.12/lib2to3/PatternGrammar3.12.16.final.0.pickle
 var/lang/lib/python3.12/lib2to3/__init__.py
 var/lang/lib/python3.12/lib2to3/__main__.py
 var/lang/lib/python3.12/lib2to3/__pycache__
@@ -8857,6 +8857,7 @@ var/lang/lib/python3.12/test/certdata/capath/6e88d7b8.0
 var/lang/lib/python3.12/test/certdata/capath/99d0fa06.0
 var/lang/lib/python3.12/test/certdata/capath/b1930218.0
 var/lang/lib/python3.12/test/certdata/capath/ceff1710.0
+var/lang/lib/python3.12/test/certdata/distrusted.zip
 var/lang/lib/python3.12/test/certdata/ffdh3072.pem
 var/lang/lib/python3.12/test/certdata/idnsans.pem
 var/lang/lib/python3.12/test/certdata/keycert.passwd.pem
