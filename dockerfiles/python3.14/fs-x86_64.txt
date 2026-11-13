@@ -105,6 +105,7 @@ var/lang/include/python3.14/import.h
 var/lang/include/python3.14/internal
 var/lang/include/python3.14/internal/mimalloc
 var/lang/include/python3.14/internal/mimalloc/mimalloc
+var/lang/include/python3.14/internal/mimalloc/mimalloc-stats.h
 var/lang/include/python3.14/internal/mimalloc/mimalloc.h
 var/lang/include/python3.14/internal/mimalloc/mimalloc/atomic.h
 var/lang/include/python3.14/internal/mimalloc/mimalloc/internal.h
@@ -8889,6 +8890,7 @@ var/lang/lib/python3.14/test/certdata/capath/99d0fa06.0
 var/lang/lib/python3.14/test/certdata/capath/b1930218.0
 var/lang/lib/python3.14/test/certdata/capath/ceff1710.0
 var/lang/lib/python3.14/test/certdata/cert3.pem
+var/lang/lib/python3.14/test/certdata/distrusted.zip
 var/lang/lib/python3.14/test/certdata/ffdh3072.pem
 var/lang/lib/python3.14/test/certdata/idnsans.pem
 var/lang/lib/python3.14/test/certdata/keycert.passwd.pem
