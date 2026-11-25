@@ -30,7 +30,7 @@ jobs:
         with:
           perl-version: "5.40"
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v6.3.0
+        uses: aws-actions/configure-aws-credentials@v6.3.1
         with:
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::941678122026:role/GitHubActions-us-east-1
