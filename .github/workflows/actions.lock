@@ -35,7 +35,7 @@ workflows:
         - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/dump-base.yml':
         - 'actions/checkout@v7.0.1'
-        - 'aws-actions/configure-aws-credentials@v6.3.0'
+        - 'aws-actions/configure-aws-credentials@v6.3.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
         - 'shogo82148/actions-commit-and-create-pr@v1.1.4'
@@ -43,7 +43,7 @@ workflows:
         - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/dump.yml':
         - 'actions/checkout@v7.0.1'
-        - 'aws-actions/configure-aws-credentials@v6.3.0'
+        - 'aws-actions/configure-aws-credentials@v6.3.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
         - 'shogo82148/actions-commit-and-create-pr@v1.1.4'
@@ -292,9 +292,9 @@ dependencies:
         commit: 'sha1-d8cbb8045d7f43706b9177cceb36c1f91a6644d5'
         owner_id: 44036562
         repo_id: 192624594
-    'aws-actions/configure-aws-credentials@v6.3.0':
-        ref: 'v6.3.0'
-        commit: 'sha1-e1253824e5c10ff9df46874f81ed3ec929e19cfd'
+    'aws-actions/configure-aws-credentials@v6.3.1':
+        ref: 'v6.3.1'
+        commit: 'sha1-45666896f5d8e0f10ae255413f3a4cdd03bdc8f5'
         owner_id: 57468012
         repo_id: 220391287
     'docker/setup-buildx-action@v4.4.1':
